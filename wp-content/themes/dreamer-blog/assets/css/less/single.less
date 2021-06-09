@@ -1,0 +1,108 @@
+/* Single content */
+
+.ct-featured-image {
+    height: 535px;
+    overflow: hidden;
+    img {
+        display: block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.ct-content-area {
+    margin-top: @base-margin;
+    position: relative;
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    .ct-content {
+        position: relative;
+
+        .ct-categories {
+            position: absolute;
+            top: -3.8rem;
+            .ct-category {
+                box-shadow: 0 1px 3px rgba(0,0,0,0);
+                margin-right: .5rem;
+                a {
+                    color: @white-color;
+                }
+            }
+        }
+    }
+
+    .prr-post-meta {
+        margin-bottom: @font-size;
+    }
+
+    .entry-content,
+    .single-post-content {
+        a {
+            color: @primary-color;
+            border-bottom: 1px solid @primary-color;
+
+            &:hover {
+                background-color: @primary-color;
+                color: @white-color;
+                border-radius: 3px;
+            }
+        }
+    }
+    .ct-content{
+        .post-tags {
+            a {
+                display: inline-block;
+                line-height: 1;
+                font-size: 1.6rem;
+                font-weight:900;
+                padding: 3px;
+
+                &:hover {
+                    background-color: @primary-color;
+                }
+            }
+        }
+    }
+
+}
+
+.no-featured-image{
+    margin-top:5rem;
+}
+
+/* Sidebar */
+
+.ct-content-area{
+    .ct-sidebar-widget ul,
+    .ct-sidebar-widget ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li{
+            margin-bottom:20px;
+            a{
+                font-size:18px;
+            }
+        }
+        li:before{
+            content: "\ea69";
+            font-family: IcoFont !important;
+        }
+    }
+}
+.ct-sidebar-widget{
+    .ct-title{
+        display: inline-block;
+        border-bottom: 2px solid @primary-color;
+    }
+}
+
+.prr-post-meta {
+    a {
+        text-decoration: underline;
+    }
+}
