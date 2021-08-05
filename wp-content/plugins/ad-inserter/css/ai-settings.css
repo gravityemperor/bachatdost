@@ -1,5 +1,5 @@
 #ai-data {
-  font-family: "2.7.0"; /* Used for version number of the file */
+  font-family: "2.7.2"; /* Used for version number of the file */
 }
 
 #blocked-warning {
@@ -63,16 +63,22 @@ hr {
   filter: alpha(opacity=50);
 }
 
-.ui-button.ui-corner-all.ui-widget {
+/*.ui-button.ui-corner-all.ui-widget {*/
+.ui-button.ui-corner-all.ui-widget:not(.ai-button-small), button.ai-button, button.ai-button2, input[type=submit] {
   padding: .4em 1em;
   border: 1px solid #d3d3d3;
+  border-radius: 4px;
   background: #e6e6e6 url(images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;
   color: #666;
+  cursor: pointer;
 }
 
 /*.ai-button.ui-button.ui-corner-all.ui-widget {*/
-.ai-button.ai-button-small.ui-button.ui-corner-all.ui-widget {
+/*.ai-button.ai-button-small.ui-button.ui-corner-all.ui-widget {*/
+.ai-button.ai-button-small {
   padding: 0;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 button.ui-button.ui-corner-all.ui-dialog-titlebar-close {

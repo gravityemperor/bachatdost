@@ -619,7 +619,7 @@ msgid "No forms or form changes detected."
 msgstr ""
 
 #: includes/settings.php:1623
-msgid "Form saving failed. Please fill the Subject and Preferences fields."
+msgid "Form saving failed. Please fill the Subject fields."
 msgstr ""
 
 #: includes/settings.php:1647

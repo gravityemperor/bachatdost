@@ -28,6 +28,12 @@ abstract class ai_BaseCodeBlock {
   var $head_code_written;
   var $wrapping_div_classes;
 
+  var $check_block;
+  var $check_block_style;
+  var $check_block_classes;
+  var $check_block_parameters;
+  var $check_block_additional_code;
+
   var $check_codes;
   var $check_codes_index;
   var $check_codes_data;
@@ -95,6 +101,12 @@ abstract class ai_BaseCodeBlock {
     $this->hidden_viewports = '';
     $this->head_code_written = false;
     $this->wrapping_div_classes = array ();
+
+    $this->check_block = false;
+    $this->check_block_style = '';
+    $this->check_block_classes = array ();
+    $this->check_block_parameters = '';
+    $this->check_block_additional_code = '';
 
     $this->check_codes = null;
     $this->check_codes_index = 0;
@@ -3747,8 +3759,14 @@ abstract class ai_CodeBlock extends ai_BaseCodeBlock {
     }
 
 
+    if ($this->check_block) {
+      $this->check_block_additional_code = $additional_code;
+      $additional_code = '';
+    }
+
+
     // Additional code (Ad label, close button)
-    if ($dynamic_blocks == AI_DYNAMIC_BLOCKS_SERVER_SIDE_W3TC && $this->w3tc_code != '' && $additional_code != '') {
+    if ($dynamic_blocks == AI_DYNAMIC_BLOCKS_SERVER_SIDE_W3TC && $this->w3tc_code != '' && !defined ('AI_NO_W3TC') && $additional_code != '') {
       if ($ai_wp_data [AI_W3TC_DEBUGGING]) {
         $this->w3tc_debug []= 'PROCESS ADDITIONAL CODE';
       }
@@ -3925,14 +3943,27 @@ abstract class ai_CodeBlock extends ai_BaseCodeBlock {
                 $fallback_tracking_data = '';
                 if ($scheduling_type !== null) {
                   $fallback_block = $scheduling_fallback_block;
-                  if ($fallback_block != $this->number && $fallback_block >= 1 && $fallback_block <= 96) {
-                    $fallback_block_data = $fallback_block;
-                    $fallback_obj = $block_object [$fallback_block];
-                    $fallback_code = $fallback_obj->ai_getProcessedCode ();
-                    $fallback_code_data = " data-fallback-code='" . base64_encode ($fallback_code) . "'";
 
-                    $fallback_tracking_block = $fallback_obj->get_tracking () ? $fallback_obj->number : 0;
-                    $fallback_tracking_data = base64_encode ("[{$fallback_tracking_block},{$fallback_obj->code_version},\"{$fallback_obj->get_ad_name ()}\",\"{$fallback_obj->version_name}\"]");
+                  if ($fallback_block != $this->number && $fallback_block >= 1 && $fallback_block <= 96) {
+
+                    $globals_name = AI_SCHEDULING_FALLBACK_DEPTH_NAME;
+                    if (!isset ($ad_inserter_globals [$globals_name])) {
+                      $ad_inserter_globals [$globals_name] = 0;
+                    }
+
+                    if ($ad_inserter_globals [$globals_name] < 2) {
+                      $ad_inserter_globals [$globals_name] ++;
+
+                      $fallback_block_data = $fallback_block;
+                      $fallback_obj = $block_object [$fallback_block];
+                      $fallback_code = $fallback_obj->ai_getProcessedCode ();
+                      $fallback_code_data = " data-fallback-code='" . base64_encode ($fallback_code) . "'";
+
+                      $fallback_tracking_block = $fallback_obj->get_tracking () ? $fallback_obj->number : 0;
+                      $fallback_tracking_data = base64_encode ("[{$fallback_tracking_block},{$fallback_obj->code_version},\"{$fallback_obj->get_ad_name ()}\",\"{$fallback_obj->version_name}\"]");
+
+                      $ad_inserter_globals [$globals_name] --;
+                    }
 
                   }
                 }
@@ -4327,6 +4358,7 @@ abstract class ai_CodeBlock extends ai_BaseCodeBlock {
               $ai_code = $this->base64_encode_w3tc (ai_strip_w3tc_markers ($processed_code), false); // Use W3TC code in case W3TC was used before and insert was specified for CHECK
 
               $processed_code = "<div class='{$viewport_classes} {$class_id}' data-insertion='after' data-selector='.{$class_id}' data-insertion-no-dbg data-code='$ai_code'></div>\n";
+
               if (!get_disable_js_code ()) {
                 $js_code = "ai_insert_list_code ('{$class_id}');";
 
@@ -4548,6 +4580,9 @@ abstract class ai_CodeBlock extends ai_BaseCodeBlock {
     if ($this->get_lazy_loading () || $this->get_manual_loading () != AI_MANUAL_LOADING_DISABLED || $ai_wp_data [AI_CLIENT_SIDE_INSERTION]) $this->needs_class = true;
 //    if ($this->client_side_list_detection && !$ai_wp_data [AI_WP_AMP_PAGE]) $this->needs_class = true;
 
+    // Must be before $this->get_size_class () to detect CHECK options
+    $code = $this->ai_getProcessedCode ();
+
     $block_class_name = get_block_class_name ($this->needs_class);
 
     $block_class              = get_block_class () || ($ai_wp_data [AI_WP_DEBUGGING] & AI_DEBUG_BLOCKS) != 0;
@@ -4561,13 +4596,47 @@ abstract class ai_CodeBlock extends ai_BaseCodeBlock {
     if ($this->get_client_side_action () == AI_CLIENT_SIDE_ACTION_INSERT) $include_viewport_classes = false;
     $viewport_classes = $include_viewport_classes ? trim ($this->get_viewport_classes ()) : "";
 
+    $check_block_classes = array ();
     $classes = array ();
     if ($block_class_name != '' && ($block_class || $block_number_class || $block_name_class) || $alignment_class != '' || $size_class != '' || $viewport_classes != '') {
-      if ($block_class_name != '' && ($block_class || $this->needs_class)) $classes []= $block_class_name;
-      if ($alignment_class && !get_inline_styles ()) $classes []= $alignment_class;
-      if ($size_class)      $classes []= $size_class;
-      if ($block_class_name != '' && ($block_number_class || $this->needs_class)) $classes []= $block_class_name . "-" . $this->number;
-      if ($block_class_name != '' && $block_name_class) $classes []= $block_class_name . "-" . $this->get_name_class ();
+
+      if ($block_class_name != '' && ($block_class || $this->needs_class)) {
+        $classes []= $block_class_name;
+        $check_block_classes []= $block_class_name;
+      }
+
+      if ($alignment_class && !get_inline_styles ()) {
+        if ($this->check_block) {
+          $check_block_classes []= $alignment_class;
+        } else {
+            $classes []= $alignment_class;
+          }
+      }
+
+      if ($size_class) {
+        if ($this->check_block) {
+          $check_block_classes []= $size_class;
+        } else {
+            $classes []= $size_class;
+          }
+      }
+
+      if ($block_class_name != '' && ($block_number_class || $this->needs_class)) {
+        if ($this->check_block) {
+          $check_block_classes []= $block_class_name . "-" . $this->number;
+        } else {
+            $classes []= $block_class_name . "-" . $this->number;
+          }
+      }
+
+      if ($block_class_name != '' && $block_name_class) {
+        if ($this->check_block) {
+          $check_block_classes []= $block_class_name . "-" . $this->get_name_class ();
+        } else {
+            $classes []= $block_class_name . "-" . $this->get_name_class ();
+          }
+      }
+
       if ($viewport_classes) $classes []= $viewport_classes;
     }
 
@@ -4577,7 +4646,7 @@ abstract class ai_CodeBlock extends ai_BaseCodeBlock {
       $sticky_parameters = $this->sticky_parameters ($classes);
     }
 
-    $code = $this->ai_getProcessedCode ();
+//    $code = $this->ai_getProcessedCode ();
 
     $not_iframe_or_inside = !$this->get_iframe () || $ai_wp_data [AI_CODE_FOR_IFRAME];
 
@@ -4592,25 +4661,25 @@ abstract class ai_CodeBlock extends ai_BaseCodeBlock {
 
     if ($hidden_widgets) return $this->hidden_viewports;
 
-     $additional_block_style = '';
-//    if ($this->client_side_list_detection && !$ai_wp_data [AI_WP_AMP_PAGE]) {
-//      if ($this->is_sticky ()) {
-//        $additional_block_style = 'visibility: hidden; ';
-//      } else {
-//          $additional_block_style = 'visibility: hidden; position: absolute; ';
-//          $classes [] = 'ai-remove-position';
-//        }
-
-//      // Needed to hide blacklisted blocks
-//      $classes [] = 'ai-list-block';
-//    }
-
     if (!empty ($this->wrapping_div_classes)) {
       $classes = array_merge ($classes, $this->wrapping_div_classes);
     }
 
     if (($this->get_close_button () || $this->get_auto_close_time ()) && !$ai_wp_data [AI_WP_AMP_PAGE] && !$ai_wp_data [AI_CODE_FOR_IFRAME]) {
-      $classes [] = 'ai-close';
+      if ($this->check_block) {
+        $check_block_classes []= 'ai-close';
+      } else {
+          $classes [] = 'ai-close';
+        }
+    }
+
+    if ($this->check_block) {
+      $this->check_block_style      = $alignment_style;
+      $this->check_block_classes    = $check_block_classes;
+      $this->check_block_parameters = $sticky_parameters;
+
+      $alignment_style   = '';
+      $sticky_parameters = '';
     }
 
     $tracking_block     = 0;
@@ -4675,10 +4744,15 @@ abstract class ai_CodeBlock extends ai_BaseCodeBlock {
     }
 
     if ($w3tc) {
-      if (/*$ai_wp_data [AI_WP_AMP_PAGE] ||*/ ($alignment_class != '' && defined ('AI_NORMAL_HEADER_STYLES') && AI_NORMAL_HEADER_STYLES && !get_inline_styles ())) {
+      if (($alignment_class != '' && defined ('AI_NORMAL_HEADER_STYLES') && AI_NORMAL_HEADER_STYLES && !get_inline_styles ())) {
         $wrapper_before = $this->hidden_viewports . "<div" . $class . $tracking_code_pre . $tracking_code_data . $tracking_code_post . $sticky_parameters . $check_option_style . ">\n";
       } else {
-          $wrapper_before = $this->hidden_viewports . "<div" . $class . $tracking_code_pre . $tracking_code_data . $tracking_code_post . $sticky_parameters . " style='" . $additional_block_style . $alignment_style . $check_option_css ."'>\n";
+          $css = trim ($alignment_style . $check_option_css);
+          if ($css != '') {
+            $style = " style='" . $css . "'";
+          } else $style = "";
+
+          $wrapper_before = $this->hidden_viewports . "<div" . $class . $tracking_code_pre . $tracking_code_data . $tracking_code_post . $sticky_parameters . $style .">\n";
         }
 
 
@@ -4686,7 +4760,7 @@ abstract class ai_CodeBlock extends ai_BaseCodeBlock {
 //        $wrapper_before = $this->hidden_viewports . "<div" . $class . $tracking_code_pre . $tracking_code_data . $tracking_code_post .
 
 //        if ($ai_wp_data [AI_WP_AMP_PAGE] || ($alignment_class != '' && defined ('AI_NORMAL_HEADER_STYLES') && AI_NORMAL_HEADER_STYLES && !get_inline_styles ())) {
-//          $wrapper_before .= " style='" . $additional_block_style . $alignment_style;
+//          $wrapper_before .= " style='" . $alignment_style;
 
 //        $wrapper_before .=  ">\n";
 
@@ -4709,16 +4783,21 @@ abstract class ai_CodeBlock extends ai_BaseCodeBlock {
 
       $code = $this->generate_html_from_w3tc_code ();
     } else {
-        if (/*$ai_wp_data [AI_WP_AMP_PAGE] ||*/ ($alignment_class != '' && defined ('AI_NORMAL_HEADER_STYLES') && AI_NORMAL_HEADER_STYLES && !get_inline_styles ())) {
+        if (($alignment_class != '' && defined ('AI_NORMAL_HEADER_STYLES') && AI_NORMAL_HEADER_STYLES && !get_inline_styles ())) {
           $wrapper_before = $this->hidden_viewports . "<div" . $class . $tracking_code . $sticky_parameters . $check_option_style . ">\n";
         } else {
-            $wrapper_before = $this->hidden_viewports . "<div" . $class . $tracking_code . $sticky_parameters . " style='" . $additional_block_style . $alignment_style . $check_option_css . "'>\n";
+            $css = trim ($alignment_style . $check_option_css);
+            if ($css != '') {
+              $style = " style='" . $css . "'";
+            } else $style = "";
+
+            $wrapper_before = $this->hidden_viewports . "<div" . $class . $tracking_code . $sticky_parameters . $style . ">\n";
           }
 
 //          TO TEST
 //          $wrapper_before = $this->hidden_viewports . "<div" . $class . $tracking_code;
 //          if ($ai_wp_data [AI_WP_AMP_PAGE] || ($alignment_class != '' && defined ('AI_NORMAL_HEADER_STYLES') && AI_NORMAL_HEADER_STYLES && !get_inline_styles ()))
-//            $wrapper_before .= $this->hidden_viewports . "<div" . $class . $tracking_code . " style='" . $additional_block_style . $alignment_style . "'>\n";
+//            $wrapper_before .= $this->hidden_viewports . "<div" . $class . $tracking_code . " style='" . $alignment_style . "'>\n";
 //          $wrapper_before .= "'>\n";
 
         $wrapper_after  = "</div>\n";
@@ -4770,6 +4849,7 @@ abstract class ai_CodeBlock extends ai_BaseCodeBlock {
       $code .= $this->get_code_for_single_insertion ($include_viewport_classes, $hidden_widgets, $code_only);
     } while (is_array ($this->check_codes) && isset ($this->check_codes [$this->check_codes_index + 1]));
 
+
     if (is_array ($this->check_codes)) {
       if ($this->check_code_insertions === null) {
         $this->no_insertion_text = 'CHECK OPTIONS FAILED';
@@ -4780,6 +4860,57 @@ abstract class ai_CodeBlock extends ai_BaseCodeBlock {
       $this->check_codes_index = 0;
       $this->check_codes_data = null;
     }
+
+
+    if ($this->check_block) {
+      $w3tc = get_dynamic_blocks () == AI_DYNAMIC_BLOCKS_SERVER_SIDE_W3TC && $this->w3tc_code != '' && !defined ('AI_NO_W3TC');
+
+      // Additional code (ad label, close button) for a CHECK block
+      if ($this->check_block_additional_code != '') {
+        if ($w3tc) {
+          if ($ai_wp_data [AI_W3TC_DEBUGGING]) {
+            $this->w3tc_debug []= 'PROCESS ADDITIONAL CODE';
+          }
+
+          $this->w3tc_code .= 'if ($ai_code != \'\') $ai_code = base64_decode (\''.base64_encode ($this->check_block_additional_code).'\') . $ai_code;';
+
+          $code = $this->generate_html_from_w3tc_code ();
+        } else $code = $this->check_block_additional_code . $code;
+      }
+
+      // Wrapping div for a CHECK block
+      if ($this->get_alignment_type () != AI_ALIGNMENT_NO_WRAPPING) {
+        $classes = array_unique ($this->check_block_classes);
+
+        foreach ($classes as $index => $class_name) {
+          if (trim ($class_name) == '') unset ($classes [$index]);
+        }
+        if (count ($classes) != 0) {
+          $class = " class='" . trim (implode (' ', $classes)) . "'";
+        } else $class = "";
+
+        if ((defined ('AI_NORMAL_HEADER_STYLES') && AI_NORMAL_HEADER_STYLES && !get_inline_styles ())) {
+          $wrapper_before = "<div" . $class . $this->check_block_parameters . ">\n";
+        } else {
+            $wrapper_before = "<div" . $class . $this->check_block_parameters . " style='" . $this->check_block_style . "'>\n";
+          }
+
+        $wrapper_after  = "</div>\n";
+
+        if ($w3tc) {
+          $this->w3tc_code .= ' $ai_code = base64_decode (\''.base64_encode ($wrapper_before).'\') . $ai_code . base64_decode (\''.$this->base64_encode_w3tc ($wrapper_after, false).'\');';
+
+          // Process W3TC filter hook
+          $this->w3tc_code .= ' $ai_code_org = $ai_code; if (!isset ($ai_enabled) || $ai_enabled) {$ai_code = apply_filters ("ai_block_w3tc_code_single_insertion", $ai_code_org, ' . $this->number . ');}';
+          if ($ai_wp_data [AI_W3TC_DEBUGGING]) {
+            $this->w3tc_code .= ' if ($ai_code != $ai_code_org) {$ai_code = ai_w3tc_block_end_message ("PROCESS HOOK FILTER ai_block_w3tc_code_single_insertion", $ai_code);}';
+          }
+
+          $code = $this->generate_html_from_w3tc_code ();
+        } else $code = $wrapper_before . $code . $wrapper_after;
+      }
+    }
+
 
     $debug_processing = ($ai_wp_data [AI_WP_DEBUGGING] & AI_DEBUG_PROCESSING) != 0;
     $code_org = $code;
@@ -5725,7 +5856,6 @@ echo '</body>
       if ($block_class_name == null) $block_class_name = get_block_class_name (true);
       $block_class_name .= '-';
 
-//      return $block_class_name . strtolower (md5 ($this->size_style ()));
       return $block_class_name . ai_css_to_name ($size_style);
     }
 
@@ -8052,9 +8182,7 @@ echo '</body>
       case AI_SCHEDULING_DELAY_FOR:
         $after_days = trim ($this->get_ad_after_day());
         if ($after_days == '') return true;
-//        $after_days = intval ($after_days);
         $after_days = $after_days;
-//        if ($after_days == AD_ZERO) return true;
 
         $post_date = get_the_date ('U');
         if ($post_date === false) return true;
@@ -8065,9 +8193,7 @@ echo '</body>
       case AI_SCHEDULING_INSERT_ONLY_FOR:
         $after_days = trim ($this->get_ad_after_day());
         if ($after_days == '') return false;
-//        $after_days = intval ($after_days);
         $after_days = $after_days;
-//        if ($after_days == AD_ZERO) return false;
 
         $post_date = get_the_date ('U');
         if ($post_date === false) return false;
@@ -8153,11 +8279,15 @@ echo '</body>
         $insertion_enabled = $post_date >= $start_date && $post_date < $end_date && in_array ($post_weekday, $weekdays);
 
         if (!$insertion_enabled) {
+          if (!isset ($ai_wp_data [AI_FALLBACK_LEVEL])) $ai_wp_data [AI_FALLBACK_LEVEL] = 1; else $ai_wp_data [AI_FALLBACK_LEVEL] ++;
+
           $fallback = intval ($this->get_fallback());
-          if ($fallback != $this->number && $fallback != 0 && $fallback <= 96) {
+          if ($fallback != $this->number && $fallback != 0 && $fallback <= 96 && $ai_wp_data [AI_FALLBACK_LEVEL] <= 2) {
             $this->fallback = $fallback;
             return true;
           }
+
+          $ai_wp_data [AI_FALLBACK_LEVEL] --;
         }
 
         return ($insertion_enabled);
@@ -8190,11 +8320,15 @@ echo '</body>
         $insertion_enabled = $post_date < $start_date || $post_date >= $end_date || !in_array ($post_weekday, $weekdays);
 
         if (!$insertion_enabled) {
+          if (!isset ($ai_wp_data [AI_FALLBACK_LEVEL])) $ai_wp_data [AI_FALLBACK_LEVEL] = 1; else $ai_wp_data [AI_FALLBACK_LEVEL] ++;
+
           $fallback = intval ($this->get_fallback());
-          if ($fallback != $this->number && $fallback != 0 && $fallback <= 96) {
+          if ($fallback != $this->number && $fallback != 0 && $fallback <= 96 && $ai_wp_data [AI_FALLBACK_LEVEL] <= 2) {
             $this->fallback = $fallback;
             return true;
           }
+
+          $ai_wp_data [AI_FALLBACK_LEVEL] --;
         }
 
         return ($insertion_enabled);

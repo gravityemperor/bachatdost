@@ -399,8 +399,10 @@ function generate_settings_form (){
     switch ($obj->get_scheduling ()) {
       case AI_SCHEDULING_BETWEEN_DATES:
       case AI_SCHEDULING_OUTSIDE_DATES:
-        if (get_dynamic_blocks () != AI_DYNAMIC_BLOCKS_SERVER_SIDE) $scheduling_period_inactive [$block] = false; else
-          $scheduling_period_inactive [$block] = !check_scheduling_time (
+//        if (get_dynamic_blocks () != AI_DYNAMIC_BLOCKS_SERVER_SIDE) $scheduling_period_inactive [$block] = false; else
+          $scheduling_period_inactive [$block] = $obj->get_schedule_start_date () != '' &&
+                                                 $obj->get_schedule_end_date () != '' &&
+                                                 !check_scheduling_time (
                                                     $obj->get_schedule_start_date () . ' ' . $obj->get_schedule_start_time (),
                                                     $obj->get_schedule_end_date ()   . ' ' . $obj->get_schedule_end_time (),
                                                     $obj->get_schedule_weekdays (),
@@ -2918,6 +2920,15 @@ function generate_settings_form (){
             </td>
           </tr>
 <?php if (function_exists ('ai_adb_settings')) ai_adb_settings (); ?>
+          <tr style="height: 26px;">
+            <td>
+              <label for="adb-external-scripts" title="<?php _e ('Use external scripts for ad blocking detection. Disable when you need to obtain user consent before collecting personal information. In such case use shortcut to insert external scripts after the consent is given.', 'ad-inserter'); ?>"><?php _e ('Use external scripts', 'ad-inserter'); ?></label>
+            </td>
+            <td>
+              <input type="hidden" name="<?php echo AI_OPTION_ADB_EXTERNAL_SCRIPTS; ?>" value="0" />
+              <input type="checkbox" name="<?php echo AI_OPTION_ADB_EXTERNAL_SCRIPTS; ?>" id="adb-external-scripts" value="1" default="<?php echo AI_DEFAULT_ADB_EXTERNAL_SCRIPTS; ?>" <?php if (get_adb_external_scripts () == AI_ENABLED) echo 'checked '; ?> />
+            </td>
+          </tr>
         </table>
       </div>
 
@@ -3302,6 +3313,8 @@ function generate_settings_form (){
 
 <input id="ai-active-tab" type="hidden" name="ai-active-tab" value="[<?php echo $active_tab, ',', $active_tab_0; ?>]" />
 <?php wp_nonce_field ('save_adinserter_settings'); ?>
+
+<?php if (function_exists ('ai_mark_remote_connection')) ai_mark_remote_connection (); ?>
 
 </form>
 

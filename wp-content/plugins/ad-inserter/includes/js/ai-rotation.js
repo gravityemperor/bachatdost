@@ -13,6 +13,7 @@ jQuery (function ($) {
 
     if (ai_debug) console.log ('');
 
+    var ai_rotation_triggers_found = false;
     if (typeof $(rotation_block).data ('info') != 'undefined') {
       var block_info = JSON.parse (atob ($(rotation_block).data ('info')));
       var rotation_id = block_info [0];
@@ -20,6 +21,7 @@ jQuery (function ($) {
 
       if (ai_rotation_triggers.includes (rotaion_selector)) {
         ai_rotation_triggers.splice (ai_rotation_triggers.indexOf (rotaion_selector), 1);
+        ai_rotation_triggers_found = true;
 
         if (ai_debug) console.log ('AI TIMED ROTATION TRIGGERS', ai_rotation_triggers);
       }
@@ -30,12 +32,14 @@ jQuery (function ($) {
       for (var index = 0; index < rotation_block.length; index ++) {
         if (ai_debug) console.log ('AI ROTATE process rotation block index:', index);
 
+        if (ai_debug) console.log ('AI ROTATE process rotation block:', rotation_block [index]);
+
         if (index == 0) ai_process_single_rotation (rotation_block [index], true); else ai_process_single_rotation (rotation_block [index], false);
       }
     } else {
         if (ai_debug) console.log ('AI ROTATE process rotation: 1 rotation block');
 
-        ai_process_single_rotation (rotation_block, true);
+        ai_process_single_rotation (rotation_block, !ai_rotation_triggers_found);
       }
   }
 
@@ -48,7 +52,7 @@ jQuery (function ($) {
     if (rotate_options.length == 0) return;
 
     if (ai_debug) {
-      console.log ('AI ROTATE process single rotation');
+      console.log ('AI ROTATE process single rotation, trigger rotation', trigger_rotation);
       console.log ('AI ROTATE', 'block', $(rotation_block).attr ('class') + ',', rotate_options.length, 'options');
     }
 

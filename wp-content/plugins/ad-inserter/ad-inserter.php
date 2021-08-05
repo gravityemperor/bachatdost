@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: Ad Inserter
-Version: 2.7.0
+Version: 2.7.2
 Description: Ad management with many advanced advertising features to insert ads at optimal positions
 Author: Igor Funa
 Author URI: http://igorfuna.com/
@@ -16,6 +16,17 @@ Requires PHP: 5.6
 /*
 
 Change Log
+
+Ad Inserter 2.7.2 - 2021-07-05
+- Added shortcuts for TCF v2 consent cookie checks
+- Added support for adinserter shortcode to get post ID
+- Improved ad blocking detection
+- Changed internal IP to country database (Pro only)
+- Few minor bug fixes, cosmetic changes and code improvements
+
+Ad Inserter 2.7.1 - 2021-06-16
+- Improved ad blocking detection
+- Few minor bug fixes, cosmetic changes and code improvements
 
 Ad Inserter 2.7.0 - 2021-05-30
 - Added support to list range of post IDs
@@ -1365,11 +1376,11 @@ function ai_wp_hook () {
     if (isset ($_GET [AI_URL_DEBUG]) && $_GET [AI_URL_DEBUG] == 0) {
       if (isset ($_COOKIE ['AI_WP_DEBUGGING'])) {
         unset ($_COOKIE ['AI_WP_DEBUGGING']);
-        setcookie ('AI_WP_DEBUGGING', '', time() - (15 * 60), COOKIEPATH);
+        ai_setcookie ('AI_WP_DEBUGGING', '', time() - (15 * 60), COOKIEPATH);
       }
       if (isset ($_COOKIE ['AI_WP_DEBUG_BLOCK'])) {
         unset ($_COOKIE ['AI_WP_DEBUG_BLOCK']);
-        setcookie ('AI_WP_DEBUG_BLOCK', '', time() - (15 * 60), COOKIEPATH);
+        ai_setcookie ('AI_WP_DEBUG_BLOCK', '', time() - (15 * 60), COOKIEPATH);
       }
     } else {
         $ai_wp_data [AI_WP_DEBUGGING]   = isset ($_COOKIE ['AI_WP_DEBUGGING'])   ? $ai_wp_data [AI_WP_DEBUGGING] | ($_COOKIE ['AI_WP_DEBUGGING'] & ~AI_DEBUG_PROCESSING) : $ai_wp_data [AI_WP_DEBUGGING];
@@ -1403,15 +1414,15 @@ function ai_wp_hook () {
         if (!defined ('AI_DEBUGGING_DEMO')) {
           if ($ai_wp_data [AI_WP_DEBUGGING] != 0) {
             if (!isset ($_GET ['no-cookie'])) {
-              setcookie ('AI_WP_DEBUGGING',   $ai_wp_data [AI_WP_DEBUGGING],   time() + AI_COOKIE_TIME, COOKIEPATH);
+              ai_setcookie ('AI_WP_DEBUGGING',   $ai_wp_data [AI_WP_DEBUGGING],   time() + AI_COOKIE_TIME, COOKIEPATH);
             }
-          } else if (isset ($_COOKIE ['AI_WP_DEBUGGING'])) setcookie ('AI_WP_DEBUGGING', '', time() - (15 * 60), COOKIEPATH);
+          } else if (isset ($_COOKIE ['AI_WP_DEBUGGING'])) ai_setcookie ('AI_WP_DEBUGGING', '', time() - (15 * 60), COOKIEPATH);
 
           if ($ai_wp_data [AI_WP_DEBUG_BLOCK] != 0) {
             if (!isset ($_GET ['no-cookie'])) {
-              setcookie ('AI_WP_DEBUG_BLOCK', $ai_wp_data [AI_WP_DEBUG_BLOCK], time() + AI_COOKIE_TIME, COOKIEPATH);
+              ai_setcookie ('AI_WP_DEBUG_BLOCK', $ai_wp_data [AI_WP_DEBUG_BLOCK], time() + AI_COOKIE_TIME, COOKIEPATH);
             }
-          } else if (isset ($_COOKIE ['AI_WP_DEBUG_BLOCK'])) setcookie ('AI_WP_DEBUG_BLOCK', '', time() - (15 * 60), COOKIEPATH);
+          } else if (isset ($_COOKIE ['AI_WP_DEBUG_BLOCK'])) ai_setcookie ('AI_WP_DEBUG_BLOCK', '', time() - (15 * 60), COOKIEPATH);
 
           if ($ai_wp_data [AI_WP_DEBUGGING] != 0 || isset ($_GET [AI_URL_DEBUG])) {
             ai_disable_caching ();
@@ -1845,7 +1856,8 @@ function ai_admin_enqueue_scripts ($hook_suffix) {
       'jquery',
     ), AD_INSERTER_VERSION , true);
 
-    wp_enqueue_script ('ai-admin-js',        plugins_url ('js/ad-inserter.js', __FILE__), array (
+    $admin_script = get_backend_javascript_debugging () ? 'js/ad-inserter.js' : 'js/ad-inserter.min.js';
+    wp_enqueue_script ('ai-admin',        plugins_url ($admin_script, __FILE__), array (
       'jquery',
       'jquery-ui-tabs',
       'jquery-ui-button',
@@ -1854,13 +1866,13 @@ function ai_admin_enqueue_scripts ($hook_suffix) {
       'jquery-ui-dialog',
      ), AD_INSERTER_VERSION, true);
 
-    wp_localize_script ('ai-admin-js', 'ai_admin', $ai_admin_translations);
+    wp_localize_script ('ai-admin', 'ai_admin', $ai_admin_translations);
 
     wp_enqueue_script  ('ai-missed',         plugins_url ('includes/js/missed.js', __FILE__), array (), AD_INSERTER_VERSION , true);
   }
 
   wp_enqueue_style  ('ai-admin-gen',         plugins_url ('css/ai-admin.css', __FILE__),                      array (), AD_INSERTER_VERSION);
-  wp_enqueue_script ('ai-admin-js-gen',      plugins_url ('includes/js/ai-admin.js', __FILE__ ),              array (), AD_INSERTER_VERSION, true);
+  wp_enqueue_script ('ai-admin-gen',         plugins_url ('includes/js/ai-admin.js', __FILE__ ),              array (), AD_INSERTER_VERSION, true);
 }
 
 function ai_admin_enqueue_scripts_late ($hook_suffix) {
@@ -2537,6 +2549,22 @@ function ai_adb_code () {
 //  return array ("<span ai-ao></span>","replace");
 //}
 
+function ai_adb_external_scripts () {
+  $code = '';
+
+  if (!defined ('AI_ADB_NO_DOUBLECLICK_NET')) {
+    $code .= '<object id="ai-adb-dblclk" data="https://securepubads.g.doubleclick.net/tag/js/gpt.js" style="position:absolute; z-index: -100; top: -1000px; left: -1000px; visibility: hidden;"></object>' . "\n";
+  }
+  if (!defined ('AI_ADB_NO_GOOGLE_ANALYTICS')) {
+    $code .= '<object id="ai-adb-ga" data="https://www.google-analytics.com/analytics.js" style="position:absolute; z-index: -100; top: -1000px; left: -1000px; visibility: hidden;"></object>' . "\n";
+  }
+  if (!defined ('AI_ADB_NO_MEDIA_NET')) {
+    $code .= '<object id="ai-adb-mn" data="//contextual.media.net/dmedianet.js" style="position:absolute; z-index: -100; 1px; top: -1000px; left: -1000px; visibility: hidden;"></object>' . "\n";
+  }
+
+  return $code;
+}
+
 function add_footer_inline_scripts () {
   global $ai_wp_data, $wp_version;
 
@@ -2549,23 +2577,24 @@ function add_footer_inline_scripts () {
       echo '<!-- Code for ad blocking detection -->', "\n";
       echo '<!--noptimize-->', "\n";
 
+      if (get_adb_external_scripts ()) {
+        echo ai_adb_external_scripts ();
+      }
+
       if (!defined ('AI_ADB_NO_BANNER_AD')) {
-        echo '<div id="banner-advert-container" class="ad-inserter infolinks-ad" style="position:absolute; z-index: -10; height: 1px; width: 1px; top: -1px; left: -1px;"><img id="adsense" class="SponsorAds adsense" src="', AD_INSERTER_PLUGIN_IMAGES_URL, 'ads.png" alt="pixel"></div>', "\n";
-      }
-      if (!defined ('AI_ADB_NO_ADNXS')) {
-        echo '<img id="ai-adb-adnxs" src="" style="position:absolute; z-index: -10; width: 1px; height: 1px; top: -1px; left: -1px;">', "\n";
-      }
-      if (!defined ('AI_ADB_NO_GOOGLE_ANALYTICS')) {
-        echo '<script async id="ai-adb-ga" src="https://www.google-analytics.com/analytics.js"></script>', "\n";
-      }
-      if (!defined ('AI_ADB_NO_MEDIA_NET')) {
-        echo '<script async id="ai-adb-mn" src="//contextual.media.net/dmedianet.js"></script>', "\n";
+        echo '<div id="banner-advert-container" class="ad-inserter infolinks-ad" style="position:absolute; z-index: -10; height: 1px; width: 1px; top: -100px; left: -100px;"><img id="adsense" class="SponsorAds adsense" src="', AD_INSERTER_PLUGIN_IMAGES_URL, 'ads.png" width="1" height="1" alt="pixel"></div>', "\n";
       }
       if (!defined ('AI_ADB_NO_ADS_JS')) {
         echo '<script async id="ai-adb-ads" src="', plugins_url ('js/ads.js',       __FILE__ ), "?ver=", AD_INSERTER_VERSION, '"></script>', "\n";
       }
       if (!defined ('AI_ADB_NO_SPONSORS_JS')) {
         echo '<script async id="ai-adb-sponsors" src="', plugins_url ('js/sponsors.js',  __FILE__ ), "?ver=", AD_INSERTER_VERSION, '"></script>', "\n";
+      }
+      if (!defined ('AI_ADB_NO_BANNER_JS')) {
+        echo '<script async id="ai-adb-banner" src="', plugins_url ('js/banner.js',  __FILE__ ), "?ver=", AD_INSERTER_VERSION, '"></script>', "\n";
+      }
+      if (!defined ('AI_ADB_NO_300x260_JS')) {
+        echo '<script async id="ai-adb-300x250" src="', plugins_url ('js/300x250.js',  __FILE__ ), "?ver=", AD_INSERTER_VERSION, '"></script>', "\n";
       }
       echo '<!--/noptimize-->', "\n";
       echo '<!-- Code for ad blocking detection END -->', "\n";
@@ -2582,9 +2611,6 @@ function add_footer_inline_scripts () {
     $wait_for_jquery = get_wait_for_jquery ();
 
     ob_start ();
-
-    // Moved down
-//    echo ai_front_translations_code ();
 
     if ($ai_wp_data [AI_FRONTEND_JS_DEBUGGING]) {
       $js_code = "";
@@ -2730,7 +2756,7 @@ function add_footer_inline_scripts () {
         'AI_JS_JQUERY1',
 //        "AI_JS_CODE=2"
         ), array (
-        includes_url ('js/jquery/jquery.js') . '?ver=' . $ver,
+        includes_url ('js/jquery/jquery.min.js') . '?ver=' . $ver,
         includes_url ('js/jquery/jquery-migrate.min.js') . '?ver=' . $wp_version,
 //        trim (ai_front_translations_code ())
         ), $jquery_ready_code [1]);
@@ -4086,6 +4112,7 @@ function ai_write_debug_info ($write_processing_log = false) {
       if (function_exists ('ai_debug')) {
         echo 'ADB DETECTION:           ', get_adb_detection () == AI_ADB_DETECTION_ADVANCED ? 'ADVANCED' : 'STANDARD', "\n";
       }
+      echo 'ADB EXTERNAL SCRIPTS:    ', get_adb_external_scripts () ? 'ON' : 'OFF', "\n";
 
       $redirection_page = get_redirection_page ();
       echo 'ADB REDIRECTION PAGE:    ', $redirection_page != 0 ? get_the_title ($redirection_page) . ' (' . get_permalink ($redirection_page) . ')' : 'Custom Url', "\n";
@@ -4614,6 +4641,7 @@ function ai_check_plugin_options ($plugin_options = array ()) {
   if (!isset ($plugin_options ['ADB_OVERLAY_CSS']))               $plugin_options ['ADB_OVERLAY_CSS']               = AI_DEFAULT_ADB_OVERLAY_CSS;
   if (!isset ($plugin_options ['ADB_MESSAGE_CSS']))               $plugin_options ['ADB_MESSAGE_CSS']               = AI_DEFAULT_ADB_MESSAGE_CSS;
   if (!isset ($plugin_options ['ADB_UNDISMISSIBLE_MESSAGE']))     $plugin_options ['ADB_UNDISMISSIBLE_MESSAGE']     = AI_DEFAULT_ADB_UNDISMISSIBLE_MESSAGE;
+  if (!isset ($plugin_options ['ADB_EXTERNAL_SCRIPTS']))          $plugin_options ['ADB_EXTERNAL_SCRIPTS']          = AI_DEFAULT_ADB_EXTERNAL_SCRIPTS;
   if (!isset ($plugin_options ['ADB_NO_UNDISMISSIBLE_MESSAGE']))  $plugin_options ['ADB_NO_UNDISMISSIBLE_MESSAGE']  = AI_DEFAULT_ADB_NO_UNDISMISSIBLE_MESSAGE;
   if (!isset ($plugin_options ['ADMIN_TOOLBAR_DEBUGGING']))       $plugin_options ['ADMIN_TOOLBAR_DEBUGGING']       = DEFAULT_ADMIN_TOOLBAR_DEBUGGING;
   if (!isset ($plugin_options ['ADMIN_TOOLBAR_MOBILE']))          $plugin_options ['ADMIN_TOOLBAR_MOBILE']          = DEFAULT_ADMIN_TOOLBAR_MOBILE;
@@ -4751,6 +4779,12 @@ function ai_save_options ($options, $multisite_options = null, $blocks_org = nul
     update_option (AI_INSTALL_NAME, time ());
   }
 
+  if (is_multisite () && !is_main_site ()) {
+    unset ($options [AI_OPTION_GLOBAL]['PLUGIN_TYPE']);
+    unset ($options [AI_OPTION_GLOBAL]['PLUGIN_STATUS']);
+    unset ($options [AI_OPTION_GLOBAL]['PLUGIN_STATUS_COUNTER']);
+  }
+
   ai_update_option (AI_OPTION_NAME, $options);
 
   update_option (AI_EXTRACT_NAME, $ai_db_options_extract);
@@ -4780,12 +4814,12 @@ function ai_load_options () {
     }
   }
 
-  if (is_multisite()) {
+  if (is_multisite ()) {
     $ai_db_options_multisite = get_site_option (AI_OPTION_NAME);
     option_stripslashes ($ai_db_options_multisite);
   }
 
-  if (is_multisite() && multisite_main_for_all_blogs () && defined ('BLOG_ID_CURRENT_SITE')) {
+  if (is_multisite () && multisite_main_for_all_blogs () && defined ('BLOG_ID_CURRENT_SITE')) {
     $ai_db_options = get_blog_option (BLOG_ID_CURRENT_SITE, AI_OPTION_NAME);
 
     if (is_string ($ai_db_options) && substr ($ai_db_options, 0, 4) === ':AI:') {
@@ -4798,6 +4832,14 @@ function ai_load_options () {
 
       option_stripslashes ($ai_db_options);
     }
+
+  if (is_multisite () && !is_main_site () && defined ('BLOG_ID_CURRENT_SITE')) {
+    $ai_db_options_main = get_blog_option (BLOG_ID_CURRENT_SITE, AI_OPTION_NAME);
+
+    if (isset ($ai_db_options_main [AI_OPTION_GLOBAL]['PLUGIN_TYPE']))            $ai_db_options [AI_OPTION_GLOBAL]['PLUGIN_TYPE']            = $ai_db_options_main [AI_OPTION_GLOBAL]['PLUGIN_TYPE'];
+    if (isset ($ai_db_options_main [AI_OPTION_GLOBAL]['PLUGIN_STATUS']))          $ai_db_options [AI_OPTION_GLOBAL]['PLUGIN_STATUS']          = $ai_db_options_main [AI_OPTION_GLOBAL]['PLUGIN_STATUS'];
+    if (isset ($ai_db_options_main [AI_OPTION_GLOBAL]['PLUGIN_STATUS_COUNTER']))  $ai_db_options [AI_OPTION_GLOBAL]['PLUGIN_STATUS_COUNTER']  = $ai_db_options_main [AI_OPTION_GLOBAL]['PLUGIN_STATUS_COUNTER'];
+  }
 
   if (($ai_wp_data [AI_WP_DEBUGGING] & AI_DEBUG_PROCESSING) != 0) ai_log ("LOAD OPTIONS END");
 }
@@ -5480,6 +5522,14 @@ function get_custom_redirection_url () {
   if (!isset ($ai_db_options [AI_OPTION_GLOBAL]['ADB_CUSTOM_REDIRECTION_URL'])) $ai_db_options [AI_OPTION_GLOBAL]['ADB_CUSTOM_REDIRECTION_URL'] = '';
 
   return ($ai_db_options [AI_OPTION_GLOBAL]['ADB_CUSTOM_REDIRECTION_URL']);
+}
+
+function get_adb_external_scripts () {
+  global $ai_db_options;
+
+  if (!isset ($ai_db_options [AI_OPTION_GLOBAL]['ADB_EXTERNAL_SCRIPTS'])) $ai_db_options [AI_OPTION_GLOBAL]['ADB_EXTERNAL_SCRIPTS'] = AI_DEFAULT_ADB_EXTERNAL_SCRIPTS;
+
+  return ($ai_db_options [AI_OPTION_GLOBAL]['ADB_EXTERNAL_SCRIPTS']);
 }
 
 function get_message_css () {
@@ -6857,7 +6907,22 @@ function ai_settings () {
     return;
   }
 
-  if (isset ($_POST [AI_FORM_SAVE])) {
+  $settings_data_valid = true;
+  if (function_exists ('ai_check_remote_connection')) {
+    if (!ai_check_remote_connection ()) {
+      if (isset ($_POST [AI_FORM_SAVE]) ||
+          isset ($_POST [AI_FORM_CLEAR]) ||
+          isset ($_POST [AI_FORM_CLEAR_EXCEPTIONS]) ||
+          isset ($_POST [AI_FORM_CLEAR_STATISTICS])
+         ) {
+                                                                                                                            // translators: %s: Ad Inserter
+        echo '<div class="notice notice-error is-dismissible" style="margin: 5px 15px 2px 0px;"><p>' . sprintf (__('Invalid data received - %s settings not saved.', 'ad-inserter'), AD_INSERTER_NAME) . '</p></div>';
+      }
+      $settings_data_valid = false;
+    }
+  }
+
+  if (isset ($_POST [AI_FORM_SAVE]) && $settings_data_valid) {
 
     check_admin_referer ('save_adinserter_settings');
 
@@ -7102,6 +7167,7 @@ function ai_settings () {
         if (isset ($_POST [AI_OPTION_ADB_MESSAGE_CSS]))             $options ['ADB_MESSAGE_CSS']              = filter_option ('ADB_MESSAGE_CSS',               $_POST [AI_OPTION_ADB_MESSAGE_CSS]);
         if (isset ($_POST [AI_OPTION_ADB_OVERLAY_CSS]))             $options ['ADB_OVERLAY_CSS']              = filter_option ('ADB_OVERLAY_CSS',               $_POST [AI_OPTION_ADB_OVERLAY_CSS]);
         if (isset ($_POST [AI_OPTION_ADB_UNDISMISSIBLE_MESSAGE]))   $options ['ADB_UNDISMISSIBLE_MESSAGE']    = filter_option ('ADB_UNDISMISSIBLE_MESSAGE',     $_POST [AI_OPTION_ADB_UNDISMISSIBLE_MESSAGE]);
+        if (isset ($_POST [AI_OPTION_ADB_EXTERNAL_SCRIPTS]))        $options ['ADB_EXTERNAL_SCRIPTS']         = filter_option ('ADB_EXTERNAL_SCRIPTS',          $_POST [AI_OPTION_ADB_EXTERNAL_SCRIPTS]);
         if (isset ($_POST [AI_OPTION_ADB_NO_UNDISMISSIBLE_MESSAGE]))$options ['ADB_NO_UNDISMISSIBLE_MESSAGE'] = filter_option ('ADB_NO_UNDISMISSIBLE_MESSAGE',  $_POST [AI_OPTION_ADB_NO_UNDISMISSIBLE_MESSAGE]);
         if (isset ($_POST ['force_admin_toolbar']))                 $options ['FORCE_ADMIN_TOOLBAR']          = filter_option ('FORCE_ADMIN_TOOLBAR',           $_POST ['force_admin_toolbar']);
         if (isset ($_POST ['admin_toolbar_debugging']))             $options ['ADMIN_TOOLBAR_DEBUGGING']      = filter_option ('ADMIN_TOOLBAR_DEBUGGING',       $_POST ['admin_toolbar_debugging']);
@@ -7173,7 +7239,7 @@ function ai_settings () {
         }
         echo '</div>';
       }
-  } elseif (isset ($_POST [AI_FORM_CLEAR])) {
+  } elseif (isset ($_POST [AI_FORM_CLEAR]) && $settings_data_valid) {
 
       check_admin_referer ('save_adinserter_settings');
 
@@ -7186,7 +7252,7 @@ function ai_settings () {
       }
 
       echo '<div class="notice notice-warning is-dismissible" style="margin: 5px 15px 2px 0px;"><p><strong>' . __('Settings cleared.', 'ad-inserter') . '</strong></p></div>';
-  } elseif (isset ($_POST [AI_FORM_CLEAR_EXCEPTIONS])) {
+  } elseif (isset ($_POST [AI_FORM_CLEAR_EXCEPTIONS]) && $settings_data_valid) {
 
       check_admin_referer ('save_adinserter_settings');
 
@@ -7200,7 +7266,7 @@ function ai_settings () {
           ai_clear_exceptions ();
         }
       }
-  } elseif (isset ($_POST [AI_FORM_CLEAR_STATISTICS]) && is_numeric ($_POST [AI_FORM_CLEAR_STATISTICS])) {
+  } elseif (isset ($_POST [AI_FORM_CLEAR_STATISTICS]) && is_numeric ($_POST [AI_FORM_CLEAR_STATISTICS]) && $settings_data_valid) {
 
       check_admin_referer ('save_adinserter_settings');
 
@@ -8325,6 +8391,10 @@ function ai_process_shortcode (&$block, $atts) {
       case 'disabled':
         $ai_wp_data [AI_ADB_SHORTCODE_DISABLED] = true;
         break;
+      case 'external-scripts':
+        if (!get_adb_external_scripts ()) {
+          return ai_adb_external_scripts ();
+        }
     }
     return  "";
   }
@@ -9861,10 +9931,10 @@ function ai_set_cookie ($block, $property, $value) {
   $ai_cookie_array = (array) $ai_cookie;
   if (empty ($ai_cookie_array)) {
     unset ($_COOKIE [$ai_cookie_name]);
-    setcookie ($ai_cookie_name, null, - 1, '/');
+    ai_setcookie ($ai_cookie_name, null, - 1, '/');
   } else {
       $_COOKIE [$ai_cookie_name] = addslashes (json_encode ($ai_cookie));
-      setcookie ($ai_cookie_name, $_COOKIE [$ai_cookie_name], 365, '/');
+      ai_setcookie ($ai_cookie_name, $_COOKIE [$ai_cookie_name], time () + 365 * 24 * 3600, '/');
     }
 
 //    if (isset ($_COOKIE [$ai_cookie_name])) {
@@ -10390,6 +10460,21 @@ function ai_post_is_in_child_taxonomies ($taxonomy, $term) {
   return false;
 }
 
+
+function ai_setcookie ($name, $value, $expire, $path, $samesite = 'Lax') {
+  if (PHP_VERSION_ID < 70300) {
+    setcookie ($name, $value, $expire, $path . '; samesite=' . $samesite);
+    return;
+  }
+
+  setcookie ($name, $value, [
+    'expires' => $expire,
+    'path' => $path,
+    'samesite' => $samesite,
+  ]);
+}
+
+
 function ai_process_viewport_separators ($code, $viewport_shortcode_data) {
   global $ai_wp_data;
 
@@ -10711,6 +10796,8 @@ function replace_ai_tags ($content, $general_tag = '') {
 
     $url = remove_debug_parameters_from_url ((isset ($_SERVER ['HTTPS']) && $_SERVER ['HTTPS'] === 'on' ? "https" : "http") . '://'. $_SERVER ['HTTP_HOST'] . $_SERVER ['REQUEST_URI']);
 
+    $post_id = ai_get_post_id ();
+
     $ai_wp_data [AI_TAGS]['TITLE']                = $title;
     $ai_wp_data [AI_TAGS]['SHORT_TITLE']          = $short_title;
     $ai_wp_data [AI_TAGS]['CATEGORY']             = $category;
@@ -10728,6 +10815,7 @@ function replace_ai_tags ($content, $general_tag = '') {
     $ai_wp_data [AI_TAGS]['SEARCH_QUERY']         = $search_query;
     $ai_wp_data [AI_TAGS]['AUTHOR']               = $author;
     $ai_wp_data [AI_TAGS]['AUTHOR_NAME']          = $author_name;
+    $ai_wp_data [AI_TAGS]['POST_ID']              = $post_id;
     $ai_wp_data [AI_TAGS]['URL']                  = $url;
   }
 
@@ -10744,6 +10832,7 @@ function replace_ai_tags ($content, $general_tag = '') {
   $ad_data = preg_replace ("/{search-query}/i",       $ai_wp_data [AI_TAGS]['SEARCH_QUERY'],      $ad_data);
   $ad_data = preg_replace ("/{author}/i",             $ai_wp_data [AI_TAGS]['AUTHOR'],            $ad_data);
   $ad_data = preg_replace ("/{author-name}/i",        $ai_wp_data [AI_TAGS]['AUTHOR_NAME'],       $ad_data);
+  $ad_data = preg_replace ("/{post-id}/i",            $ai_wp_data [AI_TAGS]['POST_ID'],           $ad_data);
 
   $ad_data = preg_replace ("/{short_title}/i",        $ai_wp_data [AI_TAGS]['SHORT_TITLE'],       $ad_data);
   $ad_data = preg_replace ("/{short_category}/i",     $ai_wp_data [AI_TAGS]['SHORT_CATEGORY'],    $ad_data);

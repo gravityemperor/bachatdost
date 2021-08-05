@@ -3,7 +3,7 @@
   Plugin Name: Cookie and Consent Solution for the GDPR & ePrivacy
   Plugin URI: https://www.iubenda.com
   Description: An All-in-One approach developed by iubenda, which includes functionalities of two powerful solutions that help to make your website GDPR and ePrivacy compliant.
-  Version: 2.5.3
+  Version: 2.5.5
   Author: iubenda
   Author URI: https://www.iubenda.com
   License: MIT License
@@ -32,7 +32,7 @@ define( 'IUB_DEBUG', false );
  * iubenda final class.
  *
  * @class iubenda
- * @version	2.5.3
+ * @version	2.5.5
  */
 class iubenda {
 
@@ -62,7 +62,7 @@ class iubenda {
 		)
 	);
 	public $base_url;
-	public $version = '2.5.3';
+	public $version = '2.5.5';
 	public $activation = array(
 		'update_version'	=> 0,
 		'update_notice'		=> true,
@@ -400,6 +400,11 @@ class iubenda {
 		// is post or not html content type?
 		if ( ( $_POST && $this->options['cs']['output_post'] ) || $this->no_html )
 			return;
+
+        // bail if current page is page builder of Divi by elegant themes
+        if ( function_exists( 'et_fb_is_enabled' ) && et_fb_is_enabled() ) {
+            return;
+        }
 
 		// initial head output
 		$iubenda_code = '';

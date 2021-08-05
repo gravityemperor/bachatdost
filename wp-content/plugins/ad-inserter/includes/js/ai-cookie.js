@@ -49,7 +49,8 @@
       }
 
       attributes = extend({
-        path: '/'
+        path: '/',
+        sameSite: 'Lax'
       }, api.defaults, attributes);
 
       if (typeof attributes.expires === 'number') {

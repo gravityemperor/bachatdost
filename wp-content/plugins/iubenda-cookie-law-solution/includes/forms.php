@@ -48,7 +48,7 @@ class iubenda_Forms {
 
 		$form_id   = $this->array_get( $_POST, 'wpforms.id' );
 		$form_args = array(
-			'post_status'	=> array( 'mapped', 'needs_update' ),
+			'post_status'	=> array('mapped'),
 			'source'	=> 'wpforms',
 			'id'	=> $form_id,
 		);
@@ -120,7 +120,7 @@ class iubenda_Forms {
 			$args = array();
 
 			$form_args = array(
-				'post_status'	=> array( 'mapped', 'needs_update' )
+				'post_status'	=> array( 'mapped' )
 			);
 
 			$forms = $this->get_forms( $form_args );
@@ -682,6 +682,10 @@ class iubenda_Forms {
 								foreach ( $fields_raw as $field ) {
 									// specific field types only
 									if ( ! empty( $field['basetype'] ) && ! in_array( $field['basetype'], $restricted_fields ) ) {
+										// Track exclusive fields only [ex: name=field[] not supported by cons]
+										if ( 'checkbox' == $field['type'] && ! in_array( 'exclusive', $field['options'] ) ) {
+											continue;
+										}
 										$formdata['form_fields'][] = $field['name'];
 									}
 								}
@@ -759,6 +763,14 @@ class iubenda_Forms {
 						'order_button_text' => 'Submit',
 					)
 				);
+
+                // Germanized for WooCommerce
+                if (class_exists('WooCommerce_Germanized')) {
+                    woocommerce_gzd_template_render_checkout_checkboxes();
+                }
+
+                // Allow users integrate with other plugins
+                do_action("iub_render_{$source}_form");
 
 				$checkout_form = ob_get_contents();
 				ob_end_clean();
@@ -994,8 +1006,8 @@ class iubenda_Forms {
 				)
 			),
 			'post_type'		 => 'iubenda_form',
-			'post_status'	 => 'any',
-			'posts_per_page' => '1',
+            'post_status' => isset($args['post_status']) ? $args['post_status'] : 'any',
+            'posts_per_page' => '1',
 			'fields'		 => 'ids'
 		);
 
@@ -1160,6 +1172,34 @@ class iubenda_Forms {
 			}
 
 			$data[ $key ][ $map_key ] = $this->array_get( $entry, $array_key );
+
+			// Special handling for preferences to cast into boolean if the field type is checkbox
+			if ( 'preferences' == $key && 'checkbox' == $form->form_fields[ $index ]['type'] ) {
+				$wpform_content = wpforms()->form->get( $form->object_id )->post_content;
+				$wpform_content = json_decode( $wpform_content, true );
+				$choices        = $this->array_get( $wpform_content, substr( $array_key, 0, - 2 ) . '.choices' );
+
+				$index = null;
+				// Check preference field is entered
+				if ( ! empty( $data[ $key ][ $map_key ] ) ) {
+					// Reset the array keys
+					foreach ( array_values($choices) as $i => $choice ) {
+						// Priority to check the choice value
+						if ( $data[ $key ][ $map_key ] == $choice['value'] ) {
+							$index = intval( $i );
+							break;
+						}
+
+						// Then check the choice label [WPForms the label and value are always the same]
+						if ( $data[ $key ][ $map_key ] == $choice['label'] ) {
+							$index = intval( $i );
+						}
+					}
+				}
+
+				// If index isset and map to first choice then it's true exactly like the Frontend Cons behavior
+				$data[ $key ][ $map_key ] = ($index === 0) ? true : false;
+			}
 		}
 
 		return $data;

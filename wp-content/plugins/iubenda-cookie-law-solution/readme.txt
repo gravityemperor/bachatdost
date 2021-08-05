@@ -5,7 +5,7 @@ Tags: cookies, cookie law, cookie policy, cookie banner, privacy policy, cookie 
 Requires at least: 4.0
 Requires PHP: 5.2.4
 Tested up to: 5.7.2
-Stable tag: 2.5.3
+Stable tag: 2.5.5
 License: MIT License
 License URI: http://opensource.org/licenses/MIT
 
@@ -80,7 +80,7 @@ Maintaining valid records of consent is a vital part of privacy compliance in ge
 **Key features:**
 
 * The plugin detects and identifies all supported forms that are embedded in the website
-* It’s auto-compatible with and allows super easy mapping of Contact Form 7, WP Forms, WordPress comment and WooCommerce checkout forms
+* It’s auto-compatible with and allows super easy mapping of Contact Form 7, WP Forms, WordPress comment, Mailchimp for WordPress, Germanized for WooCommerce and WooCommerce checkout forms
 * It allows manual integration with any type of web-form
 * For each consent, track the form/wording the user was prompted with
 * Flexibly upload any form of proof of consent or legal notice, including a PDF if consent was collected offline
@@ -149,6 +149,16 @@ We will be very happy to receive feedback here: [Uservoice forum](https://suppor
 6. IAB Transparency and consent framework integrated.
 
 == Changelog ==
+
+= 2.5.5 =
+* Disable CS on Divi builder page
+
+= 2.5.4 =
+* Cast preferences field into boolean in WPForms.
+* Fix preference field not saved in CF7.
+* Integrate with Germanized for WooCommerce in ConS.
+* Allow only the mapped forms in ConS.
+* Allow mapping the ConS forms without specifying the preferences field.
 
 = 2.5.3 =
 * Fix sub sub domain of generated AMP file.
@@ -522,6 +532,5 @@ We will be very happy to receive feedback here: [Uservoice forum](https://suppor
 
 == Upgrade Notice ==
 
-= 2.5.3 =
-* Fix sub sub domain of generated AMP file.
-* Add settings anchor in plugin page
+= 2.5.5 =
+* Disable CS on Divi builder page

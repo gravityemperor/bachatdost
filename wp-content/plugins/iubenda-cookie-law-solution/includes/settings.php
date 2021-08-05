@@ -1628,10 +1628,14 @@ class iubenda_Settings {
 				}
 				
 				// echo '<pre>'; print_r( $_POST ); echo '</pre>'; exit;
-				
+                $filtered_subjects = array_filter($subject, array(
+                    $this,
+                    'is_not_empty'
+                ));
+
 				// bail if empty fields
-				if ( empty( $subject ) || empty( $preferences ) ) {
-					$this->add_notice( 'iub_form_fields_missing', __( 'Form saving failed. Please fill the Subject and Preferences fields.', 'iubenda' ), 'error' );
+				if ( ! count( $filtered_subjects ) ) {
+					$this->add_notice( 'iub_form_fields_missing', __( 'Form saving failed. Please fill the Subject fields.', 'iubenda' ), 'error' );
 					return;
 				}
 
@@ -1820,4 +1824,17 @@ class iubenda_Settings {
 		return array_map( 'esc_attr', $array );
 	}
 
+    /**
+     * Check the value is not empty and check it contains any value even 0
+     *
+     * @param $value
+     * @return bool
+     */
+    private function is_not_empty($value) {
+        if(is_null($value) || '' === $value){
+            return false;
+        }
+
+        return true;
+	}
 }

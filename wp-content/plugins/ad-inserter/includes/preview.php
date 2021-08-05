@@ -2696,7 +2696,7 @@ input {
         </td>
         <td style="width: 100%; height: 32px; padding:0;">
           <input id="custom-css" style="width: 100%; display: inline-block; padding: 4px 0 0 4px; border-radius: 4px; display: none; font-size: 12px; font-family: monospace, Courier, 'Courier New'; font-weight: bold;" type="text" value="<?php echo $custom_css_code; ?>" size="70" maxlength="500" title="Custom CSS code for wrapping div" />
-          <span style="width: 100%; display: inline-block; padding: 5px 0 0 5px; font-family: monospace, Courier, 'Courier New'; font-size: 12px; font-weight: bold; cursor: pointer; white-space: normal;">
+          <span style="width: 100%; display: inline-block; padding: 4px 0 0 5px; font-family: monospace, Courier, 'Courier New'; font-size: 12px; font-weight: bold; cursor: pointer; white-space: normal;">
             <span id="css-no-wrapping" style="vertical-align: middle; display: none;"></span>
             <span id="css-<?php echo AI_ALIGNMENT_DEFAULT; ?>" class="css-code" style="vertical-align: middle; display: none;" title="CSS code for wrapping div, click to edit"><?php echo $obj->alignment_style (AI_ALIGNMENT_DEFAULT); ?></span>
             <span id="css-<?php echo AI_ALIGNMENT_LEFT; ?>" class="css-code" style="vertical-align: middle;display: none;" title="CSS code for wrapping div, click to edit"><?php echo $obj->alignment_style (AI_ALIGNMENT_LEFT); ?></span>

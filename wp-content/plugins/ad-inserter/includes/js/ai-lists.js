@@ -77,7 +77,7 @@ jQuery (function ($) {
 
             ai_load_blocks ();
 
-            jQuery('#ai-iab-tcf-status').text ('DATA LOADED');
+            jQuery('#ai-iab-tcf-status').text ('IAB TCF 2.0 DATA LOADED');
             jQuery('#ai-iab-tcf-bar').addClass ('status-ok').removeClass ('status-error');
           }
         }
@@ -175,7 +175,7 @@ jQuery (function ($) {
 
         if (ai_debug) console.log ("AI LISTS COOKIE tcf-v2: calling __tcfapi getTCData");
 
-        $('#ai-iab-tcf-status').text ('DETECTED');
+        $('#ai-iab-tcf-status').text ('IAB TCF 2.0 DETECTED');
 
         __tcfapi ('getTCData', 2, function (tcData, success) {
           if (success) {
@@ -185,9 +185,9 @@ jQuery (function ($) {
               ai_tcData = tcData;
 
               if (!tcData.gdprApplies) {
-                jQuery('#ai-iab-tcf-status').text ('GDPR DOES NOT APPLY');
+                jQuery('#ai-iab-tcf-status').text ('IAB TCF 2.0 GDPR DOES NOT APPLY');
               } else {
-                  $('#ai-iab-tcf-status').text ('DATA LOADED');
+                  $('#ai-iab-tcf-status').text ('IAB TCF 2.0 DATA LOADED');
                 }
               $('#ai-iab-tcf-bar').addClass ('status-ok').removeClass ('status-error');
 
@@ -200,7 +200,7 @@ jQuery (function ($) {
 
               if (ai_debug) console.log ("AI LISTS COOKIE __tcfapi cmpuishown");
 
-              $('#ai-iab-tcf-status').text ('CMP UI SHOWN');
+              $('#ai-iab-tcf-status').text ('IAB TCF 2.0 CMP UI SHOWN');
               $('#ai-iab-tcf-bar').addClass ('status-ok').removeClass ('status-error');
 
             } else {
@@ -209,7 +209,7 @@ jQuery (function ($) {
           } else {
               if (ai_debug) console.log ("AI LISTS COOKIE tcf-v2: __tcfapi getTCData failed");
 
-              $('#ai-iab-tcf-status').text ('__tcfapi getTCData failed');
+              $('#ai-iab-tcf-status').text ('IAB TCF 2.0 __tcfapi getTCData failed');
               $('#ai-iab-tcf-bar').removeClass ('status-ok').addClass ('status-error');
             }
         });
@@ -243,7 +243,7 @@ jQuery (function ($) {
             if (ai_debug) console.log ("AI LISTS COOKIE tcf-v2: __tcfapi function not found");
 
             $('#ai-iab-tcf-bar').addClass ('status-error').removeClass ('status-ok');
-            $('#ai-iab-tcf-status').text ('MISSING: __tcfapi function not found');
+            $('#ai-iab-tcf-status').text ('IAB TCF 2.0 MISSING: __tcfapi function not found');
           }
         }
     }
@@ -508,13 +508,23 @@ jQuery (function ($) {
         var parameter_list = $(this).attr ("parameter-list");
 
         if (typeof parameter_list != "undefined") {
-          var parameter_list_array = b64d (parameter_list).split (",");
+          var parameter_list = b64d (parameter_list);
           var parameter_list_type  = $(this).attr ("parameter-list-type");
 
           if (ai_debug) console.log ('');
           if (ai_debug) console.log ("AI LISTS cookies:       ", cookies);
-          if (ai_debug) console.log ("AI LISTS parameter list:", b64d (parameter_list), parameter_list_type);
+          if (ai_debug) console.log ("AI LISTS parameter list:", parameter_list, parameter_list_type);
 
+          parameter_list = parameter_list.replace ('tcf-gdpr',       'tcf-v2[gdprApplies]=true');
+          parameter_list = parameter_list.replace ('tcf-no-gdpr',    'tcf-v2[gdprApplies]=false');
+          parameter_list = parameter_list.replace ('tcf-google',     'tcf-v2[vendor][consents][755]=true && tcf-v2[purpose][consents][1]=true');
+          parameter_list = parameter_list.replace ('tcf-media.net',  'tcf-v2[vendor][consents][142]=true && tcf-v2[purpose][consents][1]=true');
+          parameter_list = parameter_list.replace ('tcf-amazon',     'tcf-v2[vendor][consents][793]=true && tcf-v2[purpose][consents][1]=true');
+          parameter_list = parameter_list.replace ('tcf-ezoic',      'tcf-v2[vendor][consents][347]=true && tcf-v2[purpose][consents][1]=true');
+
+          if (ai_debug) console.log ("AI LISTS parameter list:", parameter_list, parameter_list_type);
+
+          var parameter_list_array = parameter_list.split (",");
 
           var cookie_array = new Array ();
           cookies.forEach (function (cookie) {
@@ -751,7 +761,7 @@ jQuery (function ($) {
           var scheduling_fallback = parseInt ($(this).attr ("scheduling-fallback"));
           var gmt = parseInt ($(this).attr ("gmt"));
 
-          if (!scheduling_start_string.includes (' ') && !scheduling_end_string.includes (' ')) {
+          if (!scheduling_start_string.includes ('-') && !scheduling_end_string.includes ('-')) {
             var scheduling_start_date = ai_get_time (scheduling_start_string);
             var scheduling_end_date   = ai_get_time (scheduling_end_string);
           } else {
@@ -766,7 +776,7 @@ jQuery (function ($) {
           var date = new Date (current_time);
           var current_day = date.getDay ();
 
-          if (!scheduling_start_string.includes (' ') && !scheduling_end_string.includes (' ')) {
+          if (!scheduling_start_string.includes ('-') && !scheduling_end_string.includes ('-')) {
             var current_time_date_only = new Date (date.getFullYear (), date.getMonth (), date.getDate ()).getTime () + gmt;
             current_time -= current_time_date_only;
             if (current_time < 0) {
@@ -926,9 +936,14 @@ jQuery (function ($) {
   }
 
   function get_cookie (name) {
-    return document.cookie.split (';').some (c => {
-      return c.trim().startsWith (name + '=');
-    });
+    // Does not work in older browsers (iOS)
+//    return document.cookie.split (';').some (c => {
+//      return c.trim().startsWith (name + '=');
+//    });
+
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
   }
 
   function delete_cookie (name, path, domain) {
@@ -937,6 +952,13 @@ jQuery (function ($) {
         ((path) ? ";path=" + path : "") +
         ((domain) ? ";domain=" + domain : "") +
         ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+    }
+  }
+
+  function ai_delete_cookie (name) {
+    if (get_cookie (name)) {
+      delete_cookie (name, '/', window.location.hostname);
+      document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
   }
 
@@ -974,20 +996,34 @@ jQuery (function ($) {
 
       jQuery("#ai-iab-tcf-bar").click (function () {
 
-        document.cookie = 'euconsent-v2=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        ai_delete_cookie ('euconsent-v2');
 
         // Clickio GDPR Cookie Consent
-        document.cookie = '__lxG__consent__v2=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        document.cookie = '__lxG__consent__v2_daisybit=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        document.cookie = '__lxG__consent__v2_gdaisybit=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        ai_delete_cookie ('__lxG__consent__v2');
+        ai_delete_cookie ('__lxG__consent__v2_daisybit');
+        ai_delete_cookie ('__lxG__consent__v2_gdaisybit');
+
+        // Cookie Law Info
+        ai_delete_cookie ('CookieLawInfoConsent');
+        ai_delete_cookie ('cookielawinfo-checkbox-advertisement');
+        ai_delete_cookie ('cookielawinfo-checkbox-analytics');
+        ai_delete_cookie ('cookielawinfo-checkbox-necessary');
 
         // Complianz GDPR/CCPA
-        document.cookie = 'complianz_consent_status=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        document.cookie = 'cmplz_marketing=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        document.cookie = 'cmplz_stats=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        ai_delete_cookie ('complianz_policy_id');
+        ai_delete_cookie ('complianz_consent_status');
+        ai_delete_cookie ('cmplz_marketing');
+        ai_delete_cookie ('cmplz_consent_status');
+        ai_delete_cookie ('cmplz_preferences');
+        ai_delete_cookie ('cmplz_statistics-anonymous');
+        ai_delete_cookie ('cmplz_choice');
 
         // GDPR Cookie Compliance (CCPA ready)
-        document.cookie = 'moove_gdpr_popup=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        ai_delete_cookie ('moove_gdpr_popup');
+
+        // Real Cookie Banner PRO
+        ai_delete_cookie ('real_cookie_banner-blog:1-tcf');
+        ai_delete_cookie ('real_cookie_banner-blog:1');
 
         if (ai_debug) console.log ("AI LISTS clear consent cookies", window.location.hostname);
 

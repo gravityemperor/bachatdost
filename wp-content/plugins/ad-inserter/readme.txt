@@ -6,7 +6,7 @@ Tags: ads, adsense, ad rotation, ad manager, amp, amazon, ad blocking detection,
 Requires at least: 4.6
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 2.7.0
+Stable tag: 2.7.2
 License: GPLv3
 
 Manage Google AdSense, Media.net, Amazon banners, ads.txt, ad rotation, sticky widgets, AMP ads, DFP, tracking, AdSense header and footer code
@@ -352,6 +352,23 @@ If you are not happy to reveal this information and you have opted in, simply di
 
 == Changelog ==
 
+= 2.7.2 =
+- Added shortcuts for TCF v2 consent cookie checks
+- Added support for adinserter shortcode to get post ID
+- Improved ad blocking detection
+- Changed internal IP to country database (Pro only)
+- Few minor bug fixes, cosmetic changes and code improvements
+
+= 2.7.1 =
+- Added shortcuts for TCF v2 consent cookie checks
+- Improved ad blocking detection
+- Changed internal IP to country database (Pro only)
+- Few minor bug fixes, cosmetic changes and code improvements
+
+= 2.7.1 =
+- Improved ad blocking detection
+- Few minor bug fixes, cosmetic changes and code improvements
+
 = 2.7.0 =
 - Added support to list range of post IDs
 - Added support for browser language in client lists
@@ -555,6 +572,23 @@ If you are not happy to reveal this information and you have opted in, simply di
 For the changelog of earlier versions, please refer to the separate changelog.txt file.
 
 == Upgrade Notice ==
+
+= 2.7.2 =
+Added shortcuts for TCF v2 consent cookie checks;
+Added support for adinserter shortcode to get post ID;
+Improved ad blocking detection;
+Changed internal IP to country database (Pro only);
+Few minor bug fixes, cosmetic changes and code improvements
+
+= 2.7.1 =
+Added shortcuts for TCF v2 consent cookie checks;
+Improved ad blocking detection;
+Changed internal IP to country database (Pro only);
+Few minor bug fixes, cosmetic changes and code improvements;
+
+= 2.7.1 =
+Improved ad blocking detection;
+Few minor bug fixes, cosmetic changes and code improvements
 
 = 2.7.0 =
 Added support to list range of post IDs;

@@ -31,7 +31,7 @@ if (!defined( 'AD_INSERTER_NAME'))
   define ('AD_INSERTER_NAME', 'Ad Inserter');
 
 if (!defined( 'AD_INSERTER_VERSION'))
-  define ('AD_INSERTER_VERSION', '2.7.0');
+  define ('AD_INSERTER_VERSION', '2.7.2');
 
 if (!defined ('AD_INSERTER_PLUGIN_BASENAME'))
   define ('AD_INSERTER_PLUGIN_BASENAME', plugin_basename (__FILE__));
@@ -227,6 +227,7 @@ define ('AI_OPTION_ADB_MESSAGE_CSS',             'adb-message-css');
 define ('AI_OPTION_ADB_OVERLAY_CSS',             'adb-overlay-css');
 define ('AI_OPTION_ADB_UNDISMISSIBLE_MESSAGE',   'adb-undismissible-message');
 define ('AI_OPTION_ADB_NO_UNDISMISSIBLE_MESSAGE','adb-no-undismissible-message');
+define ('AI_OPTION_ADB_EXTERNAL_SCRIPTS',        'adb-external-scripts');
 
 //misc
 define('AD_EMPTY_VALUE','');
@@ -734,10 +735,9 @@ define ('AI_STICKY_WIDGET_MODE_JS',  1);
 define ('AI_TEXT_CSS', 'CSS');
 define ('AI_TEXT_JS',  'JavaScript ');
 
-define ('AI_GEO_DB_WEBNET77',        0);
+define ('AI_GEO_DB_INTERNAL',        0);
 define ('AI_GEO_DB_MAXMIND',         1);
 
-define ('AI_TEXT_WEBNET77',        'Webnet77');
 define ('AI_TEXT_MAXMIND',         'MaxMind');
 
 define ('AI_MANUAL_LOADING_DISABLED',0);
@@ -874,7 +874,7 @@ define ('DEFAULT_OUTPUT_BUFFERING',             AI_OUTPUT_BUFFERING_DISABLED);
 define ('DEFAULT_DISABLE_CACHING',              AI_DISABLE_CACHING_ENABLED);
 define ('DEFAULT_TAB_SETUP_DELAY',              100);
 define ('DEFAULT_WAIT_FOR_JQUERY',              AI_WAIT_FOR_JQUERY_ENABLED);
-define ('DEFAULT_GEO_DB',                       AI_GEO_DB_WEBNET77);
+define ('DEFAULT_GEO_DB',                       AI_GEO_DB_INTERNAL);
 define ('DEFAULT_GEO_DB_UPDATES',               AI_DISABLED);
 define ('DEFAULT_CLOSE_BUTTON',                 AI_CLOSE_NONE);
 define ('DEFAULT_AUTO_CLOSE_TIME',              '');
@@ -966,6 +966,7 @@ define ('AI_DEFAULT_ADB_ACTION',                AI_ADB_ACTION_NONE);
 define ('AI_DEFAULT_ADB_NO_ACTION',             AI_ADB_NO_ACTION_NONE);
 define ('AI_DEFAULT_ADB_NO_ACTION_PERIOD',      30);
 define ('AI_DEFAULT_ADB_REDIRECTION_PAGE',      0);
+define ('AI_DEFAULT_ADB_EXTERNAL_SCRIPTS',      AI_ENABLED);
 define ('AI_DEFAULT_ADB_UNDISMISSIBLE_MESSAGE', AI_DISABLED);
 define ('AI_DEFAULT_ADB_NO_UNDISMISSIBLE_MESSAGE', AI_ADB_NO_ACTION_NONE);
 define ('AI_ADB_VERSION_MASK',                  0x7F);

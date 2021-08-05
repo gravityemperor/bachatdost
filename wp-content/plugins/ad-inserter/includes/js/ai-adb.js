@@ -20,7 +20,7 @@ function ai_adb_process_content () {
 //    var ai_adb_debugging = false;
 
     if (ai_adb_debugging) console.log ('');
-    if (ai_adb_debugging) console.log ("AI AD BLOCKING CONTENT PROCESSING");
+    if (ai_adb_debugging) console.log ("AI AD BLOCKING CONTENT PROCESSING", ai_adb_active);
 
     $(".AI_ADB_CONTENT_CSS_BEGIN_CLASS").each (function () {
       var ai_adb_parent = $(this).parent ();
@@ -148,6 +148,9 @@ function ai_adb_process_blocks (element) {
     if (ai_adb_debugging) console.log ("AI AD BLOCKING block actions:", ai_adb_active, $(element).prop ("tagName") + '.' + $(element).attr ('class'));
 
     if (typeof ai_adb_data === "string" && typeof ai_adb_active === "boolean") {
+
+      if (ai_adb_debugging) console.log ("AI AD BLOCKING block actions checking");
+
       if (ai_adb_active) {
 
         var code_inserted = false;
@@ -325,13 +328,19 @@ ai_adb_detection_type = function (n) {
         return "7 adsense";
         break;
       case 8:
-        return "8 adnxs.com";
+        return "8 doubleclick.net";
         break;
       case 9:
         return "9 fun adblock 3";
         break;
       case 10:
         return "10 fun adblock 4";
+        break;
+      case 11:
+        return "11 banner js";
+        break;
+      case 12:
+        return "12 300x250 js";
         break;
       default:
         return n;
@@ -379,7 +388,7 @@ var ai_adb_detected_actions = function(n) {
       });
 
       if (ai_adb_debugging) console.log ("AI AD BLOCKING action check");
-//        AiCookies.remove (ai_adb_pgv_cookie_name, {path: "/" });
+//        AiCookies.remove (ai_adb_pgv_cookie_name, {path: "/"});
 
       // Disable action for bots
       if (typeof MobileDetect !== "undefined") {
@@ -443,7 +452,7 @@ var ai_adb_detected_actions = function(n) {
         else if (ai_adb_debugging) console.log ("AI AD BLOCKING invalid cookie");
         AiCookies.set (ai_adb_act_cookie_name, "AI_CONST_AI_ADB_COOKIE_VALUE", {expires: ai_adb_message_cookie_lifetime, path: "/"});
       } else
-          AiCookies.remove (ai_adb_act_cookie_name, {path: "/" });
+          AiCookies.remove (ai_adb_act_cookie_name, {path: "/"});
 
       if (ai_adb_debugging) console.log ("AI AD BLOCKING action", ai_adb_action);
 
@@ -477,7 +486,7 @@ var ai_adb_detected_actions = function(n) {
             if (ai_adb_debugging) console.log ("AI AD BLOCKING MESSAGE click detection installed");
 
           } else {
-//              AiCookies.remove (ai_adb_act_cookie_name, {path: "/" });
+//              AiCookies.remove (ai_adb_act_cookie_name, {path: "/"});
 
               ai_adb_overlay.find ('[style*="cursor"]').css ("cursor", "no-drop");
               ai_adb_message_window.find ('[style*="cursor"]').css ("cursor", "no-drop");
@@ -506,7 +515,7 @@ var ai_adb_detected_actions = function(n) {
               if (typeof cookie == "undefined") {
                 var date = new Date();
                 date.setTime (date.getTime() + (10 * 1000));
-                AiCookies.set (ai_adb_page_redirection_cookie_name, window.location.href, {expires: date, path: "/" });
+                AiCookies.set (ai_adb_page_redirection_cookie_name, window.location.href, {expires: date, path: "/"});
 
                 window.location.replace (ai_adb_redirection_url)
               } else {
@@ -526,7 +535,16 @@ var ai_adb_detected_actions = function(n) {
 }
 
 
-var ai_adb_undetected = function(n) {
+var ai_adb_undetected = function (n) {
+  setTimeout (function() {
+    if (!ai_adb_active) {
+      ai_adb_undetected_actions (n);
+    }
+  }, 200);
+}
+
+
+var ai_adb_undetected_actions = function (n) {
   ai_adb_counter ++;
 
   var ai_adb_debugging = typeof ai_debugging !== 'undefined'; // 5
@@ -608,8 +626,8 @@ jQuery (document).ready (function ($) {
 
     setTimeout (function() {
       $("#ai-adb-bar").click (function () {
-        AiCookies.remove (ai_adb_act_cookie_name, {path: "/" });
-        AiCookies.remove (ai_adb_pgv_cookie_name, {path: "/" });
+        AiCookies.remove (ai_adb_act_cookie_name, {path: "/"});
+        AiCookies.remove (ai_adb_pgv_cookie_name, {path: "/"});
         window.AI_ADB_STATUS_MESSAGE=5;
         ai_dummy = 15; // Do not remove - to prevent optimization
       });
@@ -666,13 +684,6 @@ jQuery (document).ready (function ($) {
       if (ai_adb_el_counter != 0 && ai_adb_el_zero == 0) $(document).ready (function () {ai_adb_undetected (4)});
     }
 
-    var img_container = b64d ("aW1nI2FpLWFkYi1hZG54cw==");
-    if (jQuery(img_container).length) {
-      jQuery (img_container)
-        .on ('load', function() { ai_adb_undetected (8); })
-        .on ('error', function() { if (!ai_adb_active || ai_debugging_active) ai_adb_detected (8); })
-        .attr ("src", b64d ("aHR0cHM6Ly9pYi5hZG54cy5jb20vZ2V0dWlkP2h0dHBzJTNBJTJGJTJGcm91dGVyLmluZm9saW5rcy5jb20lMkZkeW4lMkZhcG4tdXN5bmMlM0Z1c2VyX2lkJTNEJTI0VUlE"));
-    }
   });
 });
 
@@ -741,22 +752,77 @@ jQuery (window).on ('load', function () {
       }
   }
 
+  function ai_adb_11 () {
+    if (typeof window.ai_banner == "undefined") {
+      if (!ai_adb_active || ai_debugging_active) ai_adb_detected (11);
+    } else {
+        ai_adb_undetected (11);
+      }
+  }
+
+  function ai_adb_12 () {
+    if (typeof window.ai_300x250 == "undefined") {
+      if (!ai_adb_active || ai_debugging_active) ai_adb_detected (12);
+    } else {
+        ai_adb_undetected (12);
+      }
+  }
+
+  function ai_adb_external_scripts () {
+    if (ai_adb_debugging) console.log ("AI AD BLOCKING check external scripts");
+
+    var element = jQuery (b64d ("I2FpLWFkYi1nYQ=="));
+    if (element.length) {
+      if (!!(element.width () * element.height ())) {
+        ai_adb_undetected (5);
+      } else {
+          if (!ai_adb_active || ai_debugging_active) ai_adb_detected (5);
+        }
+    }
+
+    var element = jQuery (b64d ("I2FpLWFkYi1tbg=="));
+    if (element.length) {
+      if (!!(element.width () * element.height ())) {
+        ai_adb_undetected (6);
+      } else {
+          if (!ai_adb_active || ai_debugging_active) ai_adb_detected (6);
+        }
+    }
+
+    var element = jQuery (b64d ("I2FpLWFkYi1kYmxjbGs="));
+    if (element.length) {
+      if (!!(element.width () * element.height ())) {
+        ai_adb_undetected (8);
+      } else {
+          if (!ai_adb_active || ai_debugging_active) ai_adb_detected (8);
+        }
+    }
+  }
+
+  setTimeout (function() {
+    if (ai_adb_debugging) console.log ("AI AD BLOCKING delayed checks external scripts");
+
+    ai_adb_external_scripts ();
+
+    // Check again, result is delayed
+    setTimeout (function() {
+      if (!ai_adb_active) {
+        setTimeout (function() {
+          ai_adb_external_scripts ();
+        }, 400);
+      }
+    }, 5);
+  }, 1050);
+
   setTimeout (function() {
     var ai_debugging_active = typeof ai_adb_fe_dbg !== 'undefined';
+
+    if (ai_adb_debugging) console.log ("AI AD BLOCKING delayed checks 1, 2, 3, 11, 12");
 
     if (jQuery(b64d ("I2FpLWFkYi1hZHM=")).length) {
       if (!document.getElementById ("AI_CONST_AI_ADB_1_NAME")) {
         ai_adb_get_script ('ads', ai_adb_1);
       } else ai_adb_1 ();
-    }
-
-    if (jQuery(b64d ("I2FpLWFkYi1nYQ==")).length) {
-      if (!(typeof ga          == 'function' && ga.toString().length           > 30) &&
-          !(typeof __gaTracker == 'function' && __gaTracker.toString ().length > 30)) {
-        if (!ai_adb_active || ai_debugging_active) ai_adb_detected (5);
-      } else {
-          ai_adb_undetected (5);
-        }
     }
 
     if (jQuery(b64d ("I2FpLWFkYi1zcG9uc29ycw==")).length) {
@@ -776,16 +842,13 @@ jQuery (window).on ('load', function () {
       }
     }
 
-    setTimeout (function() {
-      if (jQuery(b64d ("I2FpLWFkYi1tbg==")).length) {
-        if (!(typeof _mNDetails == 'object' && JSON.stringify (_mNDetails).length > 400)) {
-          if (!ai_adb_active || ai_debugging_active) ai_adb_detected (6);
-        } else {
-            ai_adb_undetected (6);
-          }
-      }
-    }, 80);
+    if (jQuery(b64d ("I2FpLWFkYi1iYW5uZXI=")).length) {
+      ai_adb_11 ();
+    }
 
-  }, 120);
+    if (jQuery(b64d ("I2FpLWFkYi0zMDB4MjUw")).length) {
+      ai_adb_12 ();
+    }
+  }, 1150);
 });
 

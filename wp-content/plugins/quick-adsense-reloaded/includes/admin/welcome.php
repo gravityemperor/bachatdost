@@ -63,8 +63,7 @@ class quads_Welcome {
                 }
 
 		$upgrade = get_option( 'quads_version_upgraded_from' );
-
-			wp_safe_redirect( admin_url( 'admin.php?page=quads-addons' ) ); exit;
+		wp_safe_redirect( admin_url( 'admin.php?page=quads-settings' ) ); exit;
 
 	}
 
