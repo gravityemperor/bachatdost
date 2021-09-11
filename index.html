@@ -1,15 +1,178 @@
 <!DOCTYPE html>
-<html lang="en-US" data-woostify-version="1.9.6">
-	<head>		<meta charset="UTF-8">
-		<title>Bachat Dost &#8211; Just another WordPress site</title>
+<html lang="en-US">
+<head>
+			<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="profile" href="http://gmpg.org/xfn/11">
+		<title>BachatDost &#8211; Saving your money is our mission.</title>
 <meta name="robots" content="max-image-preview:large">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//s.w.org">
-<link rel="alternate" type="application/rss+xml" title="Bachat Dost &raquo; Feed" href="/https://bachatdost.in/?feed=rss2">
-<link rel="alternate" type="application/rss+xml" title="Bachat Dost &raquo; Comments Feed" href="/https://bachatdost.in/?feed=comments-rss2">
-<link rel="alternate" type="application/rss+xml" title="Bachat Dost &raquo; Products Feed" href="/https://bachatdost.in/?post_type=product&#038;feed=rss2">
-		<script type="text/javascript">
-			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8"}};
+<link rel="alternate" type="application/rss+xml" title="BachatDost &raquo; Feed" href="https://bachatdost.in/?feed=rss2">
+<link rel="alternate" type="application/rss+xml" title="BachatDost &raquo; Comments Feed" href="https://bachatdost.in/?feed=comments-rss2">
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v7.18.0 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+							<script src="//www.googletagmanager.com/gtag/js?id=UA-2860787-58" type="text/javascript" data-cfasync="false" async></script>
+			<script type="text/javascript" data-cfasync="false">
+				var mi_version = '7.18.0';
+				var mi_track_user = true;
+				var mi_no_track_reason = '';
+				
+								var disableStr = 'ga-disable-UA-2860787-58';
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					return document.cookie.indexOf( disableStr + '=true' ) > - 1;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if ( __gtagTrackerIsOptedOut() ) {
+					window[disableStr] = true;
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+					window[disableStr] = true;
+				}
+
+				if ( 'undefined' === typeof gaOptout ) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+				if ( mi_track_user ) {
+					function __gtagTracker() {dataLayer.push( arguments );}
+					__gtagTracker( 'js', new Date() );
+					__gtagTracker( 'set', {
+						'developer_id.dZGIzZG' : true,
+						                    });
+					__gtagTracker( 'config', 'UA-2860787-58', {
+						forceSSL:true,link_attribution:true,					} );
+										window.gtag = __gtagTracker;										(
+						function () {
+							/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+							/* ga and __gaTracker compatibility shim. */
+							var noopfn = function () {
+								return null;
+							};
+							var newtracker = function () {
+								return new Tracker();
+							};
+							var Tracker = function () {
+								return null;
+							};
+							var p = Tracker.prototype;
+							p.get = noopfn;
+							p.set = noopfn;
+							p.send = function (){
+								var args = Array.prototype.slice.call(arguments);
+								args.unshift( 'send' );
+								__gaTracker.apply(null, args);
+							};
+							var __gaTracker = function () {
+								var len = arguments.length;
+								if ( len === 0 ) {
+									return;
+								}
+								var f = arguments[len - 1];
+								if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
+									if ( 'send' === arguments[0] ) {
+										var hitConverted, hitObject = false, action;
+										if ( 'event' === arguments[1] ) {
+											if ( 'undefined' !== typeof arguments[3] ) {
+												hitObject = {
+													'eventAction': arguments[3],
+													'eventCategory': arguments[2],
+													'eventLabel': arguments[4],
+													'value': arguments[5] ? arguments[5] : 1,
+												}
+											}
+										}
+										if ( 'pageview' === arguments[1] ) {
+											if ( 'undefined' !== typeof arguments[2] ) {
+												hitObject = {
+													'eventAction': 'page_view',
+													'page_path' : arguments[2],
+												}
+											}
+										}
+										if ( typeof arguments[2] === 'object' ) {
+											hitObject = arguments[2];
+										}
+										if ( typeof arguments[5] === 'object' ) {
+											Object.assign( hitObject, arguments[5] );
+										}
+										if ( 'undefined' !== typeof arguments[1].hitType ) {
+											hitObject = arguments[1];
+											if ( 'pageview' === hitObject.hitType ) {
+												hitObject.eventAction = 'page_view';
+											}
+										}
+										if ( hitObject ) {
+											action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+											hitConverted = mapArgs( hitObject );
+											__gtagTracker( 'event', action, hitConverted );
+										}
+									}
+									return;
+								}
+
+								function mapArgs( args ) {
+									var arg, hit = {};
+									var gaMap = {
+										'eventCategory': 'event_category',
+										'eventAction': 'event_action',
+										'eventLabel': 'event_label',
+										'eventValue': 'event_value',
+										'nonInteraction': 'non_interaction',
+										'timingCategory': 'event_category',
+										'timingVar': 'name',
+										'timingValue': 'value',
+										'timingLabel': 'event_label',
+										'page' : 'page_path',
+										'location' : 'page_location',
+										'title' : 'page_title',
+									};
+									for ( arg in args ) {
+										if ( args.hasOwnProperty(arg) && gaMap.hasOwnProperty(arg) ) {
+											hit[gaMap[arg]] = args[arg];
+										} else {
+											hit[arg] = args[arg];
+										}
+									}
+									return hit;
+								}
+
+								try {
+									f.hitCallback();
+								} catch ( ex ) {
+								}
+							};
+							__gaTracker.create = newtracker;
+							__gaTracker.getByName = newtracker;
+							__gaTracker.getAll = function () {
+								return [];
+							};
+							__gaTracker.remove = noopfn;
+							__gaTracker.loaded = true;
+							window['__gaTracker'] = __gaTracker;
+						}
+					)();
+									} else {
+										console.log( "" );
+					( function () {
+							function __gtagTracker() {
+								return null;
+							}
+							window['__gtagTracker'] = __gtagTracker;
+							window['gtag'] = __gtagTracker;
+					} )();
+									}
+			</script>
+				<!-- / Google Analytics by MonsterInsights -->
+				<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/bachatdost.in\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8"}};
 			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
 		</script>
 		<style type="text/css">img.wp-smiley,
@@ -24,1437 +187,974 @@ img.emoji {
 	background: none !important;
 	padding: 0 !important;
 }</style>
-	<link rel="stylesheet" id="woostify-fonts-css" href="//fonts.googleapis.com/css?family=Poppins&#038;ver=1.9.6" type="text/css" media="all">
-<link rel="stylesheet" id="wp-block-library-css" href="/https://bachatdost.in/wp-includes/css/dist/block-library/style.min.css?ver=5.8" type="text/css" media="all">
+	<link rel="stylesheet" id="wp-block-library-css" href="https://bachatdost.in/wp-includes/css/dist/block-library/style.min.css?ver=5.8" type="text/css" media="all">
 <style id="wp-block-library-theme-inline-css" type="text/css">#start-resizable-editor-section{display:none}.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-code{font-family:Menlo,Consolas,monaco,monospace;color:#1e1e1e;padding:.8em 1em;border:1px solid #ddd;border-radius:4px}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-pullquote{border-top:4px solid;border-bottom:4px solid;margin-bottom:1.75em;color:currentColor}.wp-block-pullquote__citation,.wp-block-pullquote cite,.wp-block-pullquote footer{color:currentColor;text-transform:uppercase;font-size:.8125em;font-style:normal}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;position:relative;font-style:normal}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-group.has-background{padding:1.25em 2.375em;margin-top:0;margin-bottom:0}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto;opacity:.4}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{padding:.5em;border:1px solid;word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-template-part.has-background{padding:1.25em 2.375em;margin-top:0;margin-bottom:0}#end-resizable-editor-section{display:none}</style>
-<link rel="stylesheet" id="mediaelement-css" href="/https://bachatdost.in/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.16" type="text/css" media="all">
-<link rel="stylesheet" id="wp-mediaelement-css" href="/https://bachatdost.in/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=5.8" type="text/css" media="all">
-<link rel="stylesheet" id="wc-blocks-vendors-style-css" href="/https://bachatdost.in/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=5.5.1" type="text/css" media="all">
-<link rel="stylesheet" id="wc-blocks-style-css" href="/https://bachatdost.in/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css?ver=5.5.1" type="text/css" media="all">
-<style id="woocommerce-inline-inline-css" type="text/css">.woocommerce form .form-row .required { visibility: visible; }</style>
-<link rel="stylesheet" id="woostify-style-css" href="/https://bachatdost.in/wp-content/themes/woostify/style.css?ver=1.9.6" type="text/css" media="all">
-<style id="woostify-style-inline-css" type="text/css">.main-navigation .mega-menu-inner-wrapper {
-				width: 100%;
-				max-width: 1200px;
-				margin: 0 auto;
-				padding-left: 15px;
-				padding-right: 15px;
-			}
-		
-			@media (min-width: 992px) {
-				.woostify-container,
-				.site-boxed-container #view,
-				.site-content-boxed-container .site-content {
-					max-width: 1200px;
-				}
-			}
-		
-			.topbar{
-				background-color: #292f34;
-				padding: 0px 0;
-			}
-			.topbar *{
-				color: #ffffff;
-			}
-		
-			@media ( max-width: 992px ) {
-				.primary-navigation.primary-mobile-navigation + .primary-navigation{
-					display: none;
-				}
-
-				.has-header-layout-1 .wrap-toggle-sidebar-menu {
-					display: block;
-				}
-				.site-header-inner .site-navigation, .site-header-inner .site-search {
-					display: none;
-				}
-				.has-header-layout-1 .sidebar-menu {
-					display: block;
-				}
-				.has-header-layout-1 .site-navigation {
-					text-align: left;
-				}
-				.has-header-layout-3 .header-layout-3 .wrap-toggle-sidebar-menu {
-					display: block !important;
-				}
-				.has-header-layout-3 .header-layout-3 .navigation-box, .has-header-layout-3 .header-layout-3 .left-content {
-					display: none;
-				}
-				.has-header-layout-4 .header-layout-4 .wrap-toggle-sidebar-menu {
-					display: block !important;
-				}
-				.has-header-layout-5 .header-layout-5 .wrap-toggle-sidebar-menu {
-					display: block !important;
-				}
-				.has-header-layout-5 .header-layout-5 .navigation-box, .has-header-layout-5 .header-layout-5 .center-content {
-					display: none;
-				}
-				.site-branding {
-					text-align: center;
-				}
-				.header-layout-6 .wrap-toggle-sidebar-menu, .header-layout-6 .header-content-top .shopping-bag-button {
-					display: block !important;
-				}
-				.header-layout-6 .content-top-right, .header-layout-6 .header-content-bottom {
-					display: none;
-				}
-				.header-layout-8 .content-top-right, .header-layout-8 .header-content-bottom {
-					display: none !important;
-				}
-				.header-layout-8 .wrap-toggle-sidebar-menu, .header-layout-8 .header-search-icon {
-					display: block !important;
-				}
-				.header-layout-8 .header-content-top .site-tools {
-					display: flex !important;
-				}
-				.header-layout-1 .site-branding {
-				    flex: 0 1 auto;
-				}
-				.header-layout-1 .wrap-toggle-sidebar-menu, .header-layout-1 .site-tools {
-				    flex: 1 1 0px;
-				}
-				.site-header-inner .site-navigation, .site-header-inner .site-search {
-					display: none;
-				}
-				.header-layout-1 .wrap-toggle-sidebar-menu,
-				  .header-layout-1 .site-tools {
-				    flex: 1 1 0px;
-				}
-
-				.header-layout-1 .site-branding {
-				    flex: 0 1 auto;
-				}
-
-				.site-header-inner .woostify-container {
-				    padding: 15px;
-				    justify-content: center;
-				}
-
-				.site-header-inner .logo {
-				    max-width: 70%;
-				    margin: 0 auto;
-				}
-
-				.site-tools .header-search-icon,
-				  .site-tools .my-account {
-				    display: none;
-				}
-
-				.site-header .shopping-bag-button {
-				    margin-right: 15px;
-				}
-
-				.has-custom-mobile-logo a:not(.custom-mobile-logo-url) {
-				    display: none;
-				}
-
-				.has-header-transparent.header-transparent-for-mobile .site-header {
-				    position: absolute;
-				}
-
-				.header-layout-1 .wrap-toggle-sidebar-menu,
-				.header-layout-1 .site-tools {
-					flex: 1 1 0px;
-				}
-
-				.header-layout-1 .site-branding {
-				    flex: 0 1 auto;
-				}
-
-				.site-header-inner .woostify-container {
-				    padding: 15px;
-				    justify-content: center;
-				}
-
-				.site-header-inner .logo {
-				    max-width: 70%;
-				    margin: 0 auto;
-				}
-
-				.site-tools .header-search-icon,
-				.site-tools .my-account {
-				    display: none;
-				}
-
-				.has-header-transparent.header-transparent-for-mobile .site-header {
-				    position: absolute;
-				}
-				.sub-mega-menu {
-    				display: none;
-  				}
-  				.site-branding .custom-mobile-logo-url {
-					display: block;
-				}
-
-				.has-custom-mobile-logo.logo-transparent .custom-transparent-logo-url {
-					display: block;
-				}
-			}
-		
-			@media ( min-width: 993px ) {
-				.primary-navigation.primary-mobile-navigation {
-					display: none;
-				}
-
-				.has-header-layout-1 .wrap-toggle-sidebar-menu {
-					display: none;
-				}
-
-				.site-branding .custom-mobile-logo-url {
-					display: none;
-				}
-
-				.sidebar-menu .main-navigation .primary-navigation > .menu-item {
-				    display: block;
-				}
-
-				.sidebar-menu .main-navigation .primary-navigation > .menu-item > a {
-					padding: 0;
-				}
-
-				.main-navigation .primary-navigation > .menu-item > a {
-				    padding: 20px 0;
-				    margin: 0 20px;
-				    display: flex;
-				    justify-content: space-between;
-				    align-items: center;
-				}
-
-				.main-navigation .primary-navigation > .menu-item {
-				    display: inline-flex;
-				    line-height: 1;
-				    align-items: center;
-				    flex-direction: column;
-				}
-
-				.has-header-layout-1 .sidebar-menu {
-				    display: none;
-				}
-
-				.sidebar-menu .main-navigation .primary-navigation .menu-item-has-mega-menu .mega-menu-wrapper {
-				    min-width: auto;
-				    max-width: 100%;
-				    transform: none;
-				    position: static;
-				    box-shadow: none;
-				    opacity: 1;
-				    visibility: visible;
-				}
-
-				.sidebar-menu .main-navigation .primary-navigation .sub-menu {
-				    margin-left: 20px !important;
-				}
-
-				.sidebar-menu .main-navigation .primary-navigation .sub-menu:not(.sub-mega-menu) {
-				    transition-duration: 0s;
-				}
-
-				.sidebar-menu .main-navigation .primary-navigation > .menu-item ul:not(.sub-mega-menu) {
-				    opacity: 1;
-				    visibility: visible;
-				    transform: none;
-				    position: static;
-				    box-shadow: none;
-				    transition-duration: 0s;
-				    min-width: auto;
-				}
-
-				.sidebar-menu .main-navigation .primary-navigation > .menu-item ul:not(.sub-mega-menu) a {
-				    padding-right: 0;
-				    padding-left: 0;
-				}
-
-				.sidebar-menu-open .sidebar-menu .site-navigation {
-    				left: 60px;
-   					right: 60px;
-  				}
-
-				.has-header-transparent.header-transparent-for-desktop .site-header {
-  					position: absolute;
-				}
-
-				.woostify-nav-menu-widget .woostify-toggle-nav-menu-button, .woostify-nav-menu-widget .site-search, .woostify-nav-menu-widget .woostify-nav-menu-account-action {
-				    display: none;
-				}
-
-				.sidebar-menu-open .sidebar-menu .site-navigation {
-				    left: 60px;
-				    right: 60px;
-				}
-
-				.has-header-transparent.header-transparent-for-desktop .site-header {
-				    position: absolute;
-				}
-
-				.has-custom-mobile-logo .custom-mobile-logo-url {
-				    display: none;
-				}
-
-				.main-navigation li {
-					list-style: none;
-				}
-
-				.site-header-inner .site-navigation:last-child .main-navigation {
-				    padding-right: 0;
-			  	}
-
-			  	.main-navigation ul {
-				    padding-left: 0;
-				    margin: 0;
-				}
-
-				.main-navigation .primary-navigation {
-				    font-size: 0;
-				}
-
-				.main-navigation .primary-navigation > .menu-item .sub-menu {
-				    opacity: 0;
-				    visibility: hidden;
-				    position: absolute;
-				    top: 110%;
-				    left: 0;
-				    margin-left: 0;
-				    min-width: 180px;
-				    text-align: left;
-				    z-index: -1;
-				}
-
-				.main-navigation .primary-navigation > .menu-item .sub-menu .menu-item-has-children .menu-item-arrow {
-				    transform: rotate(-90deg);
-				}
-
-				.main-navigation .primary-navigation > .menu-item .sub-menu a {
-				    padding: 10px 0 10px 20px;
-				    display: flex;
-				    justify-content: space-between;
-				    align-items: center;
-				}
-				.main-navigation .primary-navigation > .menu-item .sub-menu a.tinvwl_add_to_wishlist_button, .main-navigation .primary-navigation > .menu-item .sub-menu a.woocommerce-loop-product__link, .main-navigation .primary-navigation > .menu-item .sub-menu a.loop-add-to-cart-btn {
-				    padding: 0;
-				    justify-content: center;
-				    border-radius: 0;
-				}
-
-				.main-navigation .primary-navigation > .menu-item .sub-menu a.tinvwl_add_to_wishlist_button:hover, .main-navigation .primary-navigation > .menu-item .sub-menu a.woocommerce-loop-product__link:hover, .main-navigation .primary-navigation > .menu-item .sub-menu a.loop-add-to-cart-btn:hover {
-				    background-color: transparent;
-				}
-
-				.main-navigation .primary-navigation > .menu-item .sub-menu a:hover {
-				    background: rgba(239, 239, 239, 0.28);
-				}
-
-				.main-navigation .primary-navigation .menu-item {
-				    position: relative;
-				}
-
-				.main-navigation .primary-navigation .menu-item:hover > .sub-menu {
-				    pointer-events: auto;
-				    opacity: 1;
-				    visibility: visible;
-				    top: 100%;
-				    z-index: 999;
-				    -webkit-transform: translateY(0px);
-				    transform: translateY(0px);
-				}
-
-				.main-navigation .primary-navigation .sub-menu {
-				    pointer-events: none;
-				    background-color: #fff;
-				    -webkit-box-shadow: 0 2px 8px 0 rgba(125, 122, 122, 0.2);
-				    box-shadow: 0 2px 8px 0 rgba(125, 122, 122, 0.2);
-				    border-radius: 4px;
-				    -webkit-transition-duration: 0.2s;
-				    transition-duration: 0.2s;
-				    -webkit-transform: translateY(10px);
-				    transform: translateY(10px);
-				}
-
-				.main-navigation .primary-navigation .sub-menu > .menu-item > .sub-menu {
-				    -webkit-transform: translateY(0px);
-				    transform: translateY(0px);
-				    top: 0;
-				    left: 110%;
-				}
-
-				.main-navigation .primary-navigation .sub-menu > .menu-item:hover > .sub-menu {
-				    left: 100%;
-				}
-
-				.has-header-layout-1 .wrap-toggle-sidebar-menu {
-				    display: none;
-				}
-
-				.has-header-layout-1 .site-navigation {
-				    flex-grow: 1;
-				    text-align: right;
-				}
-
-				.has-header-layout-1 .site-navigation .site-search:not(.woostify-search-form-widget),
-				  .has-header-layout-1 .site-navigation .mobile-my-account {
-				    display: none;
-				}
-			}
-		
-			body, select, button, input, textarea{
-				font-family: Poppins;
-				font-weight: 400;
-				line-height: 28px;
-				text-transform: none;
-				font-size: 14px;
-				color: #8f8f8f;
-			}
-
-			.pagination a,
-			.pagination a,
-			.woocommerce-pagination a,
-			.woocommerce-loop-product__category a,
-			.woocommerce-loop-product__title,
-			.price del,
-			.stars a,
-			.woocommerce-review-link,
-			.woocommerce-tabs .tabs li:not(.active) a,
-			.woocommerce-cart-form__contents .product-remove a,
-			.comment-body .comment-meta .comment-date,
-			.woostify-breadcrumb a,
-			.breadcrumb-separator,
-			#secondary .widget a,
-			.has-woostify-text-color,
-			.button.loop-add-to-cart-icon-btn,
-			.loop-wrapper-wishlist a,
-			#order_review .shop_table .product-name {
-				color: #8f8f8f;
-			}
-
-			.loop-wrapper-wishlist a:hover,
-			.price_slider_wrapper .price_slider,
-			.has-woostify-text-background-color{
-				background-color: #8f8f8f;
-			}
-
-			.elementor-add-to-cart .quantity {
-				border: 1px solid #8f8f8f;
-			}
-
-			.product .woocommerce-loop-product__title{
-				font-size: 14px;
-			}
-		
-			.primary-navigation a{
-				font-family: Poppins;
-				text-transform: none;
-			}
-
-			.primary-navigation > li > a,
-			.primary-navigation .sub-menu a {
-				font-weight: 500;
-			}
-
-			.primary-navigation > li > a{
-				font-size: 14px;
-				line-height: 50px;
-				color: #2b2b2b;
-			}
-
-			.primary-navigation .sub-menu a{
-				line-height: 24px;
-				font-size: 12px;
-				color: #2b2b2b;
-			}
-
-			.site-tools .tools-icon {
-				color: #2b2b2b;
-			}
-			.site-tools .tools-icon .woostify-header-total-price {
-				font-family: Poppins;
-				font-size: 14px;
-				color: #2b2b2b;
-			}
-		
-			h1, h2, h3, h4, h5, h6{
-				font-family: Poppins;
-				font-weight: 700;
-				text-transform: none;
-				line-height: 1.5;
-				color: #2b2b2b;
-			}
-			h1,
-			.has-woostify-heading-1-font-size{
-				font-size: 48px;
-			}
-			h2,
-			.has-woostify-heading-2-font-size{
-				font-size: 36px;
-			}
-			h3,
-			.has-woostify-heading-3-font-size{
-				font-size: 30px;
-			}
-			h4,
-			.has-woostify-heading-4-font-size{
-				font-size: 28px;
-			}
-			h5,
-			.has-woostify-heading-5-font-size{
-				font-size: 26px;
-			}
-			h6,
-			.has-woostify-heading-6-font-size{
-				font-size: 18px;
-			}
-
-			.product-loop-meta .price,
-			.variations label,
-			.woocommerce-review__author,
-			.button[name="apply_coupon"],
-			.quantity .qty,
-			.form-row label,
-			.select2-container--default .select2-selection--single .select2-selection__rendered,
-			.form-row .input-text:focus,
-			.wc_payment_method label,
-			.shipping-methods-modified-label,
-			.woocommerce-checkout-review-order-table thead th,
-			.woocommerce-checkout-review-order-table .product-name,
-			.woocommerce-thankyou-order-details strong,
-			.woocommerce-table--order-details th,
-			.woocommerce-table--order-details .amount,
-			.wc-breadcrumb .woostify-breadcrumb,
-			.sidebar-menu .primary-navigation .arrow-icon,
-			.default-widget a strong:hover,
-			.woostify-subscribe-form input,
-			.woostify-shop-category .elementor-widget-image .widget-image-caption,
-			.shop_table_responsive td:before,
-			.dialog-search-title,
-			.cart-collaterals th,
-			.woocommerce-mini-cart__total strong,
-			.woocommerce-form-login-toggle .woocommerce-info a,
-			.woocommerce-form-coupon-toggle .woocommerce-info a,
-			.has-woostify-heading-color,
-			.woocommerce-table--order-details td,
-			.woocommerce-table--order-details td.product-name a,
-			.has-distraction-free-checkout .site-header .site-branding:after,
-			.woocommerce-cart-form__contents thead th,
-			#order_review .shop_table th,
-			#order_review .shop_table th.product-name,
-			#order_review .shop_table .product-quantity {
-				color: #2b2b2b;
-			}
-
-			.has-woostify-heading-background-color{
-				background-color: #2b2b2b;
-			}
-
-			.variations label{
-				font-weight: 700;
-			}
-		
-			.cart-sidebar-content .woocommerce-mini-cart__buttons a:not(.checkout),
-			.product-loop-meta .button,
-			.multi-step-checkout-button[data-action="back"],
-			.review-information-link,
-			a{
-				color: #2b2b2b;
-			}
-
-			.woostify-icon-bar span{
-				background-color: #2b2b2b;
-			}
-		
-			.woostify-button-color,
-			.loop-add-to-cart-on-image+.added_to_cart {
-				color: #8224e3;
-			}
-
-			.woostify-button-bg-color,
-			.woocommerce-cart-form__contents:not(.elementor-menu-cart__products) .actions .coupon [name="apply_coupon"],
-			.loop-add-to-cart-on-image+.added_to_cart {
-				background-color: #fbfd01;
-			}
-
-			.woostify-button-hover-color,
-			.button[name="apply_coupon"]:hover{
-				color: #eeee22;
-			}
-
-			.woostify-button-hover-bg-color,
-			.loop-add-to-cart-on-image+.added_to_cart:hover,
-			.button.loop-add-to-cart-icon-btn:hover,
-			.product-loop-action .yith-wcwl-add-to-wishlist:hover,
-			.product-loop-action .yith-wcwl-wishlistaddedbrowse.show,
-			.product-loop-action .yith-wcwl-wishlistexistsbrowse.show,
-			.product-loop-action .added_to_cart,
-			.product-loop-image-wrapper .tinv-wraper .tinvwl_add_to_wishlist_button:hover {
-				background-color: #8224e3;
-			}
-
-			@media (min-width: 992px) {
-				.main-navigation .primary-navigation > .menu-item ul:not(.sub-mega-menu) a.tinvwl_add_to_wishlist_button:hover {
-					background-color: #8224e3;
-				}
-			}
-
-			.button,
-			.woocommerce-widget-layered-nav-dropdown__submit,
-			.form-submit .submit,
-			.elementor-button-wrapper .elementor-button,
-			.has-woostify-contact-form input[type="submit"],
-			#secondary .widget a.button,
-			.product-loop-meta.no-transform .button,
-			.product-loop-meta.no-transform .added_to_cart{
-				background-color: #fbfd01;
-				color: #8224e3;
-				border-radius: 50px;
-			}
-
-			.cart:not(.elementor-menu-cart__products) .quantity,
-			.loop-add-to-cart-on-image+.added_to_cart{
-				border-radius: 50px;
-			}
-
-			.button:hover,
-			.single_add_to_cart_button.button:not(.woostify-buy-now):hover,
-			.woocommerce-widget-layered-nav-dropdown__submit:hover,
-			#commentform input[type="submit"]:hover,
-			.form-submit .submit:hover,
-			#secondary .widget a.button:hover,
-			.woostify-contact-form input[type="submit"]:hover,
-			.loop-add-to-cart-on-image+.added_to_cart:hover,
-			.product-loop-meta.no-transform .button:hover,
-			.product-loop-meta.no-transform .added_to_cart:hover{
-				background-color: #8224e3;
-				color: #eeee22;
-			}
-
-			.select2-container--default .select2-results__option--highlighted[aria-selected],
-			.select2-container--default .select2-results__option--highlighted[data-selected]{
-				background-color: #fbfd01 !important;
-			}
-
-			@media ( max-width: 600px ) {
-				.woocommerce-cart-form__contents [name="update_cart"] {
-					background-color: #fbfd01;
-					filter: grayscale(100%);
-				}
-				.woocommerce-cart-form__contents [name="update_cart"],
-				.woocommerce-cart-form__contents .coupon button {
-					color: #8224e3;
-				}
-			}
-		
-			.woostify-theme-color,
-			.primary-navigation li.current-menu-item > a,
-			.primary-navigation > li.current-menu-ancestor > a,
-			.primary-navigation > li.current-menu-parent > a,
-			.primary-navigation > li.current_page_parent > a,
-			.primary-navigation > li.current_page_ancestor > a,
-			.woocommerce-cart-form__contents tbody .product-subtotal,
-			.woocommerce-checkout-review-order-table .order-total,
-			.woocommerce-table--order-details .product-name a,
-			.primary-navigation a:hover,
-			.primary-navigation .menu-item-has-children:hover > a,
-			.default-widget a strong,
-			.woocommerce-mini-cart__total .amount,
-			.woocommerce-form-login-toggle .woocommerce-info a:hover,
-			.woocommerce-form-coupon-toggle .woocommerce-info a:hover,
-			.has-woostify-primary-color,
-			.blog-layout-grid .site-main .post-read-more a,
-			.site-footer a:hover,
-			.woostify-simple-subsbrice-form input[type="submit"],
-			.woocommerce-tabs li.active a,
-			#secondary .widget .current-cat > a,
-			#secondary .widget .current-cat > span,
-			.site-tools .header-search-icon:hover,
-			.product-loop-meta .button:hover,
-			#secondary .widget a:not(.tag-cloud-link):hover,
-			.cart-sidebar-content .woocommerce-mini-cart__buttons a:not(.checkout):hover,
-			.product-nav-item:hover > a,
-			.product-nav-item .product-nav-item-price,
-			.woocommerce-thankyou-order-received,
-			.site-tools .tools-icon:hover,
-			.tools-icon.my-account:hover > a,
-			.multi-step-checkout-button[data-action="back"]:hover,
-			.review-information-link:hover,
-			.has-multi-step-checkout .multi-step-item,
-			#secondary .chosen a,
-			#secondary .chosen .count,
-			.cart_totals .shop_table .woocommerce-Price-amount,
-			#order_review .shop_table .woocommerce-Price-amount,
-			a:hover{
-				color: #7801fd;
-			}
-
-			.onsale,
-			.pagination li .page-numbers.current,
-			.woocommerce-pagination li .page-numbers.current,
-			.tagcloud a:hover,
-			.price_slider_wrapper .ui-widget-header,
-			.price_slider_wrapper .ui-slider-handle,
-			.cart-sidebar-head .shop-cart-count,
-			.wishlist-item-count,
-			.shop-cart-count,
-			.sidebar-menu .primary-navigation a:before,
-			.woocommerce-message,
-			.woocommerce-info,
-			#scroll-to-top,
-			.woocommerce-store-notice,
-			.has-woostify-primary-background-color,
-			.woostify-simple-subsbrice-form input[type="submit"]:hover,
-			.has-multi-step-checkout .multi-step-item .item-text:before,
-			.has-multi-step-checkout .multi-step-item:before,
-			.has-multi-step-checkout .multi-step-item:after,
-			.has-multi-step-checkout .multi-step-item.active:before,
-			.woostify-single-product-stock .woostify-single-product-stock-progress-bar {
-				background-color: #7801fd;
-			}
-
-			.woocommerce-thankyou-order-received,
-			.woostify-lightbox-button:hover {
-				border-color: #7801fd;
-			}
-
-			/* Fix issue not showing on IE - Must use single line css */
-			.woostify-simple-subsbrice-form:focus-within input[type="submit"]{
-				background-color: #7801fd;
-			}
-		
-			.site-header-inner{
-				background-color: #ffffff;
-			}
-		
-				.page-header{
-					padding-top: 50px;
-					padding-bottom: 50px;
-					margin-bottom: 50px;
-					background-color: #f2f2f2;
-				}
-
-				.page-header .entry-title{
-					color: #4c4c4c;
-				}
-
-				.woostify-breadcrumb,
-				.woostify-breadcrumb a{
-					color: #606060;
-				}
-			
-			@media (min-width: 992px) {
-
-				.has-sidebar:not(.offcanvas-sidebar) #secondary {
-				width: 20%;
-				}
-
-				.has-sidebar:not(.offcanvas-sidebar) #primary {
-					width: calc( 100% - 20%);
-				}
-			}
-		
-			.site-footer{
-				margin-top: 100px;
-			}
-
-			.site-footer a{
-				color: #8f8f8f;
-			}
-
-			.site-footer{
-				background-color: #eeeeec;
-				color: #8f8f8f;
-			}
-
-			.site-footer .widget-title,
-			.woostify-footer-social-icon a{
-				color: #2b2b2b;
-			}
-
-			.woostify-footer-social-icon a:hover{
-				background-color: #2b2b2b;
-			}
-
-			.woostify-footer-social-icon a {
-				border-color: #2b2b2b;
-			}
-
-			#scroll-to-top {
-				border-radius: 0px;
-			}
-		
-			.woostify-sticky-footer-bar {
-				background: #fff;
-			}
-			.woostify-sticky-footer-bar .woostify-item-list-item__icon .woositfy-sfb-icon svg,
-			.woostify-sticky-footer-bar .woostify-item-list-item__icon .woositfy-sfb-icon svg path {
-				color: #111;
-				fill: #111;
-			}
-			.woostify-sticky-footer-bar .woostify-item-list__item a:hover .woostify-item-list-item__icon .woositfy-sfb-icon svg,
-			 .woostify-sticky-footer-bar .woostify-item-list__item a:hover .woostify-item-list-item__icon .woositfy-sfb-icon svg path {
-				color: #111;
-				fill: #111;
-			}
-			.woostify-sticky-footer-bar .woostify-item-list-item__name {
-				color: #111;
-				font-weight: 600;
-			}
-			.woostify-sticky-footer-bar .woostify-item-list__item a:hover .woostify-item-list-item__name {
-				color: #111;
-			}
-		
-			@media ( min-width: 992px ) {
-				.woostify-sticky-footer-bar {
-					padding: 10px 0 10px 0;
-				}
-				.woostify-sticky-footer-bar .woostify-item-list-item__icon .woositfy-sfb-icon svg {
-					width: 20px;
-					height: 20px;
-				}
-				.woostify-sticky-footer-bar ul.woostify-item-list li.woostify-item-list__item a .woostify-item-list-item__icon {
-					margin-bottom: 5px;
-				}
-				.woostify-sticky-footer-bar .woostify-item-list-item__name {
-					font-size: 13px;
-				}
-			}
-			@media ( min-width: 768px ) and ( max-width: 991px ) {
-				.woostify-sticky-footer-bar {
-					padding: 10px 0 10px 0;
-				}
-				.woostify-sticky-footer-bar .woostify-item-list-item__icon .woositfy-sfb-icon svg {
-					width: 20px;
-					height: 20px;
-				}
-				.woostify-sticky-footer-bar ul.woostify-item-list li.woostify-item-list__item a .woostify-item-list-item__icon {
-					margin-bottom: 5px;
-				}
-				.woostify-sticky-footer-bar .woostify-item-list-item__name {
-					font-size: 13px;
-				}
-			}
-			@media ( max-width: 767px ) {
-				.woostify-sticky-footer-bar {
-					padding: 10px 0 10px 0;
-				}
-				.woostify-sticky-footer-bar .woostify-item-list-item__icon .woositfy-sfb-icon svg {
-					width: 18px;
-					height: 18px;
-				}
-				.woostify-sticky-footer-bar ul.woostify-item-list li.woostify-item-list__item a .woostify-item-list-item__icon {
-					margin-bottom: 5px;
-				}
-				.woostify-sticky-footer-bar .woostify-item-list-item__name {
-					font-size: 12px;
-				}
-			}
-			
-			#scroll-to-top:before {
-				font-size: 17px;
-			}
-
-			#scroll-to-top {
-				bottom: 20px;
-				background-color: ;
-				color: ;
-			}
-
-			@media (min-width: 992px) {
-				#scroll-to-top.scroll-to-top-show-mobile {
-					display: none;
-				}
-			}
-			@media (max-width: 992px) {
-				#scroll-to-top.scroll-to-top-show-desktop {
-					display: none;
-				}
-			}
-		
-			.circle-loading:before,
-			.product_list_widget .remove_from_cart_button:focus:before,
-			.updating-cart.ajax-single-add-to-cart .single_add_to_cart_button:before,
-			.product-loop-meta .loading:before,
-			.updating-cart #shop-cart-sidebar:before {
-				border-top-color: #7801fd;
-			}
-		
-			.product-loop-wrapper .button,.product-loop-meta.no-transform .button {
-				background-color: ;
-				color: ;
-				border-radius: px;
-			}
-
-			.product-loop-wrapper .button:hover, .product-loop-meta.no-transform .button:hover {
-				background-color: ;
-				color: ;
-			}
-		
-			.onsale {
-				color: #ffffff;
-				background-color: #1346af;
-				border-radius: 0px;
-			}
-		
-			.woostify-out-of-stock-label {
-				color: #ffffff;
-				background-color: #818486;
-				border-radius: 0px;
-			}
-		
-			.single-product .content-top,
-			.product-page-container{
-				background-color:  #f3f3f3;
-			}
-		
-			.single_add_to_cart_button.button:not(.woostify-buy-now){
-				border-radius: px;
-				background-color:  ;
-				color:  ;
-			}
-			.single_add_to_cart_button.button:not(.woostify-buy-now):hover{
-				color:  ;
-				background-color:  ;
-			}</style>
-<script type="text/template" id="tmpl-variation-template">
-	<div class="woocommerce-variation-description">{{{ data.variation.variation_description }}}<\/div>
-	<div class="woocommerce-variation-price">{{{ data.variation.price_html }}}<\/div>
-	<div class="woocommerce-variation-availability">{{{ data.variation.availability_html }}}<\/div>
+<link rel="stylesheet" id="colormag_style-css" href="https://bachatdost.in/wp-content/themes/colormag/style.css?ver=2.1.0" type="text/css" media="all">
+<link rel="stylesheet" id="colormag-fontawesome-css" href="https://bachatdost.in/wp-content/themes/colormag/fontawesome/css/font-awesome.min.css?ver=2.1.0" type="text/css" media="all">
+<link rel="stylesheet" id="colormag_googlefonts-css" href="//fonts.googleapis.com/css?family=Open+Sans%3A400%2C600&#038;1&#038;display=swap&#038;ver=2.1.0" type="text/css" media="all">
+<script type="text/javascript" id="monsterinsights-frontend-script-js-extra">
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/bachatdost.in","hash_tracking":"false","ua":"UA-2860787-58"};
+/* ]]> */
 </script>
-<script type="text/template" id="tmpl-unavailable-variation-template">
-	<p>Sorry, this product is unavailable. Please choose a different combination.<\/p>
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
-<link rel="https://api.w.org/" href="/https://bachatdost.in/index.php?rest_route=/">
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/https://bachatdost.in/xmlrpc.php?rsd">
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/https://bachatdost.in/wp-includes/wlwmanifest.xml"> 
+<script type="text/javascript" src="https://bachatdost.in/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend-gtag.min.js?ver=7.18.0" id="monsterinsights-frontend-script-js"></script>
+<script type="text/javascript" src="https://bachatdost.in/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://bachatdost.in/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<!--[if lte IE 8]>
+<script type='text/javascript' src='https://bachatdost.in/wp-content/themes/colormag/js/html5shiv.min.js?ver=2.1.0' id='html5-js'></script>
+<![endif]-->
+<link rel="https://api.w.org/" href="https://bachatdost.in/index.php?rest_route=/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://bachatdost.in/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://bachatdost.in/wp-includes/wlwmanifest.xml"> 
 <meta name="generator" content="WordPress 5.8">
-<meta name="generator" content="WooCommerce 5.6.0">
-	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
-			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-				<link rel="profile" href="http://gmpg.org/xfn/11">
-		</head>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com/">
+<meta property="og:image" content="https://m.media-amazon.com/images/I/31DsYvjTGcL.jpg">
+<meta property="og:title" content="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml">
+<meta property="og:description" content="">
 
-	<body class="home archive post-type-archive post-type-archive-product wp-custom-logo wp-embed-responsive theme-woostify woocommerce-shop woocommerce woocommerce-page woocommerce-no-js site-normal-container has-header-layout-1 right-sidebar has-sidebar default-sidebar has-gallery-slider-layout ajax-single-add-to-cart">
-				<div id="view">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://m.media-amazon.com/images/I/31DsYvjTGcL.jpg">
+<link rel="icon" href="https://bachatdost.in/wp-content/uploads/2021/09/cropped-My-Post-12-1-32x32.png" sizes="32x32">
+<link rel="icon" href="https://bachatdost.in/wp-content/uploads/2021/09/cropped-My-Post-12-1-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://bachatdost.in/wp-content/uploads/2021/09/cropped-My-Post-12-1-180x180.png">
+<meta name="msapplication-TileImage" content="https://bachatdost.in/wp-content/uploads/2021/09/cropped-My-Post-12-1-270x270.png">
+</head>
+
+<body class="home blog wp-custom-logo wp-embed-responsive right-sidebar wide">
+
+		<div id="page" class="hfeed site">
+				<a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+				<header id="masthead" class="site-header clearfix ">
+				<div id="header-text-nav-container" class="clearfix">
 		
-		<div class="topbar">
-			<div class="woostify-container">
-				<div class="topbar-item topbar-left"></div>
-				<div class="topbar-item topbar-center"></div>
-				<div class="topbar-item topbar-right"></div>
+			<div class="news-bar">
+				<div class="inner-wrap clearfix">
+					
+		<div class="date-in-header">
+			Saturday, September 11, 2021		</div>
+
+		
+		<div class="breaking-news">
+			<strong class="breaking-news-latest">Latest:</strong>
+
+			<ul class="newsticker">
+									<li>
+						<a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml">
+							Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml						</a>
+					</li>
+									<li>
+						<a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g">
+							Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g						</a>
+					</li>
+									<li>
+						<a href="https://bachatdost.in/?p=38" title="Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g">
+							Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g						</a>
+					</li>
+									<li>
+						<a href="https://bachatdost.in/?p=19" title="Destruction in Montania">
+							Destruction in Montania						</a>
+					</li>
+									<li>
+						<a href="https://bachatdost.in/?p=18" title="A Paradise for Holiday">
+							A Paradise for Holiday						</a>
+					</li>
+							</ul>
+		</div>
+
+						</div>
 			</div>
-		</div>
-				<header id="masthead" class="site-header header-layout-1">
-			<div class="site-header-inner">
-				<div class="woostify-container">		<a class="skip-link screen-reader-text" href="#site-navigation">Skip to navigation</a>
-		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-				<div class="wrap-toggle-sidebar-menu">
-			<span class="toggle-sidebar-menu-btn woostify-icon-bar">
-				<span></span>			</span>
-		</div>
-				<div class="site-branding has-custom-mobile-logo">
-			<a href="/https://bachatdost.in/" class="custom-logo-link" rel="home" aria-current="page"><img width="470" height="110" src="/https://bachatdost.in/wp-content/uploads/2021/09/cropped-My-Post-10-1.png" class="custom-logo" alt="Bachat Dost" srcset="/https://bachatdost.in/wp-content/uploads/2021/09/cropped-My-Post-10-1.png 470w, /https://bachatdost.in/wp-content/uploads/2021/09/cropped-My-Post-10-1-300x70.png 300w" sizes="(max-width: 470px) 100vw, 470px"></a>					<a class="custom-mobile-logo-url" href="/https://bachatdost.in/" rel="home" itemprop="url">
-						<img class="custom-mobile-logo" src="/https://bachatdost.in/wp-content/uploads/2021/09/cropped-My-Post-10-1.png" alt="Woostify mobile logo" itemprop="logo">
-					</a>
-							</div>
-		
-		<div class="site-navigation">
-			
-			<nav class="main-navigation" aria-label="Primary navigation">
-				<ul id="menu-menu" class="primary-navigation">
-<li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item current_page_item menu-item-19"><a href="/https://bachatdost.in/"><span class="menu-item-text">Shop</span></a></li>
-</ul>			</nav>
 
+			
+		<div class="inner-wrap">
+			<div id="header-text-nav-wrap" class="clearfix">
+
+				<div id="header-left-section">
+											<div id="header-logo-image">
+							<a href="https://bachatdost.in/" class="custom-logo-link" rel="home" aria-current="page"><img width="470" height="110" src="https://bachatdost.in/wp-content/uploads/2021/09/My-Post-10-3.png" class="custom-logo" alt="BachatDost" srcset="https://bachatdost.in/wp-content/uploads/2021/09/My-Post-10-3.png 470w, https://bachatdost.in/wp-content/uploads/2021/09/My-Post-10-3-300x70.png 300w" sizes="(max-width: 470px) 100vw, 470px"></a>						</div>
+<!-- #header-logo-image -->
+						
+					<div id="header-text" class="screen-reader-text">
+													<h1 id="site-title">
+								<a href="https://bachatdost.in/" title="BachatDost" rel="home">BachatDost</a>
+							</h1>
+						
+													<p id="site-description">
+								Saving your money is our mission.							</p>
+<!-- #site-description -->
+											</div>
+<!-- #header-text -->
+				</div>
+<!-- #header-left-section -->
+
+				<div id="header-right-section">
+											<div id="header-right-sidebar" class="clearfix">
+							<aside id="colormag_728x90_advertisement_widget-2" class="widget widget_728x90_advertisement clearfix">
+		<div class="advertisement_728x90">
+			<div class="advertisement-content"><a href="https://themegrilldemos.com/colormag-pro/" class="single_ad_728x90" target="_blank" rel="nofollow"><img src="https://bachatdost.in/wp-content/themes/colormag/img/ad-large.jpg" width="728" height="90" alt=""></a></div>		</div>
+
+		</aside>						</div>
+										</div>
+<!-- #header-right-section -->
+
+			</div>
+<!-- #header-text-nav-wrap -->
+		</div>
+<!-- .inner-wrap -->
+
+		
+		<nav id="site-navigation" class="main-navigation clearfix" role="navigation">
+			<div class="inner-wrap clearfix">
+				
+					<div class="home-icon front_page_on">
+						<a href="https://bachatdost.in/" title="BachatDost">
+							<i class="fa fa-home"></i>
+						</a>
 					</div>
-		
-		<div class="site-tools">
+				
+									<div class="search-random-icons-container">
+						
+		<div class="random-post">
+							<a href="https://bachatdost.in/?p=15" title="View a random post">
+					<i class="fa fa-random"></i>
+				</a>
+					</div>
 
-			
-										<span class="tools-icon header-search-icon ti-search"></span>
-									<div class="tools-icon my-account">
-						<a href="/https://bachatdost.in/?page_id=9" class="tools-icon my-account-icon ti-user"></a>
+									<div class="top-search-wrap">
+								<i class="fa fa-search search-top"></i>
+								<div class="search-form-top">
+									
+<form action="https://bachatdost.in/" class="search-form searchform clearfix" method="get" role="search">
 
-													<div class="subbox">
-								<ul>
-												<li class="my-account-login"><a href="/https://bachatdost.in/?page_id=9" class="text-center">Login / Register</a></li>
-											</ul>
+	<div class="search-wrap">
+		<input type="search" class="s field" name="s" value="" placeholder="Search">
+
+		<button class="search-icon" type="submit"></button>
+	</div>
+
+</form>
+<!-- .searchform -->
+								</div>
 							</div>
 											</div>
-										<a href="/https://bachatdost.in/?page_id=7" class="tools-icon shopping-bag-button ti-shopping-cart cart-icon-rotate">
-						<span class="shop-cart-count ">0</span>
-					</a>
-							</div>
-		</div>			</div>
-		</header>
-		
-		<div class="page-header">
-			<div class="woostify-container content-align-justify">
 				
-									<h1 class="entry-title">Shop</h1>
-				
-							</div>
-		</div>
-				<div id="content" class="site-content" tabindex="-1">
-		<div class="woostify-container">		<div id="primary" class="content-area">
-			<main id="main" class="site-main">
-			<header class="woocommerce-products-header">
-	
-	<div class="page-description">
-<div class="wp-block-woocommerce-price-filter is-loading" data-showinputfields="true" data-showfilterbutton="false" data-heading="Filter by price" data-heading-level="3"><span aria-hidden="true" class="wc-block-product-categories__placeholder"></span></div>
-<div class="wc-block-grid wp-block-product-best-sellers wc-block-product-best-sellers has-3-columns has-multiple-rows">
-<ul class="wc-block-grid__products">
-<li class="wc-block-grid__product">
-				<a href="/https://bachatdost.in/?product=test-product" class="wc-block-grid__product-link">
-<div class="wc-block-grid__product-image"><img width="300" height="300" src="/https://bachatdost.in/wp-content/uploads/2021/09/screenshot-4-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" srcset="/https://bachatdost.in/wp-content/uploads/2021/09/screenshot-4-300x300.png 300w, /https://bachatdost.in/wp-content/uploads/2021/09/screenshot-4-150x150.png 150w, /https://bachatdost.in/wp-content/uploads/2021/09/screenshot-4-100x100.png 100w" sizes="(max-width: 300px) 100vw, 300px"></div>
-<div class="wc-block-grid__product-title">Test Product</div>
-<p>				</p></a>
-<div class="wc-block-grid__product-onsale">
-			<span aria-hidden="true">Sale</span><br>
-			<span class="screen-reader-text">Product on sale</span>
-		</div>
-<div class="wc-block-grid__product-price price">
-<del aria-hidden="true"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>1111</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>111</span></ins>
-</div>
-<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="/https://bachatdost.in/?add-to-cart=48" aria-label="Add &ldquo;Test Product&rdquo; to your cart" data-quantity="1" data-product_id="48" data-product_sku="" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Add to cart</a></div>
-</li>
-<li class="wc-block-grid__product">
-				<a href="/https://bachatdost.in/?product=wakefit-waterproof-mattress-protector" class="wc-block-grid__product-link">
-<div class="wc-block-grid__product-image"><img width="300" height="300" src="/https://bachatdost.in/wp-content/uploads/2021/09/61lkVrCBVL._SL1000_-1-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" srcset="/https://bachatdost.in/wp-content/uploads/2021/09/61lkVrCBVL._SL1000_-1-300x300.jpg 300w, /https://bachatdost.in/wp-content/uploads/2021/09/61lkVrCBVL._SL1000_-1-150x150.jpg 150w, /https://bachatdost.in/wp-content/uploads/2021/09/61lkVrCBVL._SL1000_-1-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px"></div>
-<div class="wc-block-grid__product-title">Wakefit Waterproof Mattress Protector</div>
-<p>				</p></a>
-<div class="wc-block-grid__product-onsale">
-			<span aria-hidden="true">Sale</span><br>
-			<span class="screen-reader-text">Product on sale</span>
-		</div>
-<div class="wc-block-grid__product-price price">
-<del aria-hidden="true"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>1799</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>799</span></ins>
-</div>
-<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="/https://bachatdost.in/?add-to-cart=36" aria-label="Add &ldquo;Wakefit Waterproof Mattress Protector&rdquo; to your cart" data-quantity="1" data-product_id="36" data-product_sku="" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Add to cart</a></div>
-</li>
-<li class="wc-block-grid__product">
-				<a href="/https://bachatdost.in/?product=fitness-mantra-yoga-mat-for-gym-workout-and-yoga-exercise-with-6mm-thickness-anti-slip-yoga-mat-for-men-women-fitness" class="wc-block-grid__product-link">
-<div class="wc-block-grid__product-image"><img width="300" height="300" src="/https://bachatdost.in/wp-content/uploads/2021/09/61-w1cccjwL._SL1500_-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" srcset="/https://bachatdost.in/wp-content/uploads/2021/09/61-w1cccjwL._SL1500_-300x300.jpg 300w, /https://bachatdost.in/wp-content/uploads/2021/09/61-w1cccjwL._SL1500_-100x100.jpg 100w, /https://bachatdost.in/wp-content/uploads/2021/09/61-w1cccjwL._SL1500_-150x150.jpg 150w" sizes="(max-width: 300px) 100vw, 300px"></div>
-<div class="wc-block-grid__product-title">Fitness Mantra® Yoga Mat for Gym Workout and Yoga Exercise with 6mm Thickness, Anti-Slip Yoga Mat for Men &amp; Women Fitness</div>
-<p>				</p></a>
-<div class="wc-block-grid__product-onsale">
-			<span aria-hidden="true">Sale</span><br>
-			<span class="screen-reader-text">Product on sale</span>
-		</div>
-<div class="wc-block-grid__product-price price">
-<del aria-hidden="true"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>1599</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>389</span></ins>
-</div>
-<div class="wp-block-button wc-block-grid__product-add-to-cart"><a href="/https://bachatdost.in/?add-to-cart=12" aria-label="Add &ldquo;Fitness Mantra® Yoga Mat for Gym Workout and Yoga Exercise with 6mm Thickness, Anti-Slip Yoga Mat for Men &amp; Women Fitness&rdquo; to your cart" data-quantity="1" data-product_id="12" data-product_sku="" rel="nofollow" class="wp-block-button__link add_to_cart_button ajax_add_to_cart">Add to cart</a></div>
-</li>
-</ul>
-</div>
-<div class="wp-block-woocommerce-all-products wc-block-all-products" data-attributes="{&quot;alignButtons&quot;:false,&quot;columns&quot;:3,&quot;contentVisibility&quot;:{&quot;orderBy&quot;:true},&quot;isPreview&quot;:false,&quot;layoutConfig&quot;:[[&quot;woocommerce/product-image&quot;],[&quot;woocommerce/product-title&quot;],[&quot;woocommerce/product-price&quot;],[&quot;woocommerce/product-rating&quot;],[&quot;woocommerce/product-button&quot;]],&quot;orderby&quot;:&quot;date&quot;,&quot;rows&quot;:3}"></div>
-</div></header>
-<div class="woostify-sorting">
-<div class="woocommerce-notices-wrapper"></div>		<div class="woostify-toolbar-left">
-				<button id="toggle-sidebar-mobile-button" class="ti-filter">Filter</button>
-		<p class="woocommerce-result-count">
-	Showing all 3 results</p>
-		</div>
-		<form class="woocommerce-ordering" method="get">
-	<select name="orderby" class="orderby" aria-label="Shop order">
-					<option value="menu_order" selected>Default sorting</option>
-					<option value="popularity">Sort by popularity</option>
-					<option value="rating">Sort by average rating</option>
-					<option value="date">Sort by latest</option>
-					<option value="price">Sort by price: low to high</option>
-					<option value="price-desc">Sort by price: high to low</option>
-			</select>
-	<input type="hidden" name="paged" value="1">
-	</form>
-</div>		<ul class="products columns-3 tablet-columns-2 mobile-columns-1">
-		<li class="product type-product post-12 status-publish first instock product_cat-fitness has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
-			<div class="product-loop-wrapper">
-		<div class="product-loop-image-wrapper">			<span class="woostify-tag-on-sale onsale sale-left">
-				-76%			</span>
-					<div class="product-loop-action"></div>
-		<a href="/https://bachatdost.in/?product=fitness-mantra-yoga-mat-for-gym-workout-and-yoga-exercise-with-6mm-thickness-anti-slip-yoga-mat-for-men-women-fitness" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">				<span class="product-loop-hover-image" style="background-image: url(/wp-content/uploads/2021/09/71k4LNS1SYL._SL1500_-300x300.jpg);"></span>
-				<img width="300" height="300" src="/https://bachatdost.in/wp-content/uploads/2021/09/61-w1cccjwL._SL1500_-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail product-loop-image" alt="Product image" loading="lazy" srcset="/https://bachatdost.in/wp-content/uploads/2021/09/61-w1cccjwL._SL1500_-300x300.jpg 300w, /https://bachatdost.in/wp-content/uploads/2021/09/61-w1cccjwL._SL1500_-100x100.jpg 100w, /https://bachatdost.in/wp-content/uploads/2021/09/61-w1cccjwL._SL1500_-150x150.jpg 150w" sizes="(max-width: 300px) 100vw, 300px"></a>
-</div>
-<div class="product-loop-content text-center">		<h2 class="woocommerce-loop-product__title">
-			<a href="/https://bachatdost.in/?product=fitness-mantra-yoga-mat-for-gym-workout-and-yoga-exercise-with-6mm-thickness-anti-slip-yoga-mat-for-men-women-fitness" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">Fitness Mantra® Yoga Mat for Gym Workout and Yoga Exercise with 6mm Thickness, Anti-Slip Yoga Mat for Men &#038; Women Fitness</a>		</h2>
-		<div class="product-loop-meta "><div class="animated-meta">			<span class="price"><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>1599</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>389</span></ins></span>
-			<a href="/https://bachatdost.in/?add-to-cart=12" data-quantity="1" class="ti-shopping-cart loop-add-to-cart-btn button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="12" data-product_sku="" title="Add &ldquo;Fitness Mantra® Yoga Mat for Gym Workout and Yoga Exercise with 6mm Thickness, Anti-Slip Yoga Mat for Men &amp; Women Fitness&rdquo; to your cart" rel="nofollow">Add to cart</a>
-</div></div>
-</div>		</div>
-		</li>
-<li class="product type-product post-48 status-publish instock product_cat-fitness has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
-			<div class="product-loop-wrapper">
-		<div class="product-loop-image-wrapper">			<span class="woostify-tag-on-sale onsale sale-left">
-				-90%			</span>
-					<div class="product-loop-action"></div>
-		<a href="/https://bachatdost.in/?product=test-product" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="300" height="300" src="/https://bachatdost.in/wp-content/uploads/2021/09/screenshot-4-300x300.png" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail product-loop-image" alt="Product image" loading="lazy" srcset="/https://bachatdost.in/wp-content/uploads/2021/09/screenshot-4-300x300.png 300w, /https://bachatdost.in/wp-content/uploads/2021/09/screenshot-4-150x150.png 150w, /https://bachatdost.in/wp-content/uploads/2021/09/screenshot-4-100x100.png 100w" sizes="(max-width: 300px) 100vw, 300px"></a>
-</div>
-<div class="product-loop-content text-center">		<h2 class="woocommerce-loop-product__title">
-			<a href="/https://bachatdost.in/?product=test-product" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">Test Product</a>		</h2>
-		<div class="product-loop-meta "><div class="animated-meta">			<span class="price"><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>1111</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>111</span></ins></span>
-			<a href="/https://bachatdost.in/?add-to-cart=48" data-quantity="1" class="ti-shopping-cart loop-add-to-cart-btn button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="48" data-product_sku="" title="Add &ldquo;Test Product&rdquo; to your cart" rel="nofollow">Add to cart</a>
-</div></div>
-</div>		</div>
-		</li>
-<li class="product type-product post-36 status-publish last instock product_cat-uncategorized has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
-			<div class="product-loop-wrapper">
-		<div class="product-loop-image-wrapper">			<span class="woostify-tag-on-sale onsale sale-left">
-				-56%			</span>
-					<div class="product-loop-action"></div>
-		<a href="/https://bachatdost.in/?product=wakefit-waterproof-mattress-protector" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">				<span class="product-loop-hover-image" style="background-image: url(/wp-content/uploads/2021/09/61-hMuOqlKL._SL1000_-1-300x300.jpg);"></span>
-				<img width="300" height="300" src="/https://bachatdost.in/wp-content/uploads/2021/09/61lkVrCBVL._SL1000_-1-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail product-loop-image" alt="Product image" loading="lazy" srcset="/https://bachatdost.in/wp-content/uploads/2021/09/61lkVrCBVL._SL1000_-1-300x300.jpg 300w, /https://bachatdost.in/wp-content/uploads/2021/09/61lkVrCBVL._SL1000_-1-150x150.jpg 150w, /https://bachatdost.in/wp-content/uploads/2021/09/61lkVrCBVL._SL1000_-1-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px"></a>
-</div>
-<div class="product-loop-content text-center">		<h2 class="woocommerce-loop-product__title">
-			<a href="/https://bachatdost.in/?product=wakefit-waterproof-mattress-protector" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">Wakefit Waterproof Mattress Protector</a>		</h2>
-		<div class="product-loop-meta "><div class="animated-meta">			<span class="price"><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>1799</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>799</span></ins></span>
-			<a href="/https://bachatdost.in/?add-to-cart=36" data-quantity="1" class="ti-shopping-cart loop-add-to-cart-btn button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="36" data-product_sku="" title="Add &ldquo;Wakefit Waterproof Mattress Protector&rdquo; to your cart" rel="nofollow">Add to cart</a>
-</div></div>
-</div>		</div>
-		</li>
-</ul>
-			</main><!-- #main -->
-		</div>
-<!-- #primary -->
+				<p class="menu-toggle"></p>
+				<div class="menu-primary-container"><ul id="menu-primary" class="menu">
+<li id="menu-item-29" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29"><a href="https://downloads.wordpress.org/theme/colormag.zip">Download</a></li>
+<li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-30"><a href="https://themegrill.com/themes/colormag/">Theme Info</a></li>
+<li id="menu-item-31" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31"><a href="https://themegrill.com/themes/colormag/">View pro</a></li>
+<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="https://bachatdost.in/?page_id=13">Layout</a></li>
+<li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="https://bachatdost.in/?page_id=14">Contact</a></li>
+</ul></div>
+			</div>
+		</nav>
 
-		<div id="secondary" class="widget-area shop-widget" role="complementary">
+				</div>
+<!-- #header-text-nav-container -->
+				</header><!-- #masthead -->
+				<div id="main" class="clearfix">
+				<div class="inner-wrap clearfix">
+			<div class="front-page-top-section clearfix">
+		<div class="widget_slider_area">
+			<section id="colormag_featured_posts_slider_widget-2" class="widget widget_featured_slider widget_featured_meta clearfix">
+		<div class="widget_featured_slider_inner_wrap clearfix">
+			
+			<div class="widget_slider_area_rotate">
+				
+					<div class="single-slide displayblock">
+						<figure class="slider-featured-image"><a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml"><img fifu-featured="1" width="800" height="445" src="https://m.media-amazon.com/images/I/31DsYvjTGcL.jpg" class="attachment-colormag-featured-image size-colormag-featured-image wp-post-image" alt="" title="" loading="lazy"></a></figure>
+						<div class="slide-content">
+							<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml">
+				Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=42" title="6:59 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:59:38+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=42#respond">0</a>			</span>
+		
+		</div>						</div>
+
+					</div>
+					
+					<div class="single-slide displaynone">
+						<figure class="slider-featured-image"><a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g"><img fifu-featured="1" width="800" height="445" src="https://m.media-amazon.com/images/I/314IEXcSLnL.jpg" class="attachment-colormag-featured-image size-colormag-featured-image wp-post-image" alt="" title="" loading="lazy"></a></figure>
+						<div class="slide-content">
+							<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g">
+				Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=40" title="6:58 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:58:05+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=40#respond">0</a>			</span>
+		
+		</div>						</div>
+
+					</div>
+								</div>
+		</div>
+
+		</section>		</div>
+
+		<div class="widget_beside_slider">
+			<section id="colormag_highlighted_posts_widget-2" class="widget widget_highlighted_posts widget_featured_meta clearfix">
+		<div class="widget_highlighted_post_area">
+			
+				<div class="single-article">
+					<figure class="highlights-featured-image"><a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml"><img fifu-featured="1" width="392" height="272" src="https://m.media-amazon.com/images/I/31DsYvjTGcL.jpg" class="attachment-colormag-highlighted-post size-colormag-highlighted-post wp-post-image" alt="" title="" loading="lazy"></a></figure>
+					<div class="article-content">
+						<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml">
+				Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=42" title="6:59 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:59:38+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=42#respond">0</a>			</span>
+		
+		</div>					</div>
+
+				</div>
+			
+				<div class="single-article">
+					<figure class="highlights-featured-image"><a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g"><img fifu-featured="1" width="392" height="272" src="https://m.media-amazon.com/images/I/314IEXcSLnL.jpg" class="attachment-colormag-highlighted-post size-colormag-highlighted-post wp-post-image" alt="" title="" loading="lazy"></a></figure>
+					<div class="article-content">
+						<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g">
+				Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=40" title="6:58 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:58:05+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=40#respond">0</a>			</span>
+		
+		</div>					</div>
+
+				</div>
+			
+				<div class="single-article">
+					<figure class="highlights-featured-image"><a href="https://bachatdost.in/?p=38" title="Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g"><img fifu-featured="1" width="392" height="272" src="https://m.media-amazon.com/images/I/41u-uzkPPlL.jpg" class="attachment-colormag-highlighted-post size-colormag-highlighted-post wp-post-image" alt="" title="" loading="lazy"></a></figure>
+					<div class="article-content">
+						<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=38" title="Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g">
+				Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=38" title="6:56 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:56:15+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=38#respond">0</a>			</span>
+		
+		</div>					</div>
+
+				</div>
+			
+				<div class="single-article">
+					<figure class="highlights-featured-image"><a href="https://bachatdost.in/?p=19" title="Destruction in Montania"><img width="392" height="272" src="https://bachatdost.in/wp-content/uploads/2021/09/fireman-392x272.jpg" class="attachment-colormag-highlighted-post size-colormag-highlighted-post wp-post-image" alt="Destruction in Montania" loading="lazy" title="Destruction in Montania" srcset="https://bachatdost.in/wp-content/uploads/2021/09/fireman-392x272.jpg 392w, https://bachatdost.in/wp-content/uploads/2021/09/fireman-130x90.jpg 130w" sizes="(max-width: 392px) 100vw, 392px"></a></figure>
+					<div class="article-content">
+						<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=1" rel="category tag">Uncategorized</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=19" title="Destruction in Montania">
+				Destruction in Montania			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=19" title="6:46 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:46:00+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=19#respond">0</a>			</span>
+		
+		</div>					</div>
+
+				</div>
+					</div>
+
+		</section>		</div>
 	</div>
-</div>		</div>
-				<footer id="colophon" class="site-footer">
-			<div class="woostify-container">
 
-				
-		<div class="site-info">
-							<div class="site-infor-col">
-					Copyright © 2021 <span class="woostify-site-title">Bachat Dost</span>				</div>
-			
-					</div>
+	<div class="main-content-section clearfix">
 		
-			</div>
-		</footer>
-				</div>
-		<div class="sidebar-menu">
-		<div class="site-search">
-			<div class="widget woocommerce widget_product_search">
-<form role="search" method="get" class="woocommerce-product-search" action="/https://bachatdost.in/">
-	<label class="screen-reader-text" for="woocommerce-product-search-field-0">Search for:</label>
-	<input type="search" id="woocommerce-product-search-field-0" class="search-field" placeholder="Search products&hellip;" value="" name="s">
-	<button type="submit" value="Search">Search</button>
-	<input type="hidden" name="post_type" value="product">
-</form>
-</div>		</div>
-		
-		<div class="site-navigation">
-			
-			<nav class="main-navigation" aria-label="Primary navigation">
-				<ul id="menu-menu-1" class="primary-navigation">
-<li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item current_page_item menu-item-19"><a href="/https://bachatdost.in/"><span class="menu-item-text">Shop</span></a></li>
-</ul>			</nav>
+		<div id="primary">
+			<div id="content" class="clearfix">
 
-					</div>
-		
-		<div class="sidebar-menu-bottom">
-			
-			<ul class="sidebar-account">
-							<li class="my-account-login"><a href="/https://bachatdost.in/?page_id=9" class="text-center">Login / Register</a></li>
-						</ul>
+				<section id="colormag_featured_posts_widget-2" class="widget widget_featured_posts widget_featured_meta clearfix">
+		<h3 class="widget-title"><span>HEALTH</span></h3>
+<div class="first-post">
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml"><img fifu-featured="1" width="390" height="205" src="https://m.media-amazon.com/images/I/31DsYvjTGcL.jpg" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml">
+				Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=42" title="6:59 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:59:38+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
 
-					</div>
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=42#respond">0</a>			</span>
+		
 		</div>
-<div id="woostify-overlay"></div>		<span id="scroll-to-top" class="ti-angle-up scroll-to-top-position-right scroll-to-top-show-default" title="Scroll To Top"></span>
-		
-		<div class="site-dialog-search  woostify-search-wrap">
-			<div class="dialog-search-content">
-				
-				<div class="dialog-search-header">
-					<span class="dialog-search-title">Type to search</span>
-					<span class="dialog-search-close-icon ti-close"></span>
-				</div>
+											<div class="entry-content">
+							<p>Price: (as of &#8211; Details) Makeup fixer used either before or after makeup is to set your makeup so that</p>
+						</div>
+									</div>
 
-				<div class="dialog-search-main">
-					<div class="widget woocommerce widget_product_search">
-<form role="search" method="get" class="woocommerce-product-search" action="/https://bachatdost.in/">
-	<label class="screen-reader-text" for="woocommerce-product-search-field-1">Search for:</label>
-	<input type="search" id="woocommerce-product-search-field-1" class="search-field" placeholder="Search products&hellip;" value="" name="s">
-	<button type="submit" value="Search">Search</button>
-	<input type="hidden" name="post_type" value="product">
-</form>
-</div>				</div>
-
-							</div>
-		</div>
-					<div id="shop-cart-sidebar">
-				<div class="cart-sidebar-head">
-					<h4 class="cart-sidebar-title">Shopping cart</h4>
-					<span class="shop-cart-count">0</span>
-					<button id="close-cart-sidebar-btn" class="ti-close"></button>
-				</div>
-
-				<div class="cart-sidebar-content">
-								<p class="woocommerce-mini-cart__empty-message">No products in the cart.</p>
-							</div>
 			</div>
-		<script type="application/ld+json">{"@context":"https:\/\/schema.org\/","@graph":[{"@context":"https:\/\/schema.org\/","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"name":"Home","@id":""}}]},{"@context":"https:\/\/schema.org\/","@type":"WebSite","name":"Bachat Dost","url":"","potentialAction":{"@type":"SearchAction","target":"\/?s={search_term_string}&amp;post_type=product","query-input":"required name=search_term_string"}}]}</script>	<script type="text/javascript">
-		(function () {
-			var c = document.body.className;
-			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
-			document.body.className = c;
-		})();
-	</script>
-	<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.5.6.0" id="jquery-blockui-js"></script>
-<script type="text/javascript" id="wc-add-to-cart-js-extra">
-/* <![CDATA[ */
-var wc_add_to_cart_params = {"ajax_url":"\/bachatdost\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/bachatdost\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"\/?page_id=7","is_cart":"","cart_redirect_after_add":"no"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=5.6.0" id="wc-add-to-cart-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.5.6.0" id="js-cookie-js"></script>
-<script type="text/javascript" id="woocommerce-js-extra">
-/* <![CDATA[ */
-var woocommerce_params = {"ajax_url":"\/bachatdost\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/bachatdost\/?wc-ajax=%%endpoint%%"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=5.6.0" id="woocommerce-js"></script>
-<script type="text/javascript" id="wc-cart-fragments-js-extra">
-/* <![CDATA[ */
-var wc_cart_fragments_params = {"ajax_url":"\/bachatdost\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/bachatdost\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_296a5fd740f87f06b3428d15b4854eee","fragment_name":"wc_fragments_296a5fd740f87f06b3428d15b4854eee","request_timeout":"5000"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=5.6.0" id="wc-cart-fragments-js"></script>
-<script type="text/javascript" id="wc-cart-fragments-js-after">
-		jQuery( 'body' ).bind( 'wc_fragments_refreshed', function() {
-			var jetpackLazyImagesLoadEvent;
-			try {
-				jetpackLazyImagesLoadEvent = new Event( 'jetpack-lazy-images-load', {
-					bubbles: true,
-					cancelable: true
-				} );
-			} catch ( e ) {
-				jetpackLazyImagesLoadEvent = document.createEvent( 'Event' )
-				jetpackLazyImagesLoadEvent.initEvent( 'jetpack-lazy-images-load', true, true );
-			}
-			jQuery( 'body' ).get( 0 ).dispatchEvent( jetpackLazyImagesLoadEvent );
-		} );
+			</div>
+<div class="following-post">
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g"><img fifu-featured="1" width="130" height="90" src="https://m.media-amazon.com/images/I/314IEXcSLnL.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g">
+				Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=40" title="6:58 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:58:05+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=40#respond">0</a>			</span>
 		
-</script>
-<script type="text/javascript" id="mailchimp-woocommerce-js-extra">
-/* <![CDATA[ */
-var mailchimp_public_data = {"site_url":"","ajax_url":"\/wp-admin\/admin-ajax.php","language":"en","allowed_to_set_cookies":"1"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/mailchimp-for-woocommerce/public/js/mailchimp-woocommerce-public.min.js?ver=2.5.2" id="mailchimp-woocommerce-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/themes/woostify/assets/js/general.min.js?ver=1.9.6" id="woostify-general-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/themes/woostify/assets/js/navigation.min.js?ver=1.9.6" id="woostify-navigation-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/themes/woostify/assets/js/woocommerce/quantity-button.min.js?ver=1.9.6" id="woostify-quantity-button-js"></script>
-<script type="text/javascript" id="woostify-woocommerce-js-extra">
-/* <![CDATA[ */
-var woostify_woocommerce_general = {"ajax_url":"\/wp-admin\/admin-ajax.php","ajax_nonce":"486d14e1ce","ajax_error":"Sorry, something went wrong. Please try again!","qty_warning":"Please enter a valid quantity for this product","shipping_text":"Shipping","shipping_next":"Calculated at next step","sticky_top_space":"50","sticky_bottom_space":"50"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/themes/woostify/assets/js/woocommerce/woocommerce.min.js?ver=1.9.6" id="woostify-woocommerce-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/themes/woostify/assets/js/woocommerce/product-variation.min.js?ver=1.9.6" id="woostify-product-variation-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/themes/woostify/assets/js/lity.min.js?ver=1.9.6" id="lity-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/themes/woostify/assets/js/tiny-slider.min.js?ver=1.9.6" id="tiny-slider-js"></script>
-<script type="text/javascript" id="woostify-product-images-js-extra">
-/* <![CDATA[ */
-var woostify_product_images_slider_options = {"main":{"container":"#product-images","navContainer":"#product-thumbnail-images","loop":false,"rewind":true,"items":1,"navAsThumbnails":true,"autoHeight":true,"preventScrollOnTouch":true},"thumb":{"loop":false,"rewind":true,"container":"#product-thumbnail-images","gutter":10,"nav":false,"controls":true,"items":4}};
-/* ]]> */
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/themes/woostify/assets/js/woocommerce/product-images.min.js?ver=1.9.6" id="woostify-product-images-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/themes/woostify/assets/js/easyzoom.min.js?ver=1.9.6" id="easyzoom-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/themes/woostify/assets/js/woocommerce/easyzoom-handle.min.js?ver=1.9.6" id="easyzoom-handle-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe.min.js?ver=4.1.1-wc.5.6.0" id="photoswipe-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe-ui-default.min.js?ver=4.1.1-wc.5.6.0" id="photoswipe-ui-default-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/themes/woostify/assets/js/photoswipe-init.min.js?ver=1.9.6" id="photoswipe-init-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/themes/woostify/assets/js/woocommerce/woocommerce-sidebar.min.js?ver=1.9.6" id="woostify-woocommerce-sidebar-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/underscore.min.js?ver=1.8.3" id="underscore-js"></script>
-<script type="text/javascript" id="wp-util-js-extra">
-/* <![CDATA[ */
-var _wpUtilSettings = {"ajax":{"url":"\/bachatdost\/wp-admin\/admin-ajax.php"}};
-/* ]]> */
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/wp-util.min.js?ver=5.8" id="wp-util-js"></script>
-<script type="text/javascript" id="wc-add-to-cart-variation-js-extra">
-/* <![CDATA[ */
-var wc_add_to_cart_variation_params = {"wc_ajax_url":"\/bachatdost\/?wc-ajax=%%endpoint%%","i18n_no_matching_variations_text":"Sorry, no products matched your selection. Please choose a different combination.","i18n_make_a_selection_text":"Please select some product options before adding this product to your cart.","i18n_unavailable_text":"Sorry, this product is unavailable. Please choose a different combination."};
-/* ]]> */
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min.js?ver=5.6.0" id="wc-add-to-cart-variation-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/themes/woostify/assets/js/woocommerce/ajax-single-add-to-cart.min.js?ver=1.9.6" id="woostify-single-add-to-cart-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/wp-embed.min.js?ver=5.8" id="wp-embed-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/vendor/lodash.min.js?ver=4.17.19" id="lodash-js"></script>
-<script type="text/javascript" id="lodash-js-after">
-window.lodash = _.noConflict();
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.7" id="regenerator-runtime-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/vendor/react.min.js?ver=16.13.1" id="react-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/hooks.min.js?ver=a7edae857aab69d69fa10d5aef23a5de" id="wp-hooks-js"></script>
-<script type="text/javascript" id="wp-hooks-js-after">
-			window.addEventListener( "DOMContentLoaded", () => {
-				wp.hooks.doAction(
-					"experimental__woocommerce_blocks-product-list-render",
-					{
-						products: JSON.parse( decodeURIComponent( "%5B%7B%22id%22%3A48%2C%22name%22%3A%22Test%20Product%22%2C%22parent%22%3A0%2C%22type%22%3A%22simple%22%2C%22variation%22%3A%22%22%2C%22permalink%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2F%3Fproduct%3Dtest-product%22%2C%22sku%22%3A%22%22%2C%22short_description%22%3A%22%22%2C%22description%22%3A%22%3Cp%3Ebvjhgjhhj%3C%5C%2Fp%3E%22%2C%22on_sale%22%3Atrue%2C%22prices%22%3A%7B%22price%22%3A%22111%22%2C%22regular_price%22%3A%221111%22%2C%22sale_price%22%3A%22111%22%2C%22price_range%22%3Anull%2C%22currency_code%22%3A%22USD%22%2C%22currency_symbol%22%3A%22%24%22%2C%22currency_minor_unit%22%3A0%2C%22currency_decimal_separator%22%3A%22.%22%2C%22currency_thousand_separator%22%3A%22%22%2C%22currency_prefix%22%3A%22%24%22%2C%22currency_suffix%22%3A%22%22%7D%2C%22price_html%22%3A%22%3Cdel%20aria-hidden%3D%5C%22true%5C%22%3E%3Cspan%20class%3D%5C%22woocommerce-Price-amount%20amount%5C%22%3E%3Cspan%20class%3D%5C%22woocommerce-Price-currencySymbol%5C%22%3E%26%23036%3B%3C%5C%2Fspan%3E1111%3C%5C%2Fspan%3E%3C%5C%2Fdel%3E%20%3Cins%3E%3Cspan%20class%3D%5C%22woocommerce-Price-amount%20amount%5C%22%3E%3Cspan%20class%3D%5C%22woocommerce-Price-currencySymbol%5C%22%3E%26%23036%3B%3C%5C%2Fspan%3E111%3C%5C%2Fspan%3E%3C%5C%2Fins%3E%22%2C%22average_rating%22%3A%220%22%2C%22review_count%22%3A0%2C%22images%22%3A%5B%7B%22id%22%3A49%2C%22src%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2Fscreenshot-4.png%22%2C%22thumbnail%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2Fscreenshot-4-300x300.png%22%2C%22srcset%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2Fscreenshot-4.png%201200w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2Fscreenshot-4-300x225.png%20300w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2Fscreenshot-4-1024x768.png%201024w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2Fscreenshot-4-768x576.png%20768w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2Fscreenshot-4-600x450.png%20600w%22%2C%22sizes%22%3A%22%28max-width%3A%201200px%29%20100vw%2C%201200px%22%2C%22name%22%3A%22screenshot%20%284%29%22%2C%22alt%22%3A%22%22%7D%5D%2C%22categories%22%3A%5B%7B%22id%22%3A16%2C%22name%22%3A%22Fitness%22%2C%22slug%22%3A%22fitness%22%2C%22link%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2F%3Fproduct_cat%3Dfitness%22%7D%5D%2C%22tags%22%3A%5B%5D%2C%22attributes%22%3A%5B%5D%2C%22variations%22%3A%5B%5D%2C%22has_options%22%3Afalse%2C%22is_purchasable%22%3Atrue%2C%22is_in_stock%22%3Atrue%2C%22is_on_backorder%22%3Afalse%2C%22low_stock_remaining%22%3Anull%2C%22sold_individually%22%3Afalse%2C%22quantity_limit%22%3A99%2C%22add_to_cart%22%3A%7B%22text%22%3A%22Add%20to%20cart%22%2C%22description%22%3A%22Add%20%26ldquo%3BTest%20Product%26rdquo%3B%20to%20your%20cart%22%2C%22url%22%3A%22%3Fadd-to-cart%3D48%22%7D%7D%2C%7B%22id%22%3A36%2C%22name%22%3A%22Wakefit%20Waterproof%20Mattress%20Protector%22%2C%22parent%22%3A0%2C%22type%22%3A%22simple%22%2C%22variation%22%3A%22%22%2C%22permalink%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2F%3Fproduct%3Dwakefit-waterproof-mattress-protector%22%2C%22sku%22%3A%22%22%2C%22short_description%22%3A%22%22%2C%22description%22%3A%22%3Ch2%20class%3D%5C%22w-primary-color%20text-center%5C%22%3ESpecifications%3C%5C%2Fh2%3E%5Cn%3Cdiv%20class%3D%5C%22product-extra-details%20%5C%22%3E%5Cn%3Cul%20class%3D%5C%22product_desc_list%20thin-font%20row%5C%22%3E%5Cn%3Cli%20class%3D%5C%22col-sm-4%5C%22%3E%3Cimg%20src%3D%5C%22https%3A%5C%2F%5C%2Fwakefit-co.s3.ap-south-1.amazonaws.com%5C%2Fimg%5C%2Flatest%5C%2Ficons%5C%2F01_feel.svg%5C%22%20alt%3D%5C%22Specifications%5C%22%20%5C%2F%3E%5Cn%3Cdiv%20class%3D%5C%22w-spec-desc%5C%22%3E%3Cspan%20class%3D%5C%22light-grey-text%5C%22%3EProtector%20Feel%3A%3C%5C%2Fspan%3ESoft%20and%20textured%3C%5C%2Fdiv%3E%5Cn%3C%5C%2Fli%3E%5Cn%3Cli%20class%3D%5C%22col-sm-4%5C%22%3E%3Cimg%20src%3D%5C%22https%3A%5C%2F%5C%2Fwakefit-co.s3.ap-south-1.amazonaws.com%5C%2Fimg%5C%2Flatest%5C%2Ficons%5C%2F02_wash_cycles_pro.svg%5C%22%20alt%3D%5C%22Specifications%5C%22%20%5C%2F%3E%5Cn%3Cdiv%20class%3D%5C%22w-spec-desc%5C%22%3E%3Cspan%20class%3D%5C%22light-grey-text%5C%22%3EWarranty%3A%3C%5C%2Fspan%3E30%20wash%20cycle%20manufacturer%20warranty%3C%5C%2Fdiv%3E%5Cn%3C%5C%2Fli%3E%5Cn%3Cli%20class%3D%5C%22col-sm-4%5C%22%3E%3Cimg%20src%3D%5C%22https%3A%5C%2F%5C%2Fwakefit-co.s3.ap-south-1.amazonaws.com%5C%2Fimg%5C%2Flatest%5C%2Ficons%5C%2Fthickness.jpg%5C%22%20alt%3D%5C%22Specifications%5C%22%20%5C%2F%3E%5Cn%3Cdiv%20class%3D%5C%22w-spec-desc%5C%22%3E%3Cspan%20class%3D%5C%22light-grey-text%5C%22%3EFall%20Length%3A%3C%5C%2Fspan%3E9.5%20inches.%20Fits%20mattresses%20up%20to%208%20inches.%3C%5C%2Fdiv%3E%5Cn%3C%5C%2Fli%3E%5Cn%3Cli%20class%3D%5C%22col-sm-4%5C%22%3E%3Cimg%20src%3D%5C%22https%3A%5C%2F%5C%2Fwakefit-co.s3.ap-south-1.amazonaws.com%5C%2Fimg%5C%2Flatest%5C%2Ficons%5C%2F03_shipping_ortho.svg%5C%22%20alt%3D%5C%22Specifications%5C%22%20%5C%2F%3E%5Cn%3Cdiv%20class%3D%5C%22w-spec-desc%5C%22%3E%3Cspan%20class%3D%5C%22light-grey-text%5C%22%3EShipping%3A%3C%5C%2Fspan%3EDirect%20from%20factory%5C%2Fwarehouse%3C%5C%2Fdiv%3E%5Cn%3C%5C%2Fli%3E%5Cn%3Cli%20class%3D%5C%22col-sm-4%5C%22%3E%3Cimg%20src%3D%5C%22https%3A%5C%2F%5C%2Fwakefit-co.s3.ap-south-1.amazonaws.com%5C%2Fimg%5C%2Flatest%5C%2Ficons%5C%2Fcare.svg%5C%22%20alt%3D%5C%22Specifications%5C%22%20%5C%2F%3E%5Cn%3Cdiv%20class%3D%5C%22w-spec-desc%5C%22%3E%3Cspan%20class%3D%5C%22light-grey-text%5C%22%3ECare%3A%3C%5C%2Fspan%3EQuick%20machine%20washable%20material%20for%20hygiene%20and%20cleanliness%3C%5C%2Fdiv%3E%5Cn%3C%5C%2Fli%3E%5Cn%3Cli%20class%3D%5C%22col-sm-4%5C%22%3E%3Cimg%20src%3D%5C%22https%3A%5C%2F%5C%2Fwakefit-co.s3.ap-south-1.amazonaws.com%5C%2Fimg%5C%2Flatest%5C%2Ficons%5C%2F05_cover_type.svg%5C%22%20alt%3D%5C%22Specifications%5C%22%20%5C%2F%3E%5Cn%3Cdiv%20class%3D%5C%22w-spec-desc%5C%22%3E%3Cspan%20class%3D%5C%22light-grey-text%5C%22%3EFeatures%3A%3C%5C%2Fspan%3EElastic%20for%20tucking%20in%20the%20corners%3C%5C%2Fdiv%3E%5Cn%3C%5C%2Fli%3E%5Cn%3Cli%20class%3D%5C%22col-sm-4%5C%22%3E%3Cimg%20src%3D%5C%22https%3A%5C%2F%5C%2Fwakefit-co.s3.ap-south-1.amazonaws.com%5C%2Fimg%5C%2Flatest%5C%2Ficons%5C%2F06_material_type_ortho.svg%5C%22%20alt%3D%5C%22Specifications%5C%22%20%5C%2F%3E%5Cn%3Cdiv%20class%3D%5C%22w-spec-desc%5C%22%3E%3Cspan%20class%3D%5C%22light-grey-text%5C%22%3EMaterial%20Type%3A%3C%5C%2Fspan%3E200%20GSM%20terry%20cotton%20surface%20with%20TPU%20film%3C%5C%2Fdiv%3E%5Cn%3C%5C%2Fli%3E%5Cn%3C%5C%2Ful%3E%5Cn%3C%5C%2Fdiv%3E%22%2C%22on_sale%22%3Atrue%2C%22prices%22%3A%7B%22price%22%3A%22799%22%2C%22regular_price%22%3A%221799%22%2C%22sale_price%22%3A%22799%22%2C%22price_range%22%3Anull%2C%22currency_code%22%3A%22USD%22%2C%22currency_symbol%22%3A%22%24%22%2C%22currency_minor_unit%22%3A0%2C%22currency_decimal_separator%22%3A%22.%22%2C%22currency_thousand_separator%22%3A%22%22%2C%22currency_prefix%22%3A%22%24%22%2C%22currency_suffix%22%3A%22%22%7D%2C%22price_html%22%3A%22%3Cdel%20aria-hidden%3D%5C%22true%5C%22%3E%3Cspan%20class%3D%5C%22woocommerce-Price-amount%20amount%5C%22%3E%3Cspan%20class%3D%5C%22woocommerce-Price-currencySymbol%5C%22%3E%26%23036%3B%3C%5C%2Fspan%3E1799%3C%5C%2Fspan%3E%3C%5C%2Fdel%3E%20%3Cins%3E%3Cspan%20class%3D%5C%22woocommerce-Price-amount%20amount%5C%22%3E%3Cspan%20class%3D%5C%22woocommerce-Price-currencySymbol%5C%22%3E%26%23036%3B%3C%5C%2Fspan%3E799%3C%5C%2Fspan%3E%3C%5C%2Fins%3E%22%2C%22average_rating%22%3A%220%22%2C%22review_count%22%3A0%2C%22images%22%3A%5B%7B%22id%22%3A40%2C%22src%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61lkVrCBVL._SL1000_-1.jpg%22%2C%22thumbnail%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61lkVrCBVL._SL1000_-1-300x300.jpg%22%2C%22srcset%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61lkVrCBVL._SL1000_-1.jpg%201000w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61lkVrCBVL._SL1000_-1-300x200.jpg%20300w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61lkVrCBVL._SL1000_-1-768x512.jpg%20768w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61lkVrCBVL._SL1000_-1-600x400.jpg%20600w%22%2C%22sizes%22%3A%22%28max-width%3A%201000px%29%20100vw%2C%201000px%22%2C%22name%22%3A%2261l%2BkVrCBVL._SL1000_%22%2C%22alt%22%3A%22%22%7D%2C%7B%22id%22%3A39%2C%22src%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-hMuOqlKL._SL1000_-1.jpg%22%2C%22thumbnail%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-hMuOqlKL._SL1000_-1-300x300.jpg%22%2C%22srcset%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-hMuOqlKL._SL1000_-1.jpg%201000w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-hMuOqlKL._SL1000_-1-300x200.jpg%20300w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-hMuOqlKL._SL1000_-1-768x512.jpg%20768w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-hMuOqlKL._SL1000_-1-600x400.jpg%20600w%22%2C%22sizes%22%3A%22%28max-width%3A%201000px%29%20100vw%2C%201000px%22%2C%22name%22%3A%2261-hMuOqlKL._SL1000_%22%2C%22alt%22%3A%22%22%7D%2C%7B%22id%22%3A38%2C%22src%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61c2qj7QijL._SL1000_-1.jpg%22%2C%22thumbnail%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61c2qj7QijL._SL1000_-1-300x300.jpg%22%2C%22srcset%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61c2qj7QijL._SL1000_-1.jpg%201000w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61c2qj7QijL._SL1000_-1-300x200.jpg%20300w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61c2qj7QijL._SL1000_-1-768x512.jpg%20768w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61c2qj7QijL._SL1000_-1-600x400.jpg%20600w%22%2C%22sizes%22%3A%22%28max-width%3A%201000px%29%20100vw%2C%201000px%22%2C%22name%22%3A%2261c2qj7QijL._SL1000_%22%2C%22alt%22%3A%22%22%7D%2C%7B%22id%22%3A37%2C%22src%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F51R89Vbhg6L._SL1000_-1.jpg%22%2C%22thumbnail%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F51R89Vbhg6L._SL1000_-1-300x300.jpg%22%2C%22srcset%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F51R89Vbhg6L._SL1000_-1.jpg%201000w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F51R89Vbhg6L._SL1000_-1-300x200.jpg%20300w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F51R89Vbhg6L._SL1000_-1-768x512.jpg%20768w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F51R89Vbhg6L._SL1000_-1-600x400.jpg%20600w%22%2C%22sizes%22%3A%22%28max-width%3A%201000px%29%20100vw%2C%201000px%22%2C%22name%22%3A%2251R89Vbhg6L._SL1000_%22%2C%22alt%22%3A%22%22%7D%5D%2C%22categories%22%3A%5B%5D%2C%22tags%22%3A%5B%5D%2C%22attributes%22%3A%5B%5D%2C%22variations%22%3A%5B%5D%2C%22has_options%22%3Afalse%2C%22is_purchasable%22%3Atrue%2C%22is_in_stock%22%3Atrue%2C%22is_on_backorder%22%3Afalse%2C%22low_stock_remaining%22%3Anull%2C%22sold_individually%22%3Afalse%2C%22quantity_limit%22%3A99%2C%22add_to_cart%22%3A%7B%22text%22%3A%22Add%20to%20cart%22%2C%22description%22%3A%22Add%20%26ldquo%3BWakefit%20Waterproof%20Mattress%20Protector%26rdquo%3B%20to%20your%20cart%22%2C%22url%22%3A%22%3Fadd-to-cart%3D36%22%7D%7D%2C%7B%22id%22%3A12%2C%22name%22%3A%22Fitness%20Mantra%5Cu00ae%20Yoga%20Mat%20for%20Gym%20Workout%20and%20Yoga%20Exercise%20with%206mm%20Thickness%2C%20Anti-Slip%20Yoga%20Mat%20for%20Men%20%26%23038%3B%20Women%20Fitness%22%2C%22parent%22%3A0%2C%22type%22%3A%22simple%22%2C%22variation%22%3A%22%22%2C%22permalink%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2F%3Fproduct%3Dfitness-mantra-yoga-mat-for-gym-workout-and-yoga-exercise-with-6mm-thickness-anti-slip-yoga-mat-for-men-women-fitness%22%2C%22sku%22%3A%22%22%2C%22short_description%22%3A%22%22%2C%22description%22%3A%22%3Cul%20class%3D%5C%22a-unordered-list%20a-vertical%20a-spacing-mini%5C%22%3E%5Cn%3Cli%3E%3Cspan%20class%3D%5C%22a-list-item%5C%22%3EEco-Friendly%20and%20Anti%20%5Cu2013Tear%20Mat%20-With%20Single%20sided%20non-slip%20surfaces.%20Our%20premium%20exercise%20yoga%20mat%20comes%20with%20an%20excellent%20slip%20resistant%20advantage%20to%20prevent%20injuries.%20We%20believe%20in%20creating%20finest%20eco%20friendly%20products%20that%20are%20safe%20for%20your%20body%2C%20mind%20and%20spirit.%20The%20recyclable%20EVA%20mat%20is%20biodegradable%20silicone%2C%20materials.100%25%20non-toxic%20and%20safe%20to%20people%2C%20good%20quality%20material%20will%20prevent%20sweat%20and%20dirt%20from%20absorbing%20into%20the%20mat%2C%20easy%20to%20maintain.%3C%5C%2Fspan%3E%3C%5C%2Fli%3E%5Cn%3Cli%3E%3Cspan%20class%3D%5C%22a-list-item%5C%22%3EEasy%20to%20clean%20%26%238211%3B%20The%20moisture%20resistant%20technology%20and%20high%20Quality%20material%20make%20mat%20to%20be%20easily%20washed%20with%20soap%20and%20water.%3C%5C%2Fspan%3E%3C%5C%2Fli%3E%5Cn%3Cli%3E%3Cspan%20class%3D%5C%22a-list-item%5C%22%3EStorage%20and%20care%20%26%238211%3B%20Exceptional%20resilience%20allow%20you%20to%20keep%20your%20balance%20during%20any%20exercise%20style.%20Moisture%20resistant%20Technology%20makes%20the%20mat%20to%20be%20easily%20washed%20with%20soap%20and%20water.%20Yoga%20mats%20are%20very%20photo%20degradable%20and%20can%20become%20brittle%20if%20exposed%20to%20direct%20sunlight%20or%20put%20in%20car%20trunk%20of%20high%20temperature%20for%20extended%20periods.%20Gently%20bath%20with%20mild%20soap%20and%20water%20and%20a%20soft%20cloth.%20Do%20not%20place%20in%20washing%20machine%20or%20dryer.%3C%5C%2Fspan%3E%3C%5C%2Fli%3E%5Cn%3Cli%3E%3Cspan%20class%3D%5C%22a-list-item%5C%22%3EComfortably%20thick%20for%20a%20better%20work%20out%3A-180cm%20long%2060cm%20wide%20ensures%20comfort%20for%20people%20of%20all%20shapes%20and%20sizes.%20With%20high%20density%20eco%20friendly%20material%2C%20the%206mm%20thick%20premium%20mat%20comfortably%20cushions%20spine%2C%20hips%2C%20knees%20and%20elbows%20on%20hard%20floors%20while%20keeps%20you%20balanced.%3C%5C%2Fspan%3E%3C%5C%2Fli%3E%5Cn%3C%5C%2Ful%3E%22%2C%22on_sale%22%3Atrue%2C%22prices%22%3A%7B%22price%22%3A%22389%22%2C%22regular_price%22%3A%221599%22%2C%22sale_price%22%3A%22389%22%2C%22price_range%22%3Anull%2C%22currency_code%22%3A%22USD%22%2C%22currency_symbol%22%3A%22%24%22%2C%22currency_minor_unit%22%3A0%2C%22currency_decimal_separator%22%3A%22.%22%2C%22currency_thousand_separator%22%3A%22%22%2C%22currency_prefix%22%3A%22%24%22%2C%22currency_suffix%22%3A%22%22%7D%2C%22price_html%22%3A%22%3Cdel%20aria-hidden%3D%5C%22true%5C%22%3E%3Cspan%20class%3D%5C%22woocommerce-Price-amount%20amount%5C%22%3E%3Cspan%20class%3D%5C%22woocommerce-Price-currencySymbol%5C%22%3E%26%23036%3B%3C%5C%2Fspan%3E1599%3C%5C%2Fspan%3E%3C%5C%2Fdel%3E%20%3Cins%3E%3Cspan%20class%3D%5C%22woocommerce-Price-amount%20amount%5C%22%3E%3Cspan%20class%3D%5C%22woocommerce-Price-currencySymbol%5C%22%3E%26%23036%3B%3C%5C%2Fspan%3E389%3C%5C%2Fspan%3E%3C%5C%2Fins%3E%22%2C%22average_rating%22%3A%220%22%2C%22review_count%22%3A0%2C%22images%22%3A%5B%7B%22id%22%3A18%2C%22src%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-w1cccjwL._SL1500_.jpg%22%2C%22thumbnail%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-w1cccjwL._SL1500_-300x300.jpg%22%2C%22srcset%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-w1cccjwL._SL1500_.jpg%201500w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-w1cccjwL._SL1500_-600x399.jpg%20600w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-w1cccjwL._SL1500_-300x200.jpg%20300w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-w1cccjwL._SL1500_-1024x681.jpg%201024w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-w1cccjwL._SL1500_-768x511.jpg%20768w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F61-w1cccjwL._SL1500_-1320x878.jpg%201320w%22%2C%22sizes%22%3A%22%28max-width%3A%201500px%29%20100vw%2C%201500px%22%2C%22name%22%3A%2261-w1cccjwL._SL1500_%22%2C%22alt%22%3A%22%22%7D%2C%7B%22id%22%3A17%2C%22src%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F71k4LNS1SYL._SL1500_.jpg%22%2C%22thumbnail%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F71k4LNS1SYL._SL1500_-300x300.jpg%22%2C%22srcset%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F71k4LNS1SYL._SL1500_.jpg%201500w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F71k4LNS1SYL._SL1500_-600x511.jpg%20600w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F71k4LNS1SYL._SL1500_-300x255.jpg%20300w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F71k4LNS1SYL._SL1500_-1024x872.jpg%201024w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F71k4LNS1SYL._SL1500_-768x654.jpg%20768w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F71k4LNS1SYL._SL1500_-1320x1124.jpg%201320w%22%2C%22sizes%22%3A%22%28max-width%3A%201500px%29%20100vw%2C%201500px%22%2C%22name%22%3A%2271k4LNS1SYL._SL1500_%22%2C%22alt%22%3A%22%22%7D%2C%7B%22id%22%3A16%2C%22src%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81iI4lGDejL._SL1500_.jpg%22%2C%22thumbnail%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81iI4lGDejL._SL1500_-300x300.jpg%22%2C%22srcset%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81iI4lGDejL._SL1500_.jpg%201500w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81iI4lGDejL._SL1500_-300x300.jpg%20300w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81iI4lGDejL._SL1500_-100x100.jpg%20100w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81iI4lGDejL._SL1500_-600x600.jpg%20600w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81iI4lGDejL._SL1500_-1024x1024.jpg%201024w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81iI4lGDejL._SL1500_-150x150.jpg%20150w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81iI4lGDejL._SL1500_-768x768.jpg%20768w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81iI4lGDejL._SL1500_-1320x1320.jpg%201320w%22%2C%22sizes%22%3A%22%28max-width%3A%201500px%29%20100vw%2C%201500px%22%2C%22name%22%3A%2281iI4lGDejL._SL1500_%22%2C%22alt%22%3A%22%22%7D%2C%7B%22id%22%3A15%2C%22src%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81m31Fy0oL._SL1500_.jpg%22%2C%22thumbnail%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81m31Fy0oL._SL1500_-300x300.jpg%22%2C%22srcset%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81m31Fy0oL._SL1500_.jpg%201500w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81m31Fy0oL._SL1500_-300x300.jpg%20300w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81m31Fy0oL._SL1500_-100x100.jpg%20100w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81m31Fy0oL._SL1500_-600x600.jpg%20600w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81m31Fy0oL._SL1500_-1024x1024.jpg%201024w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81m31Fy0oL._SL1500_-150x150.jpg%20150w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81m31Fy0oL._SL1500_-768x768.jpg%20768w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81m31Fy0oL._SL1500_-1320x1320.jpg%201320w%22%2C%22sizes%22%3A%22%28max-width%3A%201500px%29%20100vw%2C%201500px%22%2C%22name%22%3A%2281m31Fy%2B0oL._SL1500_%22%2C%22alt%22%3A%22%22%7D%2C%7B%22id%22%3A14%2C%22src%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F91mbKSHTBBL._SL1500_.jpg%22%2C%22thumbnail%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F91mbKSHTBBL._SL1500_-300x300.jpg%22%2C%22srcset%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F91mbKSHTBBL._SL1500_.jpg%201500w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F91mbKSHTBBL._SL1500_-300x300.jpg%20300w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F91mbKSHTBBL._SL1500_-100x100.jpg%20100w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F91mbKSHTBBL._SL1500_-600x600.jpg%20600w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F91mbKSHTBBL._SL1500_-1024x1024.jpg%201024w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F91mbKSHTBBL._SL1500_-150x150.jpg%20150w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F91mbKSHTBBL._SL1500_-768x768.jpg%20768w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F91mbKSHTBBL._SL1500_-1320x1320.jpg%201320w%22%2C%22sizes%22%3A%22%28max-width%3A%201500px%29%20100vw%2C%201500px%22%2C%22name%22%3A%2291mbKSHTBBL._SL1500_%22%2C%22alt%22%3A%22%22%7D%2C%7B%22id%22%3A13%2C%22src%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81Rm-QHvwcL._SL1500_.jpg%22%2C%22thumbnail%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81Rm-QHvwcL._SL1500_-300x300.jpg%22%2C%22srcset%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81Rm-QHvwcL._SL1500_.jpg%201500w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81Rm-QHvwcL._SL1500_-600x452.jpg%20600w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81Rm-QHvwcL._SL1500_-300x226.jpg%20300w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81Rm-QHvwcL._SL1500_-1024x772.jpg%201024w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81Rm-QHvwcL._SL1500_-768x579.jpg%20768w%2C%20http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2F2021%5C%2F09%5C%2F81Rm-QHvwcL._SL1500_-1320x995.jpg%201320w%22%2C%22sizes%22%3A%22%28max-width%3A%201500px%29%20100vw%2C%201500px%22%2C%22name%22%3A%2281Rm-QHvwcL._SL1500_%22%2C%22alt%22%3A%22%22%7D%5D%2C%22categories%22%3A%5B%7B%22id%22%3A16%2C%22name%22%3A%22Fitness%22%2C%22slug%22%3A%22fitness%22%2C%22link%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2F%3Fproduct_cat%3Dfitness%22%7D%5D%2C%22tags%22%3A%5B%5D%2C%22attributes%22%3A%5B%5D%2C%22variations%22%3A%5B%5D%2C%22has_options%22%3Afalse%2C%22is_purchasable%22%3Atrue%2C%22is_in_stock%22%3Atrue%2C%22is_on_backorder%22%3Afalse%2C%22low_stock_remaining%22%3Anull%2C%22sold_individually%22%3Afalse%2C%22quantity_limit%22%3A99%2C%22add_to_cart%22%3A%7B%22text%22%3A%22Add%20to%20cart%22%2C%22description%22%3A%22Add%20%26ldquo%3BFitness%20Mantra%5Cu00ae%20Yoga%20Mat%20for%20Gym%20Workout%20and%20Yoga%20Exercise%20with%206mm%20Thickness%2C%20Anti-Slip%20Yoga%20Mat%20for%20Men%20%26%23038%3B%20Women%20Fitness%26rdquo%3B%20to%20your%20cart%22%2C%22url%22%3A%22%3Fadd-to-cart%3D12%22%7D%7D%5D" ) ),
-						listName: "product-best-sellers"
-					}
-				);
-			} );
+		</div>
+									</div>
+
+			</div>
 			
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/i18n.min.js?ver=5f1269854226b4dd90450db411a12b79" id="wp-i18n-js"></script>
-<script type="text/javascript" id="wp-i18n-js-after">
-wp.i18n.setLocaleData( { 'text directionltr': [ 'ltr' ] } );
-</script>
-<script type="text/javascript" id="wc-settings-js-translations">
-( function( domain, translations ) {
-	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
-	localeData[""].domain = domain;
-	wp.i18n.setLocaleData( localeData, domain );
-} )( "woocommerce", { "locale_data": { "messages": { "": {} } } } );
-</script>
-<script type="text/javascript" id="wc-settings-js-before">
-var wcSettings = wcSettings || JSON.parse( decodeURIComponent( '%7B%22wcBlocksConfig%22%3A%7B%22buildPhase%22%3A1%2C%22pluginUrl%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fplugins%5C%2Fwoocommerce%5C%2Fpackages%5C%2Fwoocommerce-blocks%5C%2F%22%2C%22productCount%22%3A3%2C%22restApiRoutes%22%3A%7B%22%5C%2Fwc%5C%2Fstore%22%3A%5B%22%5C%2Fwc%5C%2Fstore%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcart%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcart%5C%2Fadd-item%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcart%5C%2Fapply-coupon%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcart%5C%2Fcoupons%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcart%5C%2Fcoupons%5C%2F%28%3FP%3Ccode%3E%5B%5C%5Cw-%5D%2B%29%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcart%5C%2Fextensions%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcart%5C%2Fitems%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcart%5C%2Fitems%5C%2F%28%3FP%3Ckey%3E%5B%5C%5Cw-%5D%7B32%7D%29%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcart%5C%2Fremove-coupon%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcart%5C%2Fremove-item%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcart%5C%2Fselect-shipping-rate%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcart%5C%2Fupdate-item%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcart%5C%2Fupdate-customer%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fcheckout%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fproducts%5C%2Fattributes%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fproducts%5C%2Fattributes%5C%2F%28%3FP%3Cid%3E%5B%5C%5Cd%5D%2B%29%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fproducts%5C%2Fattributes%5C%2F%28%3FP%3Cattribute_id%3E%5B%5C%5Cd%5D%2B%29%5C%2Fterms%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fproducts%5C%2Fcategories%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fproducts%5C%2Fcategories%5C%2F%28%3FP%3Cid%3E%5B%5C%5Cd%5D%2B%29%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fproducts%5C%2Fcollection-data%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fproducts%5C%2Freviews%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fproducts%5C%2Ftags%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fproducts%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fproducts%5C%2F%28%3FP%3Cid%3E%5B%5C%5Cd%5D%2B%29%22%2C%22%5C%2Fwc%5C%2Fstore%5C%2Fbatch%22%5D%7D%2C%22defaultAvatar%22%3A%22http%3A%5C%2F%5C%2F1.gravatar.com%5C%2Favatar%5C%2F%3Fs%3D96%26d%3Dmm%26f%3Dy%26r%3Dg%22%2C%22wordCountType%22%3A%22words%22%7D%2C%22min_columns%22%3A1%2C%22max_columns%22%3A6%2C%22default_columns%22%3A3%2C%22min_rows%22%3A1%2C%22max_rows%22%3A6%2C%22default_rows%22%3A3%2C%22hideOutOfStockItems%22%3Afalse%2C%22alertCount%22%3A%220%22%2C%22orderCount%22%3A0%2C%22publishedProductCount%22%3A%223%22%2C%22adminUrl%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-admin%5C%2F%22%2C%22countries%22%3A%7B%22AF%22%3A%22Afghanistan%22%2C%22AX%22%3A%22%5Cu00c5land%20Islands%22%2C%22AL%22%3A%22Albania%22%2C%22DZ%22%3A%22Algeria%22%2C%22AS%22%3A%22American%20Samoa%22%2C%22AD%22%3A%22Andorra%22%2C%22AO%22%3A%22Angola%22%2C%22AI%22%3A%22Anguilla%22%2C%22AQ%22%3A%22Antarctica%22%2C%22AG%22%3A%22Antigua%20and%20Barbuda%22%2C%22AR%22%3A%22Argentina%22%2C%22AM%22%3A%22Armenia%22%2C%22AW%22%3A%22Aruba%22%2C%22AU%22%3A%22Australia%22%2C%22AT%22%3A%22Austria%22%2C%22AZ%22%3A%22Azerbaijan%22%2C%22BS%22%3A%22Bahamas%22%2C%22BH%22%3A%22Bahrain%22%2C%22BD%22%3A%22Bangladesh%22%2C%22BB%22%3A%22Barbados%22%2C%22BY%22%3A%22Belarus%22%2C%22PW%22%3A%22Belau%22%2C%22BE%22%3A%22Belgium%22%2C%22BZ%22%3A%22Belize%22%2C%22BJ%22%3A%22Benin%22%2C%22BM%22%3A%22Bermuda%22%2C%22BT%22%3A%22Bhutan%22%2C%22BO%22%3A%22Bolivia%22%2C%22BQ%22%3A%22Bonaire%2C%20Saint%20Eustatius%20and%20Saba%22%2C%22BA%22%3A%22Bosnia%20and%20Herzegovina%22%2C%22BW%22%3A%22Botswana%22%2C%22BV%22%3A%22Bouvet%20Island%22%2C%22BR%22%3A%22Brazil%22%2C%22IO%22%3A%22British%20Indian%20Ocean%20Territory%22%2C%22BN%22%3A%22Brunei%22%2C%22BG%22%3A%22Bulgaria%22%2C%22BF%22%3A%22Burkina%20Faso%22%2C%22BI%22%3A%22Burundi%22%2C%22KH%22%3A%22Cambodia%22%2C%22CM%22%3A%22Cameroon%22%2C%22CA%22%3A%22Canada%22%2C%22CV%22%3A%22Cape%20Verde%22%2C%22KY%22%3A%22Cayman%20Islands%22%2C%22CF%22%3A%22Central%20African%20Republic%22%2C%22TD%22%3A%22Chad%22%2C%22CL%22%3A%22Chile%22%2C%22CN%22%3A%22China%22%2C%22CX%22%3A%22Christmas%20Island%22%2C%22CC%22%3A%22Cocos%20%28Keeling%29%20Islands%22%2C%22CO%22%3A%22Colombia%22%2C%22KM%22%3A%22Comoros%22%2C%22CG%22%3A%22Congo%20%28Brazzaville%29%22%2C%22CD%22%3A%22Congo%20%28Kinshasa%29%22%2C%22CK%22%3A%22Cook%20Islands%22%2C%22CR%22%3A%22Costa%20Rica%22%2C%22HR%22%3A%22Croatia%22%2C%22CU%22%3A%22Cuba%22%2C%22CW%22%3A%22Cura%26ccedil%3Bao%22%2C%22CY%22%3A%22Cyprus%22%2C%22CZ%22%3A%22Czech%20Republic%22%2C%22DK%22%3A%22Denmark%22%2C%22DJ%22%3A%22Djibouti%22%2C%22DM%22%3A%22Dominica%22%2C%22DO%22%3A%22Dominican%20Republic%22%2C%22EC%22%3A%22Ecuador%22%2C%22EG%22%3A%22Egypt%22%2C%22SV%22%3A%22El%20Salvador%22%2C%22GQ%22%3A%22Equatorial%20Guinea%22%2C%22ER%22%3A%22Eritrea%22%2C%22EE%22%3A%22Estonia%22%2C%22ET%22%3A%22Ethiopia%22%2C%22FK%22%3A%22Falkland%20Islands%22%2C%22FO%22%3A%22Faroe%20Islands%22%2C%22FJ%22%3A%22Fiji%22%2C%22FI%22%3A%22Finland%22%2C%22FR%22%3A%22France%22%2C%22GF%22%3A%22French%20Guiana%22%2C%22PF%22%3A%22French%20Polynesia%22%2C%22TF%22%3A%22French%20Southern%20Territories%22%2C%22GA%22%3A%22Gabon%22%2C%22GM%22%3A%22Gambia%22%2C%22GE%22%3A%22Georgia%22%2C%22DE%22%3A%22Germany%22%2C%22GH%22%3A%22Ghana%22%2C%22GI%22%3A%22Gibraltar%22%2C%22GR%22%3A%22Greece%22%2C%22GL%22%3A%22Greenland%22%2C%22GD%22%3A%22Grenada%22%2C%22GP%22%3A%22Guadeloupe%22%2C%22GU%22%3A%22Guam%22%2C%22GT%22%3A%22Guatemala%22%2C%22GG%22%3A%22Guernsey%22%2C%22GN%22%3A%22Guinea%22%2C%22GW%22%3A%22Guinea-Bissau%22%2C%22GY%22%3A%22Guyana%22%2C%22HT%22%3A%22Haiti%22%2C%22HM%22%3A%22Heard%20Island%20and%20McDonald%20Islands%22%2C%22HN%22%3A%22Honduras%22%2C%22HK%22%3A%22Hong%20Kong%22%2C%22HU%22%3A%22Hungary%22%2C%22IS%22%3A%22Iceland%22%2C%22IN%22%3A%22India%22%2C%22ID%22%3A%22Indonesia%22%2C%22IR%22%3A%22Iran%22%2C%22IQ%22%3A%22Iraq%22%2C%22IE%22%3A%22Ireland%22%2C%22IM%22%3A%22Isle%20of%20Man%22%2C%22IL%22%3A%22Israel%22%2C%22IT%22%3A%22Italy%22%2C%22CI%22%3A%22Ivory%20Coast%22%2C%22JM%22%3A%22Jamaica%22%2C%22JP%22%3A%22Japan%22%2C%22JE%22%3A%22Jersey%22%2C%22JO%22%3A%22Jordan%22%2C%22KZ%22%3A%22Kazakhstan%22%2C%22KE%22%3A%22Kenya%22%2C%22KI%22%3A%22Kiribati%22%2C%22KW%22%3A%22Kuwait%22%2C%22KG%22%3A%22Kyrgyzstan%22%2C%22LA%22%3A%22Laos%22%2C%22LV%22%3A%22Latvia%22%2C%22LB%22%3A%22Lebanon%22%2C%22LS%22%3A%22Lesotho%22%2C%22LR%22%3A%22Liberia%22%2C%22LY%22%3A%22Libya%22%2C%22LI%22%3A%22Liechtenstein%22%2C%22LT%22%3A%22Lithuania%22%2C%22LU%22%3A%22Luxembourg%22%2C%22MO%22%3A%22Macao%22%2C%22MG%22%3A%22Madagascar%22%2C%22MW%22%3A%22Malawi%22%2C%22MY%22%3A%22Malaysia%22%2C%22MV%22%3A%22Maldives%22%2C%22ML%22%3A%22Mali%22%2C%22MT%22%3A%22Malta%22%2C%22MH%22%3A%22Marshall%20Islands%22%2C%22MQ%22%3A%22Martinique%22%2C%22MR%22%3A%22Mauritania%22%2C%22MU%22%3A%22Mauritius%22%2C%22YT%22%3A%22Mayotte%22%2C%22MX%22%3A%22Mexico%22%2C%22FM%22%3A%22Micronesia%22%2C%22MD%22%3A%22Moldova%22%2C%22MC%22%3A%22Monaco%22%2C%22MN%22%3A%22Mongolia%22%2C%22ME%22%3A%22Montenegro%22%2C%22MS%22%3A%22Montserrat%22%2C%22MA%22%3A%22Morocco%22%2C%22MZ%22%3A%22Mozambique%22%2C%22MM%22%3A%22Myanmar%22%2C%22NA%22%3A%22Namibia%22%2C%22NR%22%3A%22Nauru%22%2C%22NP%22%3A%22Nepal%22%2C%22NL%22%3A%22Netherlands%22%2C%22NC%22%3A%22New%20Caledonia%22%2C%22NZ%22%3A%22New%20Zealand%22%2C%22NI%22%3A%22Nicaragua%22%2C%22NE%22%3A%22Niger%22%2C%22NG%22%3A%22Nigeria%22%2C%22NU%22%3A%22Niue%22%2C%22NF%22%3A%22Norfolk%20Island%22%2C%22KP%22%3A%22North%20Korea%22%2C%22MK%22%3A%22North%20Macedonia%22%2C%22MP%22%3A%22Northern%20Mariana%20Islands%22%2C%22NO%22%3A%22Norway%22%2C%22OM%22%3A%22Oman%22%2C%22PK%22%3A%22Pakistan%22%2C%22PS%22%3A%22Palestinian%20Territory%22%2C%22PA%22%3A%22Panama%22%2C%22PG%22%3A%22Papua%20New%20Guinea%22%2C%22PY%22%3A%22Paraguay%22%2C%22PE%22%3A%22Peru%22%2C%22PH%22%3A%22Philippines%22%2C%22PN%22%3A%22Pitcairn%22%2C%22PL%22%3A%22Poland%22%2C%22PT%22%3A%22Portugal%22%2C%22PR%22%3A%22Puerto%20Rico%22%2C%22QA%22%3A%22Qatar%22%2C%22RE%22%3A%22Reunion%22%2C%22RO%22%3A%22Romania%22%2C%22RU%22%3A%22Russia%22%2C%22RW%22%3A%22Rwanda%22%2C%22ST%22%3A%22S%26atilde%3Bo%20Tom%26eacute%3B%20and%20Pr%26iacute%3Bncipe%22%2C%22BL%22%3A%22Saint%20Barth%26eacute%3Blemy%22%2C%22SH%22%3A%22Saint%20Helena%22%2C%22KN%22%3A%22Saint%20Kitts%20and%20Nevis%22%2C%22LC%22%3A%22Saint%20Lucia%22%2C%22SX%22%3A%22Saint%20Martin%20%28Dutch%20part%29%22%2C%22MF%22%3A%22Saint%20Martin%20%28French%20part%29%22%2C%22PM%22%3A%22Saint%20Pierre%20and%20Miquelon%22%2C%22VC%22%3A%22Saint%20Vincent%20and%20the%20Grenadines%22%2C%22WS%22%3A%22Samoa%22%2C%22SM%22%3A%22San%20Marino%22%2C%22SA%22%3A%22Saudi%20Arabia%22%2C%22SN%22%3A%22Senegal%22%2C%22RS%22%3A%22Serbia%22%2C%22SC%22%3A%22Seychelles%22%2C%22SL%22%3A%22Sierra%20Leone%22%2C%22SG%22%3A%22Singapore%22%2C%22SK%22%3A%22Slovakia%22%2C%22SI%22%3A%22Slovenia%22%2C%22SB%22%3A%22Solomon%20Islands%22%2C%22SO%22%3A%22Somalia%22%2C%22ZA%22%3A%22South%20Africa%22%2C%22GS%22%3A%22South%20Georgia%5C%2FSandwich%20Islands%22%2C%22KR%22%3A%22South%20Korea%22%2C%22SS%22%3A%22South%20Sudan%22%2C%22ES%22%3A%22Spain%22%2C%22LK%22%3A%22Sri%20Lanka%22%2C%22SD%22%3A%22Sudan%22%2C%22SR%22%3A%22Suriname%22%2C%22SJ%22%3A%22Svalbard%20and%20Jan%20Mayen%22%2C%22SZ%22%3A%22Swaziland%22%2C%22SE%22%3A%22Sweden%22%2C%22CH%22%3A%22Switzerland%22%2C%22SY%22%3A%22Syria%22%2C%22TW%22%3A%22Taiwan%22%2C%22TJ%22%3A%22Tajikistan%22%2C%22TZ%22%3A%22Tanzania%22%2C%22TH%22%3A%22Thailand%22%2C%22TL%22%3A%22Timor-Leste%22%2C%22TG%22%3A%22Togo%22%2C%22TK%22%3A%22Tokelau%22%2C%22TO%22%3A%22Tonga%22%2C%22TT%22%3A%22Trinidad%20and%20Tobago%22%2C%22TN%22%3A%22Tunisia%22%2C%22TR%22%3A%22Turkey%22%2C%22TM%22%3A%22Turkmenistan%22%2C%22TC%22%3A%22Turks%20and%20Caicos%20Islands%22%2C%22TV%22%3A%22Tuvalu%22%2C%22UG%22%3A%22Uganda%22%2C%22UA%22%3A%22Ukraine%22%2C%22AE%22%3A%22United%20Arab%20Emirates%22%2C%22GB%22%3A%22United%20Kingdom%20%28UK%29%22%2C%22US%22%3A%22United%20States%20%28US%29%22%2C%22UM%22%3A%22United%20States%20%28US%29%20Minor%20Outlying%20Islands%22%2C%22UY%22%3A%22Uruguay%22%2C%22UZ%22%3A%22Uzbekistan%22%2C%22VU%22%3A%22Vanuatu%22%2C%22VA%22%3A%22Vatican%22%2C%22VE%22%3A%22Venezuela%22%2C%22VN%22%3A%22Vietnam%22%2C%22VG%22%3A%22Virgin%20Islands%20%28British%29%22%2C%22VI%22%3A%22Virgin%20Islands%20%28US%29%22%2C%22WF%22%3A%22Wallis%20and%20Futuna%22%2C%22EH%22%3A%22Western%20Sahara%22%2C%22YE%22%3A%22Yemen%22%2C%22ZM%22%3A%22Zambia%22%2C%22ZW%22%3A%22Zimbabwe%22%7D%2C%22currency%22%3A%7B%22code%22%3A%22USD%22%2C%22precision%22%3A0%2C%22symbol%22%3A%22%24%22%2C%22symbolPosition%22%3A%22left%22%2C%22decimalSeparator%22%3A%22.%22%2C%22thousandSeparator%22%3A%22%22%2C%22priceFormat%22%3A%22%251%24s%252%24s%22%7D%2C%22currentUserIsAdmin%22%3Afalse%2C%22homeUrl%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2F%22%2C%22locale%22%3A%7B%22siteLocale%22%3A%22en_US%22%2C%22userLocale%22%3A%22en_US%22%2C%22weekdaysShort%22%3A%5B%22Sun%22%2C%22Mon%22%2C%22Tue%22%2C%22Wed%22%2C%22Thu%22%2C%22Fri%22%2C%22Sat%22%5D%7D%2C%22orderStatuses%22%3A%7B%22pending%22%3A%22Pending%20payment%22%2C%22processing%22%3A%22Processing%22%2C%22on-hold%22%3A%22On%20hold%22%2C%22completed%22%3A%22Completed%22%2C%22cancelled%22%3A%22Cancelled%22%2C%22refunded%22%3A%22Refunded%22%2C%22failed%22%3A%22Failed%22%7D%2C%22placeholderImgSrc%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fuploads%5C%2Fwoocommerce-placeholder-300x300.png%22%2C%22siteTitle%22%3A%22Bachat%20Dost%22%2C%22storePages%22%3A%7B%22myaccount%22%3A%7B%22id%22%3A9%2C%22title%22%3A%22My%20account%22%2C%22permalink%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2F%3Fpage_id%3D9%22%7D%2C%22shop%22%3A%7B%22id%22%3A6%2C%22title%22%3A%22Shop%22%2C%22permalink%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2F%22%7D%2C%22cart%22%3A%7B%22id%22%3A7%2C%22title%22%3A%22Cart%22%2C%22permalink%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2F%3Fpage_id%3D7%22%7D%2C%22checkout%22%3A%7B%22id%22%3A8%2C%22title%22%3A%22Checkout%22%2C%22permalink%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2F%3Fpage_id%3D8%22%7D%2C%22privacy%22%3A%7B%22id%22%3A0%2C%22title%22%3A%22%22%2C%22permalink%22%3Afalse%7D%2C%22terms%22%3A%7B%22id%22%3A0%2C%22title%22%3A%22%22%2C%22permalink%22%3Afalse%7D%7D%2C%22wcAssetUrl%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-content%5C%2Fplugins%5C%2Fwoocommerce%5C%2Fassets%5C%2F%22%2C%22wcVersion%22%3A%225.6.0%22%2C%22wpLoginUrl%22%3A%22http%3A%5C%2F%5C%2Flocalhost%5C%2Fbachatdost%5C%2Fwp-login.php%22%2C%22wpVersion%22%3A%225.8%22%7D' ) );
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-settings.js?ver=eb9fff9e86cd8c11bfb8c225bea87ed4" id="wc-settings-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/url.min.js?ver=41088521039aa510728086754722537c" id="wp-url-js"></script>
-<script type="text/javascript" id="wp-api-fetch-js-translations">
-( function( domain, translations ) {
-	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
-	localeData[""].domain = domain;
-	wp.i18n.setLocaleData( localeData, domain );
-} )( "default", { "locale_data": { "messages": { "": {} } } } );
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/api-fetch.min.js?ver=134e23b5f88ba06a093f9f92520a98df" id="wp-api-fetch-js"></script>
-<script type="text/javascript" id="wp-api-fetch-js-after">
-wp.apiFetch.use( wp.apiFetch.createRootURLMiddleware( "/index.php?rest_route=/" ) );
-wp.apiFetch.nonceMiddleware = wp.apiFetch.createNonceMiddleware( "65f2423cc9" );
-wp.apiFetch.use( wp.apiFetch.nonceMiddleware );
-wp.apiFetch.use( wp.apiFetch.mediaUploadMiddleware );
-wp.apiFetch.nonceEndpoint = "/wp-admin/admin-ajax.php?action=rest-nonce";
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/deprecated.min.js?ver=932d8bb37da8bbb396a7a3f754345e08" id="wp-deprecated-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/dom.min.js?ver=22e1cba3e717e77490ac4ae45f8ef8ee" id="wp-dom-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/vendor/react-dom.min.js?ver=16.13.1" id="react-dom-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/escape-html.min.js?ver=dcba9e40e8782c7d5883426934834b3e" id="wp-escape-html-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/element.min.js?ver=581bce50da6025b17bd0d62a88f525a0" id="wp-element-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/is-shallow-equal.min.js?ver=9b8d91804cfb3ef5b14e6ef816664072" id="wp-is-shallow-equal-js"></script>
-<script type="text/javascript" id="wp-keycodes-js-translations">
-( function( domain, translations ) {
-	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
-	localeData[""].domain = domain;
-	wp.i18n.setLocaleData( localeData, domain );
-} )( "default", { "locale_data": { "messages": { "": {} } } } );
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/keycodes.min.js?ver=042c4b19e6cbf332d429dea8aa3bf671" id="wp-keycodes-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/priority-queue.min.js?ver=b2e76fb9887a285b5eff38763f2ac2fc" id="wp-priority-queue-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/compose.min.js?ver=6284a4846a73f9c3e3ff2d7bd0b47be7" id="wp-compose-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/redux-routine.min.js?ver=7f20dbcdb5d5645c977063e356eb95cf" id="wp-redux-routine-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/data.min.js?ver=7bfa3a673439e85e459d5ec92d30fdda" id="wp-data-js"></script>
-<script type="text/javascript" id="wp-data-js-after">
-( function() {
-	var userId = 0;
-	var storageKey = "WP_DATA_USER_" + userId;
-	wp.data
-		.use( wp.data.plugins.persistence, { storageKey: storageKey } );
-	wp.data.plugins.persistence.__unstableMigrate( { storageKey: storageKey } );
-} )();
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/data-controls.min.js?ver=cb4174d77c57f56732dc41d3bf3b2781" id="wp-data-controls-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/notices.min.js?ver=302487dc7e2cc8ab91ae19a57631973c" id="wp-notices-js"></script>
-<script type="text/javascript" id="wc-blocks-middleware-js-before">
-			var wcBlocksMiddlewareConfig = {
-				storeApiNonce: 'b30514d2aa',
-				wcStoreApiNonceTimestamp: '1630787491'
-			};
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=38" title="Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g"><img fifu-featured="1" width="130" height="90" src="https://m.media-amazon.com/images/I/41u-uzkPPlL.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=38" title="Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g">
+				Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=38" title="6:56 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:56:15+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=38#respond">0</a>			</span>
+		
+		</div>
+									</div>
+
+			</div>
 			
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=19" title="Destruction in Montania"><img width="130" height="90" src="https://bachatdost.in/wp-content/uploads/2021/09/fireman-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Destruction in Montania" loading="lazy" title="Destruction in Montania" srcset="https://bachatdost.in/wp-content/uploads/2021/09/fireman-130x90.jpg 130w, https://bachatdost.in/wp-content/uploads/2021/09/fireman-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=1" rel="category tag">Uncategorized</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=19" title="Destruction in Montania">
+				Destruction in Montania			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=19" title="6:46 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:46:00+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=19#respond">0</a>			</span>
+		
+		</div>
+									</div>
+
+			</div>
+			
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=18" title="A Paradise for Holiday"><img width="130" height="90" src="https://bachatdost.in/wp-content/uploads/2021/09/sea-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="A Paradise for Holiday" loading="lazy" title="A Paradise for Holiday" srcset="https://bachatdost.in/wp-content/uploads/2021/09/sea-130x90.jpg 130w, https://bachatdost.in/wp-content/uploads/2021/09/sea-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=1" rel="category tag">Uncategorized</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=18" title="A Paradise for Holiday">
+				A Paradise for Holiday			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=18" title="6:46 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:46:00+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=18#respond">0</a>			</span>
+		
+		</div>
+									</div>
+
+			</div>
+			</div></section>						<div class="tg-one-half">
+							<section id="colormag_featured_posts_vertical_widget-3" class="widget widget_featured_posts widget_featured_posts_vertical widget_featured_meta clearfix">
+		<h3 class="widget-title"><span>FASHION</span></h3>
+<div class="first-post">
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml"><img fifu-featured="1" width="390" height="205" src="https://m.media-amazon.com/images/I/31DsYvjTGcL.jpg" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml">
+				Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=42" title="6:59 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:59:38+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=42#respond">0</a>			</span>
+		
+		</div>
+											<div class="entry-content">
+							<p>Price: (as of &#8211; Details) Makeup fixer used either before or after makeup is to set your makeup so that</p>
+						</div>
+									</div>
+
+			</div>
+			</div>
+<div class="following-post">
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g"><img fifu-featured="1" width="130" height="90" src="https://m.media-amazon.com/images/I/314IEXcSLnL.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g">
+				Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=40" title="6:58 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:58:05+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=40#respond">0</a>			</span>
+		
+		</div>
+									</div>
+
+			</div>
+			
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=38" title="Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g"><img fifu-featured="1" width="130" height="90" src="https://m.media-amazon.com/images/I/41u-uzkPPlL.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=38" title="Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g">
+				Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=38" title="6:56 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:56:15+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=38#respond">0</a>			</span>
+		
+		</div>
+									</div>
+
+			</div>
+			
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=19" title="Destruction in Montania"><img width="130" height="90" src="https://bachatdost.in/wp-content/uploads/2021/09/fireman-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Destruction in Montania" loading="lazy" title="Destruction in Montania" srcset="https://bachatdost.in/wp-content/uploads/2021/09/fireman-130x90.jpg 130w, https://bachatdost.in/wp-content/uploads/2021/09/fireman-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=1" rel="category tag">Uncategorized</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=19" title="Destruction in Montania">
+				Destruction in Montania			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=19" title="6:46 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:46:00+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=19#respond">0</a>			</span>
+		
+		</div>
+									</div>
+
+			</div>
+			</div></section>						</div>
+
+						<div class="tg-one-half tg-one-half-last">
+							<section id="colormag_featured_posts_vertical_widget-4" class="widget widget_featured_posts widget_featured_posts_vertical widget_featured_meta clearfix">
+		<h3 class="widget-title"><span>SPORTS</span></h3>
+<div class="first-post">
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml"><img fifu-featured="1" width="390" height="205" src="https://m.media-amazon.com/images/I/31DsYvjTGcL.jpg" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml">
+				Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=42" title="6:59 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:59:38+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=42#respond">0</a>			</span>
+		
+		</div>
+											<div class="entry-content">
+							<p>Price: (as of &#8211; Details) Makeup fixer used either before or after makeup is to set your makeup so that</p>
+						</div>
+									</div>
+
+			</div>
+			</div>
+<div class="following-post">
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g"><img fifu-featured="1" width="130" height="90" src="https://m.media-amazon.com/images/I/314IEXcSLnL.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g">
+				Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=40" title="6:58 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:58:05+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=40#respond">0</a>			</span>
+		
+		</div>
+									</div>
+
+			</div>
+			
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=38" title="Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g"><img fifu-featured="1" width="130" height="90" src="https://m.media-amazon.com/images/I/41u-uzkPPlL.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=38" title="Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g">
+				Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=38" title="6:56 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:56:15+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=38#respond">0</a>			</span>
+		
+		</div>
+									</div>
+
+			</div>
+			
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=19" title="Destruction in Montania"><img width="130" height="90" src="https://bachatdost.in/wp-content/uploads/2021/09/fireman-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Destruction in Montania" loading="lazy" title="Destruction in Montania" srcset="https://bachatdost.in/wp-content/uploads/2021/09/fireman-130x90.jpg 130w, https://bachatdost.in/wp-content/uploads/2021/09/fireman-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=1" rel="category tag">Uncategorized</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=19" title="Destruction in Montania">
+				Destruction in Montania			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=19" title="6:46 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:46:00+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=19#respond">0</a>			</span>
+		
+		</div>
+									</div>
+
+			</div>
+			</div></section>						</div>
+
+						<div class="clearfix"></div>
+						<section id="colormag_featured_posts_widget-3" class="widget widget_featured_posts widget_featured_meta clearfix">
+		<h3 class="widget-title"><span>TECHNOLOGY</span></h3>
+<p>Check out technology changing the life.</p>
+<div class="first-post">
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml"><img fifu-featured="1" width="390" height="205" src="https://m.media-amazon.com/images/I/31DsYvjTGcL.jpg" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml">
+				Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=42" title="6:59 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:59:38+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=42#respond">0</a>			</span>
+		
+		</div>
+											<div class="entry-content">
+							<p>Price: (as of &#8211; Details) Makeup fixer used either before or after makeup is to set your makeup so that</p>
+						</div>
+									</div>
+
+			</div>
+			</div>
+<div class="following-post">
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g"><img fifu-featured="1" width="130" height="90" src="https://m.media-amazon.com/images/I/314IEXcSLnL.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g">
+				Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=40" title="6:58 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:58:05+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=40#respond">0</a>			</span>
+		
+		</div>
+									</div>
+
+			</div>
+			
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=38" title="Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g"><img fifu-featured="1" width="130" height="90" src="https://m.media-amazon.com/images/I/41u-uzkPPlL.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=38" title="Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g">
+				Swiss Beauty Ultimate 9 Color Eyeshadow Palette, Eye MakeUp, Multicolor-06, 9g			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=38" title="6:56 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:56:15+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=38#respond">0</a>			</span>
+		
+		</div>
+									</div>
+
+			</div>
+			
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=19" title="Destruction in Montania"><img width="130" height="90" src="https://bachatdost.in/wp-content/uploads/2021/09/fireman-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Destruction in Montania" loading="lazy" title="Destruction in Montania" srcset="https://bachatdost.in/wp-content/uploads/2021/09/fireman-130x90.jpg 130w, https://bachatdost.in/wp-content/uploads/2021/09/fireman-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=1" rel="category tag">Uncategorized</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=19" title="Destruction in Montania">
+				Destruction in Montania			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=19" title="6:46 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:46:00+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=19#respond">0</a>			</span>
+		
+		</div>
+									</div>
+
+			</div>
+			</div></section>			</div>
+		</div>
+
+		
+<div id="secondary">
+	
+	<aside id="colormag_featured_posts_vertical_widget-2" class="widget widget_featured_posts widget_featured_posts_vertical widget_featured_meta clearfix">
+		<h3 class="widget-title"><span>NEWS</span></h3>
+<div class="first-post">
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml"><img fifu-featured="1" width="390" height="205" src="https://m.media-amazon.com/images/I/31DsYvjTGcL.jpg" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=42" title="Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml">
+				Swiss Beauty MakeUp Fixer Natural Aloe Vera with Vitamin-E, Face MakeUp, White, 50ml			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=42" title="6:59 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:59:38+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=42#respond">0</a>			</span>
+		
+		</div>
+											<div class="entry-content">
+							<p>Price: (as of &#8211; Details) Makeup fixer used either before or after makeup is to set your makeup so that</p>
+						</div>
+									</div>
+
+			</div>
+			</div>
+<div class="following-post">
+			<div class="single-article clearfix">
+				<figure><a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g"><img fifu-featured="1" width="130" height="90" src="https://m.media-amazon.com/images/I/314IEXcSLnL.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="" title="" loading="lazy"></a></figure>
+				<div class="article-content">
+					<div class="above-entry-meta"><span class="cat-links"><a href="https://bachatdost.in/?cat=3" rel="category tag">Beauty</a>&nbsp;</span></div>		<h3 class="entry-title">
+			<a href="https://bachatdost.in/?p=40" title="Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g">
+				Swiss Beauty Professional Liqiud Concealer, Face MakeUp, Medium-Beige, 5.6g			</a>
+		</h3>
+		<div class="below-entry-meta">
+<span class="posted-on"><a href="https://bachatdost.in/?p=40" title="6:58 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published updated" datetime="2021-09-11T18:58:05+00:00">September 11, 2021</time></a></span>
+		<span class="byline">
+			<span class="author vcard">
+				<i class="fa fa-user"></i>
+				<a class="url fn n" href="https://bachatdost.in/?author=1" title="@bachatdostadmin">
+					@bachatdostadmin				</a>
+			</span>
+		</span>
+
+					<span class="comments">
+				<i class="fa fa-comment"></i><a href="https://bachatdost.in/?p=40#respond">0</a>			</span>
+		
+		</div>
+									</div>
+
+			</div>
+			</div></aside><aside id="text-2" class="widget widget_text clearfix"><h3 class="widget-title"><span>Premium Themes</span></h3>			<div class="textwidget"><ul>
+										<li><a href="https://themegrill.com/themes/spacious-pro/">Spacious Pro</a></li>
+										<li><a href="https://themegrill.com/themes/foodhunt-pro/">FoodHunt Pro</a></li>
+										<li><a href="https://themegrill.com/themes/colornews-pro/">ColorNews Pro</a></li>
+										<li><a href="https://themegrill.com/themes/accelerate-pro/">Accelerate Pro</a></li>
+										<li><a href="https://themegrill.com/themes/esteem-pro/">Esteem Pro</a></li>
+										<li><a href="https://http://themegrill.com/themes/radiate-pro/">Radiate Pro</a></li>
+										<li><a href="https://themegrill.com/themes/fitclub-pro/">Fitclub Pro</a></li>
+										<li><a href="https://themegrill.com/themes/himalayas-pro/">Himalayas Pro</a></li>
+									</ul></div>
+		</aside><aside id="colormag_125x125_advertisement_widget-2" class="widget widget_125x125_advertisement clearfix">
+		<div class="advertisement_125x125">
+							<div class="advertisement-title">
+					<h3 class="widget-title"><span>TG: 125&#215;125 Ads</span></h3>				</div>
+				<div class="advertisement-content">
+<a href="https://themegrill.com/" class="single_ad_125x125" target="_blank" rel="nofollow"><img src="https://bachatdost.in/wp-content/themes/colormag/img/ad-small.jpg" width="125" height="125" alt=""></a><a href="https://themegrill.com/" class="single_ad_125x125" target="_blank" rel="nofollow"><img src="https://bachatdost.in/wp-content/themes/colormag/img/ad-small.jpg" width="125" height="125" alt=""></a><a href="https://themegrill.com/" class="single_ad_125x125" target="_blank" rel="nofollow"><img src="https://bachatdost.in/wp-content/themes/colormag/img/ad-small.jpg" width="125" height="125" alt=""></a><a href="https://themegrill.com/" class="single_ad_125x125" target="_blank" rel="nofollow"><img src="https://bachatdost.in/wp-content/themes/colormag/img/ad-small.jpg" width="125" height="125" alt=""></a>
+</div>		</div>
+
+		</aside>
+	</div>
+	</div>
+
+		</div>
+<!-- .inner-wrap -->
+				</div>
+<!-- #main -->
+				<footer id="colophon" class="clearfix ">
+		
+<div class="footer-widgets-wrapper">
+	<div class="inner-wrap">
+		<div class="footer-widgets-area clearfix">
+			<div class="tg-footer-main-widget">
+				<div class="tg-first-footer-widget">
+					<aside id="text-3" class="widget widget_text clearfix"><h3 class="widget-title"><span>About Us</span></h3>			<div class="textwidget">
+<a title="logo" href="https://bachatdost.in"><img src="https://bachatdost.in/wp-content/themes/colormag/img/colormag-logo.png" alt="Logo"></a> <br> We love WordPress and we are here to provide you with professional looking WordPress themes so that you can take your website one step ahead. We focus on simplicity, elegant design and clean code.</div>
+		</aside>				</div>
+			</div>
+
+			<div class="tg-footer-other-widgets">
+				<div class="tg-second-footer-widget">
+					<aside id="text-4" class="widget widget_text clearfix"><h3 class="widget-title"><span>Useful Links</span></h3>			<div class="textwidget"><ul>
+										<li><a href="https://themegrill.com/">ThemeGrill</a></li>
+										<li><a href="https://themegrill.com/contact/">Support</a></li>
+										<li><a href="https://docs.themegrill.com/colormag/">Documentation</a></li>
+										<li><a href="https://themegrill.com/frequently-asked-questions/">FAQ</a></li>
+										<li><a href="https://themegrill.com/themes/">Themes</a></li>
+										<li><a href="https://themegrill.com/plugins/">Plugins</a></li>
+										<li><a href="https://themegrill.com/blog/">Blog</a></li>
+										<li><a href="https://themegrill.com/plans-pricing/">Plans &amp; Pricing</a></li>
+									</ul></div>
+		</aside>				</div>
+				<div class="tg-third-footer-widget">
+					<aside id="text-5" class="widget widget_text clearfix"><h3 class="widget-title"><span>Other Themes</span></h3>			<div class="textwidget"><ul>
+										<li><a href="https://themegrill.com/themes/envince/">Envince</a></li>
+										<li><a href="https://themegrill.com/themes/estore/">eStore</a></li>
+										<li><a href="https://themegrill.com/themes/ample/">Ample</a></li>
+										<li><a href="https://themegrill.com/themes/spacious/">Spacious</a></li>
+										<li><a href="https://themegrill.com/themes/accelerate/">Accelerate</a></li>
+										<li><a href="https://themegrill.com/themes/radiate/">Radiate</a></li>
+										<li><a href="https://themegrill.com/themes/esteem/">Esteem</a></li>
+										<li><a href="https://themegrill.com/themes/himalayas/">Himalayas</a></li>
+										<li><a href="https://themegrill.com/themes/colornews/">ColorNews</a></li>
+									</ul></div>
+		</aside>				</div>
+				<div class="tg-fourth-footer-widget">
+					<aside id="colormag_300x250_advertisement_widget-2" class="widget widget_300x250_advertisement clearfix">
+		<div class="advertisement_300x250">
+							<div class="advertisement-title">
+					<h3 class="widget-title"><span>ColorMag Pro</span></h3>				</div>
+				<div class="advertisement-content"><a href="https://themegrilldemos.com/colormag-pro/" class="single_ad_300x250" target="_blank" rel="nofollow"><img src="https://bachatdost.in/wp-content/themes/colormag/img/ad-medium.jpg" width="300" height="250" alt=""></a></div>		</div>
+
+		</aside><aside id="text-6" class="widget widget_text clearfix">			<div class="textwidget">Contains all features of free version and many new additional features.</div>
+		</aside>				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		<div class="footer-socket-wrapper clearfix">
+			<div class="inner-wrap">
+				<div class="footer-socket-area">
+		
+		<div class="footer-socket-right-section">
+					</div>
+
+				<div class="footer-socket-left-section">
+			<div class="copyright">Copyright &copy; 2021 <a href="https://bachatdost.in/" title="BachatDost"><span>BachatDost</span></a>. All rights reserved.<br>Theme: <a href="https://themegrill.com/themes/colormag" target="_blank" title="ColorMag" rel="nofollow"><span>ColorMag</span></a> by ThemeGrill. Powered by <a href="https://wordpress.org/" target="_blank" title="WordPress" rel="nofollow"><span>WordPress</span></a>.</div>		</div>
+				</div>
+<!-- .footer-socket-area -->
+					</div>
+<!-- .inner-wrap -->
+		</div>
+<!-- .footer-socket-wrapper -->
+				</footer><!-- #colophon -->
+				<a href="#masthead" id="scroll-up"><i class="fa fa-chevron-up"></i></a>
+				</div>
+<!-- #page -->
+		<script type="text/javascript" src="https://bachatdost.in/wp-content/themes/colormag/js/jquery.bxslider.min.js?ver=2.1.0" id="colormag-bxslider-js"></script>
+<script type="text/javascript" src="https://bachatdost.in/wp-content/themes/colormag/js/sticky/jquery.sticky.min.js?ver=2.1.0" id="colormag-sticky-menu-js"></script>
+<script type="text/javascript" src="https://bachatdost.in/wp-content/themes/colormag/js/news-ticker/jquery.newsTicker.min.js?ver=2.1.0" id="colormag-news-ticker-js"></script>
+<script type="text/javascript" src="https://bachatdost.in/wp-content/themes/colormag/js/navigation.min.js?ver=2.1.0" id="colormag-navigation-js"></script>
+<script type="text/javascript" src="https://bachatdost.in/wp-content/themes/colormag/js/fitvids/jquery.fitvids.min.js?ver=2.1.0" id="colormag-fitvids-js"></script>
+<script type="text/javascript" src="https://bachatdost.in/wp-content/themes/colormag/js/skip-link-focus-fix.min.js?ver=2.1.0" id="colormag-skip-link-focus-fix-js"></script>
+<script type="text/javascript" src="https://bachatdost.in/wp-content/themes/colormag/js/colormag-custom.min.js?ver=2.1.0" id="colormag-custom-js"></script>
+<script type="text/javascript" src="https://bachatdost.in/wp-includes/js/wp-embed.min.js?ver=5.8" id="wp-embed-js"></script>
+<script type="text/javascript" id="fifu-image-js-js-extra">
+/* <![CDATA[ */
+var fifuImageVars = {"fifu_lazy":"","fifu_woo_lbox_enabled":"1","fifu_woo_zoom":"inline","fifu_is_product":"","fifu_is_flatsome_active":"","fifu_rest_url":"https:\/\/bachatdost.in\/index.php?rest_route=\/","fifu_nonce":"da058021df"};
+/* ]]> */
 </script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-middleware.js?ver=eb6d63f5d225dee6596bfb746604afd0" id="wc-blocks-middleware-js"></script>
-<script type="text/javascript" id="wc-blocks-data-store-js-translations">
-( function( domain, translations ) {
-	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
-	localeData[""].domain = domain;
-	wp.i18n.setLocaleData( localeData, domain );
-} )( "woocommerce", { "locale_data": { "messages": { "": {} } } } );
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-data.js?ver=2b87aa4d49bfabd4f91c5bd6974dd982" id="wc-blocks-data-store-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/price-format.js?ver=e3aeb9532ad2c4f2c998e862d0c0dea2" id="wc-price-format-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/autop.min.js?ver=0e55c6c10f6d8a4bd90b2ea903436301" id="wp-autop-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/blob.min.js?ver=4eca38a62df5f0145a5f1a78858581e7" id="wp-blob-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/block-serialization-default-parser.min.js?ver=2fc6dec19af6d4c5e5fec8f6fdc1a10b" id="wp-block-serialization-default-parser-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/html-entities.min.js?ver=26307b6ad1e445fc1a4643f634cb29c6" id="wp-html-entities-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/primitives.min.js?ver=fedf57cf6da174d1eca2875b8b730af3" id="wp-primitives-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/shortcode.min.js?ver=5341d74d6385839c835c81ef7c751c59" id="wp-shortcode-js"></script>
-<script type="text/javascript" id="wp-blocks-js-translations">
-( function( domain, translations ) {
-	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
-	localeData[""].domain = domain;
-	wp.i18n.setLocaleData( localeData, domain );
-} )( "default", { "locale_data": { "messages": { "": {} } } } );
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/blocks.min.js?ver=e2b6602c7ebbe8ce93832ce35d81be1c" id="wp-blocks-js"></script>
-<script type="text/javascript" id="wc-price-filter-block-frontend-js-translations">
-( function( domain, translations ) {
-	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
-	localeData[""].domain = domain;
-	wp.i18n.setLocaleData( localeData, domain );
-} )( "woocommerce", { "locale_data": { "messages": { "": {} } } } );
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/price-filter-frontend.js?ver=63a300b7c75d978e795c45f28cf7f14c" id="wc-price-filter-block-frontend-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-registry.js?ver=ce4c633cde26d33c38ccad354e7a595e" id="wc-blocks-registry-js"></script>
-<script type="text/javascript" id="wc-blocks-shared-context-js-translations">
-( function( domain, translations ) {
-	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
-	localeData[""].domain = domain;
-	wp.i18n.setLocaleData( localeData, domain );
-} )( "woocommerce", { "locale_data": { "messages": { "": {} } } } );
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-shared-context.js?ver=65cb8148395020af1941ee765b88f0ba" id="wc-blocks-shared-context-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-shared-hocs.js?ver=a7f67829fed70851c7cdcb89f7cb8185" id="wc-blocks-shared-hocs-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/dom-ready.min.js?ver=71883072590656bf22c74c7b887df3dd" id="wp-dom-ready-js"></script>
-<script type="text/javascript" id="wp-a11y-js-translations">
-( function( domain, translations ) {
-	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
-	localeData[""].domain = domain;
-	wp.i18n.setLocaleData( localeData, domain );
-} )( "default", { "locale_data": { "messages": { "": {} } } } );
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/a11y.min.js?ver=0ac8327cc1c40dcfdf29716affd7ac63" id="wp-a11y-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/vendor/moment.min.js?ver=2.29.1" id="moment-js"></script>
-<script type="text/javascript" id="moment-js-after">
-moment.updateLocale( 'en_US', {"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthsShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"weekdaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"week":{"dow":1},"longDateFormat":{"LT":"g:i a","LTS":null,"L":null,"LL":"F j, Y","LLL":"F j, Y g:i a","LLLL":null}} );
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/date.min.js?ver=061439ac4325ef057b8f9c142c82a823" id="wp-date-js"></script>
-<script type="text/javascript" id="wp-date-js-after">
-wp.date.setSettings( {"l10n":{"locale":"en_US","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthsShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"weekdaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"meridiem":{"am":"am","pm":"pm","AM":"AM","PM":"PM"},"relative":{"future":"%s from now","past":"%s ago"}},"formats":{"time":"g:i a","date":"F j, Y","datetime":"F j, Y g:i a","datetimeAbbreviated":"M j, Y g:i a"},"timezone":{"offset":"0","string":"","abbr":""}} );
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/rich-text.min.js?ver=a4eb1e306ca234461cdecbca651dd8d9" id="wp-rich-text-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/warning.min.js?ver=3e70e9d62208deeee510b84df4dec7f1" id="wp-warning-js"></script>
-<script type="text/javascript" id="wp-components-js-translations">
-( function( domain, translations ) {
-	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
-	localeData[""].domain = domain;
-	wp.i18n.setLocaleData( localeData, domain );
-} )( "default", { "locale_data": { "messages": { "": {} } } } );
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/components.min.js?ver=72eccad5b704ebf3e45a24b4da1773fe" id="wp-components-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/keyboard-shortcuts.min.js?ver=d60f79d652998d8dc5f4ddb1f9ae5051" id="wp-keyboard-shortcuts-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/token-list.min.js?ver=91a1487ea5b32c4ea39b7a40c5e90652" id="wp-token-list-js"></script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/wordcount.min.js?ver=61ab1af9326f4d5fda7ed01990e1be70" id="wp-wordcount-js"></script>
-<script type="text/javascript" id="wp-block-editor-js-translations">
-( function( domain, translations ) {
-	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
-	localeData[""].domain = domain;
-	wp.i18n.setLocaleData( localeData, domain );
-} )( "default", { "locale_data": { "messages": { "": {} } } } );
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-includes/js/dist/block-editor.min.js?ver=390a9f83b606a55e8b523c4d16bdb08c" id="wp-block-editor-js"></script>
-<script type="text/javascript" id="wc-all-products-block-frontend-js-translations">
-( function( domain, translations ) {
-	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
-	localeData[""].domain = domain;
-	wp.i18n.setLocaleData( localeData, domain );
-} )( "woocommerce", { "locale_data": { "messages": { "": {} } } } );
-</script>
-<script type="text/javascript" src="/https://bachatdost.in/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/all-products-frontend.js?ver=087a0db50ca1e09a8939d9a593e34f20" id="wc-all-products-block-frontend-js"></script>
-<script type="text/javascript" id="deprecated-shared-settings-error-js-after">
-console.warn( "`woocommerce_shared_settings` filter in Blocks is deprecated. See https://github.com/woocommerce/woocommerce-gutenberg-products-block/blob/trunk/docs/contributors/block-assets.md" );
-</script>
+<script type="text/javascript" src="https://bachatdost.in/wp-content/plugins/featured-image-from-url/includes/html/js/image.js?ver=3.6.1" id="fifu-image-js-js"></script>
 
 </body>
+
+
+<!-- Page supported by LiteSpeed Cache 3.6.4 on 2021-09-11 19:14:43 -->
 </html>
