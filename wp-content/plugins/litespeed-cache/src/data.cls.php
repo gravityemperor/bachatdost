@@ -10,10 +10,22 @@
 namespace LiteSpeed;
 defined( 'WPINC' ) || exit;
 
-class Data extends Instance {
+class Data extends Root {
 	private $_db_updater = array(
 		'3.5.0.3'	=> array(
 			'litespeed_update_3_5',
+		),
+		'4.0'	=> array(
+			'litespeed_update_4',
+		),
+		'4.1'	=> array(
+			'litespeed_update_4_1',
+		),
+		'4.3'	=> array(
+			'litespeed_update_4_3',
+		),
+		'4.4.4-b1'	=> array(
+			'litespeed_update_4_4_4',
 		),
 	);
 
@@ -24,22 +36,27 @@ class Data extends Instance {
 		// ),
 	);
 
-	protected static $_instance;
+	private $_url_file_types = array(
+		'css' => 1,
+		'js' => 2,
+		'ccss' => 3,
+		'ucss' => 4,
+	);
 
-	const TB_CSSJS = 'litespeed_cssjs';
 	const TB_IMG_OPTM = 'litespeed_img_optm';
 	const TB_IMG_OPTMING = 'litespeed_img_optming'; // working table
 	const TB_AVATAR = 'litespeed_avatar';
 	const TB_CRAWLER = 'litespeed_crawler';
 	const TB_CRAWLER_BLACKLIST = 'litespeed_crawler_blacklist';
+	const TB_URL = 'litespeed_url';
+	const TB_URL_FILE = 'litespeed_url_file';
 
 	/**
 	 * Init
 	 *
 	 * @since  1.3.1
-	 * @access protected
 	 */
-	protected function __construct() {
+	public function __construct() {
 	}
 
 	/**
@@ -52,21 +69,20 @@ class Data extends Instance {
 	 * @access public
 	 */
 	public function correct_tb_existance() {
-		// CSS JS optm
-		if ( Optimize::need_db() ) {
-			$this->tb_create( 'cssjs' );
-		}
-
 		// Gravatar
-		if ( Conf::val( Base::O_DISCUSS_AVATAR_CACHE ) ) {
+		if ( $this->conf( Base::O_DISCUSS_AVATAR_CACHE ) ) {
 			$this->tb_create( 'avatar' );
 		}
 
 		// Crawler
-		if ( Conf::val( Base::O_CRAWLER ) ) {
+		if ( $this->conf( Base::O_CRAWLER ) ) {
 			$this->tb_create( 'crawler' );
 			$this->tb_create( 'crawler_blacklist' );
 		}
+
+		// URL mapping
+		$this->tb_create( 'url' );
+		$this->tb_create( 'url_file' );
 
 		// Image optm is a bit different. Only trigger creation when sending requests. Drop when destroying.
 	}
@@ -95,8 +111,8 @@ class Data extends Instance {
 		require_once LSCWP_DIR . 'src/data.upgrade.func.php';
 
 		// Init log manually
-		if ( Conf::val( Base::O_DEBUG ) ) {
-			Debug2::init();
+		if ( $this->conf( Base::O_DEBUG ) ) {
+			$this->cls( 'Debug2' )->init();
 		}
 
 		foreach ( $this->_db_updater as $k => $v ) {
@@ -110,9 +126,12 @@ class Data extends Instance {
 		}
 
 		// Reload options
-		Conf::get_instance()->load_options();
+		$this->cls( 'Conf' )->load_options();
 
 		$this->correct_tb_existance();
+
+		// Update related files
+		$this->cls( 'Activation' )->update_files();
 
 		// Update version to latest
 		Conf::delete_option( Base::_VER );
@@ -156,7 +175,7 @@ class Data extends Instance {
 		}
 
 		// Reload options
-		Conf::get_instance()->load_site_options();
+		$this->cls( 'Conf' )->load_site_options();
 
 		Conf::delete_site_option( Base::_VER );
 		Conf::add_site_option( Base::_VER, Core::VER );
@@ -176,6 +195,9 @@ class Data extends Instance {
 	 */
 	private function _get_upgrade_lock() {
 		$is_upgrading = get_option( 'litespeed.data.upgrading' );
+		if ( ! $is_upgrading ) {
+			$this->_set_upgrade_lock( false ); // set option value to existed to avoid repeated db query next time
+		}
 		if ( $is_upgrading && time() - $is_upgrading < 3600 ) {
 			return $is_upgrading;
 		}
@@ -194,7 +216,7 @@ class Data extends Instance {
 			return;
 		}
 
-		Admin_Display::info( sprintf( __( 'The database has been upgrading in the background since %s. This message will disappear once upgrade is complete.' ), '<code>' . Utility::readable_time( $is_upgrading ) . '</code>' ) . ' [LiteSpeed]', true );
+		Admin_Display::info( sprintf( __( 'The database has been upgrading in the background since %s. This message will disappear once upgrade is complete.', 'litespeed-cache' ), '<code>' . Utility::readable_time( $is_upgrading ) . '</code>' ) . ' [LiteSpeed]', true );
 	}
 
 	/**
@@ -204,7 +226,7 @@ class Data extends Instance {
 	 */
 	private function _set_upgrade_lock( $lock ) {
 		if ( ! $lock ) {
-			delete_option( 'litespeed.data.upgrading' );
+			update_option( 'litespeed.data.upgrading', -1 );
 		}
 		else {
 			update_option( 'litespeed.data.upgrading', time() );
@@ -231,8 +253,8 @@ class Data extends Instance {
 		! defined( 'LSCWP_CUR_V' ) && define( 'LSCWP_CUR_V', $ver );
 
 		// Init log manually
-		if ( Conf::val( Base::O_DEBUG ) ) {
-			Debug2::init();
+		if ( $this->conf( Base::O_DEBUG ) ) {
+			$this->cls( 'Debug2' )->init();
 		}
 		Debug2::debug( '[Data] Upgrading previous settings [from] ' . $ver . ' [to] v3.0' );
 
@@ -258,7 +280,7 @@ class Data extends Instance {
 		}
 		else {
 			// Reload options
-			Conf::get_instance()->load_options();
+			$this->cls( 'Conf' )->load_options();
 
 			$this->correct_tb_existance();
 
@@ -287,10 +309,6 @@ class Data extends Instance {
 				return $wpdb->prefix . self::TB_IMG_OPTMING;
 				break;
 
-			case 'cssjs':
-				return $wpdb->prefix . self::TB_CSSJS;
-				break;
-
 			case 'avatar':
 				return $wpdb->prefix . self::TB_AVATAR;
 				break;
@@ -301,6 +319,14 @@ class Data extends Instance {
 
 			case 'crawler_blacklist':
 				return $wpdb->prefix . self::TB_CRAWLER_BLACKLIST;
+				break;
+
+			case 'url':
+				return $wpdb->prefix . self::TB_URL;
+				break;
+
+			case 'url_file':
+				return $wpdb->prefix . self::TB_URL_FILE;
 				break;
 
 			default:
@@ -388,58 +414,150 @@ class Data extends Instance {
 	 * @access public
 	 */
 	public function tables_del() {
-		global $wpdb;
-
-		$this->tb_del( 'cssjs' );
 		$this->tb_del( 'avatar' );
 		$this->tb_del( 'crawler' );
 		$this->tb_del( 'crawler_blacklist' );
+		$this->tb_del( 'url' );
+		$this->tb_del( 'url_file' );
 
 		// Deleting img_optm only can be done when destroy all optm images
 	}
 
 	/**
-	 * save optimizer src to db
+	 * Keep table but clear all data
 	 *
-	 * @since  1.3.1
-	 * @access public
+	 * @since  4.0
 	 */
-	public function optm_save_src( $filename, $src, $request_url ) {
+	public function table_truncate( $tb ) {
 		global $wpdb;
-
-		$src = json_encode( $src );
-		$f = array(
-			'hash_name'	=> $filename,
-			'src'		=> $src,
-			'dateline'	=> time(),
-			'refer' 	=> $request_url,
-		);
-
-		$res = $wpdb->replace( $this->tb( 'cssjs' ), $f );
-
-		return $res;
+		$q = 'TRUNCATE TABLE ' . $this->tb( $tb );
+		$wpdb->query( $q );
 	}
 
 	/**
-	 * Get src set from hash in optimizer
+	 * Clean certain type of url_file
 	 *
-	 * @since  1.3.1
-	 * @access public
+	 * @since  4.0
 	 */
-	public function optm_hash2src( $filename ) {
+	public function url_file_clean( $file_type ) {
+		global $wpdb;
+		$type = $this->_url_file_types[ $file_type ];
+		$q = 'DELETE FROM ' . $this->tb( 'url_file' ) . ' WHERE `type` = %d';
+		$wpdb->query( $wpdb->prepare( $q, $type ) );
+	}
+
+	/**
+	 * Generate filename based on URL, if content md5 existed, reuse existing file.
+	 * @since  4.0
+	 */
+	public function save_url( $request_url, $vary, $file_type, $filecon_md5, $path ) {
 		global $wpdb;
 
-		$res = $wpdb->get_row( $wpdb->prepare( 'SELECT src, refer FROM `' . $this->tb( 'cssjs' ) . '` WHERE `hash_name`=%s', $filename ), ARRAY_A );
+		if ( strlen( $vary ) > 32 ) {
+			$vary = md5( $vary );
+		}
 
-		if ( empty( $res[ 'src' ] ) ) {
+		$type = $this->_url_file_types[ $file_type ];
+
+		$tb_url = $this->tb( 'url' );
+		$tb_url_file = $this->tb( 'url_file' );
+		$q = "SELECT * FROM `$tb_url` WHERE url=%s";
+		$url_row = $wpdb->get_row( $wpdb->prepare( $q, $request_url ), ARRAY_A );
+		if ( ! $url_row ) {
+			$q = "INSERT INTO `$tb_url` SET url=%s";
+			$wpdb->query( $wpdb->prepare( $q, $request_url ) );
+			$url_id = $wpdb->insert_id;
+		}
+		else {
+			$url_id = $url_row[ 'id' ];
+		}
+
+		$q = "SELECT * FROM `$tb_url_file` WHERE url_id=%d AND vary=%s AND type=%d AND expired=0";
+		$file_row = $wpdb->get_row( $wpdb->prepare( $q, array( $url_id, $vary, $type ) ), ARRAY_A );
+
+		// Check if has previous file or not
+		if ( $file_row && $file_row[ 'filename' ] == $filecon_md5 ) {
+			return;
+		}
+
+		// If the new $filecon_md5 is marked as expired by previous records, clear those records
+		$q = "DELETE FROM `$tb_url_file` WHERE filename = %s AND expired > 0";
+		$wpdb->query( $wpdb->prepare( $q, $filecon_md5 ) );
+
+		// Check if there is any other record used the same filename or not
+		$q = "SELECT id FROM `$tb_url_file` WHERE filename = %s AND expired = 0 AND id != %d LIMIT 1";
+		if ( $file_row && $wpdb->get_var( $wpdb->prepare( $q, array( $file_row[ 'filename' ], $file_row[ 'id' ] ) ) ) ) {
+			$q = "UPDATE `$tb_url_file` SET filename=%s WHERE id=%d";
+			$wpdb->query( $wpdb->prepare( $q, array( $filecon_md5, $file_row[ 'id' ] ) ) );
+			return;
+		}
+
+		// New record needed
+		$q = "INSERT INTO `$tb_url_file` SET url_id=%d, vary=%s, filename=%s, type=%d, expired = 0";
+		$wpdb->query( $wpdb->prepare( $q, array( $url_id, $vary, $filecon_md5, $type ) ) );
+
+		// Mark existing rows as expired
+		if ( $file_row ) {
+			$q = "UPDATE `$tb_url_file` SET expired=%d WHERE id=%d";
+			$expired = time() + 86400 * apply_filters( 'litespeed_url_file_expired_days', 20 );
+			$wpdb->query( $wpdb->prepare( $q, array( $expired, $file_row[ 'id' ] ) ) );
+
+			// Also check if has other files expired already to be deleted
+			$q = "SELECT * FROM `$tb_url_file` WHERE url_id = %d AND expired BETWEEN 1 AND %d";
+			$q = $wpdb->prepare( $q, array( $url_id, time() ) );
+			$list = $wpdb->get_results( $q, ARRAY_A );
+			if ( $list ) {
+				foreach ( $list as $v ) {
+					$file_to_del = $path . '/' . $v[ 'filename' ] . '.' . ( $file_type == 'js' ? 'js' : 'css' );
+					if ( file_exists( $file_to_del ) ) {
+						// Safe to delete
+						Debug2::debug( '[Data] Delete expired unused file: ' . $file_to_del );
+
+						// Clear related lscache first to avoid cache copy of same URL w/ diff QS
+						// Purge::add( Tag::TYPE_MIN . '.' . $file_row[ 'filename' ] . '.' . $file_type );
+
+						unlink( $file_to_del );
+					}
+				}
+				$q = "DELETE FROM `$tb_url_file` WHERE url_id = %d AND expired BETWEEN 1 AND %d";
+				$wpdb->query( $wpdb->prepare( $q, array( $url_id, time() ) ) );
+			}
+		}
+
+		// Purge this URL to avoid cache copy of same URL w/ diff QS
+		// $this->cls( 'Purge' )->purge_url( Utility::make_relative( $request_url ) ?: '/', true, true );
+	}
+
+	/**
+	 * Load CCSS related file
+	 * @since  4.0
+	 */
+	public function load_url_file( $request_url, $vary, $file_type ) {
+		global $wpdb;
+
+		if ( strlen( $vary ) > 32 ) {
+			$vary = md5( $vary );
+		}
+
+		$type = $this->_url_file_types[ $file_type ];
+
+		$tb_url = $this->tb( 'url' );
+		$q = "SELECT * FROM `$tb_url` WHERE url=%s";
+		$url_row = $wpdb->get_row( $wpdb->prepare( $q, $request_url ), ARRAY_A );
+		if ( ! $url_row ) {
 			return false;
 		}
 
-		Debug2::debug2( '[Data] Loaded hash2src ' . $res[ 'src' ] );
+		$url_id = $url_row[ 'id' ];
 
-		$res[ 'src' ] = json_decode( $res[ 'src' ], true );
+		$tb_url_file = $this->tb( 'url_file' );
+		$q = "SELECT * FROM `$tb_url_file` WHERE url_id=%d AND vary=%s AND type=%d";
+		$file_row = $wpdb->get_row( $wpdb->prepare( $q, array( $url_id, $vary, $type ) ), ARRAY_A );
+		if ( ! $file_row ) {
+			return false;
+		}
 
-		return $res;
+		return $file_row[ 'filename' ];
 	}
 
 	/**
@@ -449,6 +567,20 @@ class Data extends Instance {
 	 */
 	public function load_css_exc( $list ) {
 		$data = $this->_load_per_line( 'css_excludes.txt' );
+		if ( $data ) {
+			$list = array_unique( array_filter( array_merge( $list, $data ) ) );
+		}
+
+		return $list;
+	}
+
+	/**
+	 * Get list from `data/ucss_whitelist.txt`
+	 *
+	 * @since  4.0
+	 */
+	public function load_ucss_whitelist( $list ) {
+		$data = $this->_load_per_line( 'ucss_whitelist.txt' );
 		if ( $data ) {
 			$list = array_unique( array_filter( array_merge( $list, $data ) ) );
 		}

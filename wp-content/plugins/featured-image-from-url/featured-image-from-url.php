@@ -4,11 +4,11 @@
  * Plugin Name: Featured Image from URL (FIFU)
  * Plugin URI: https://fifu.app/
  * Description: Use an external image as featured image of a post or WooCommerce product. Includes Image Search, Video, Social Tags, SEO, Lazy Load, Gallery, Automation etc.
- * Version: 3.6.1
+ * Version: 3.8.0
  * Author: fifu.app
  * Author URI: https://fifu.app/
  * WC requires at least: 4.0
- * WC tested up to: 5.3
+ * WC tested up to: 5.9
  * Text Domain: featured-image-from-url
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -19,7 +19,6 @@ define('FIFU_INCLUDES_DIR', FIFU_PLUGIN_DIR . 'includes');
 define('FIFU_ADMIN_DIR', FIFU_PLUGIN_DIR . 'admin');
 define('FIFU_ELEMENTOR_DIR', FIFU_PLUGIN_DIR . 'elementor');
 define('FIFU_DELETE_ALL_URLS', false);
-define('FIFU_DEV_DEBUG', false);
 
 require_once (FIFU_INCLUDES_DIR . '/attachment.php');
 require_once (FIFU_INCLUDES_DIR . '/convert-url.php');
@@ -101,9 +100,11 @@ function fifu_row_meta($plugin_meta, $plugin_file, $plugin_data, $status) {
     if (strpos($plugin_file, 'featured-image-from-url.php') !== false) {
         $tag_review = '<a title="If you are enjoying FIFU, please give it a 5-star rating =]" href="https://wordpress.org/support/plugin/featured-image-from-url/reviews/?filter=5" target="_blank"><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></a>';
         $tag_pro = '<a href="https://fifu.app/" target="_blank"><span style="padding:5px;color:white;background-color:#1da867">Upgrade to <b>PRO</b></span></a>';
+        $ref = '<a href="https://referral.fifu.app" target="_blank">Affiliate program</a>';
         $new_links = array(
             'review' => $tag_review,
             'pro' => $tag_pro,
+            'affiliate' => $ref,
         );
         $plugin_meta = array_merge($plugin_meta, $new_links);
     }

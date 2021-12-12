@@ -3,8 +3,8 @@ Tags: page builder, responsive, parallax, widgets, blocks, gallery, layout, grid
 Requires at least: 4.7
 Tested up to: 5.8
 Requires PHP: 5.6.20
-Stable tag: 2.13.1
-Build time: 2021-08-03T16:31:15+02:00
+Stable tag: 2.15.3
+Build time: 2021-12-01T21:10:54+02:00
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Donate link: https://siteorigin.com/downloads/premium/
@@ -106,6 +106,49 @@ We've tried to ensure that Page Builder is compatible with most plugin widgets. 
 SiteOrigin Premium includes access to our professional email support service, perfect for those times when you need fast and effective technical support. We're standing by to assist you in any way we can.
 
 == Changelog ==
+
+= 2.15.3 - 01 December 2021 =
+* Rows/Cells: Prevented possible data mismatch.
+
+= 2.15.2 - 29 November 2021 =
+* Cells: Resolved undefined `style` error.
+
+= 2.15.1 - 27 November 2021 =
+* Updated Page Builder `Pro Tips`.
+* SiteOrigin Premium: Added row and widget fade styling when hidden by the Toggle Visibility Addon.
+
+= 2.15.0 - 22 October 2021 =
+* Added a "Mobile Margin" setting to `Widget Styles > Mobile Layout`.
+* Ensured the Widget Title is used as the widget description if present.
+
+= 2.14.3 - 10 October 2021 =
+* Resolved conflict caused by Block Editor JavaScript loaded in the Classic Editor.
+
+= 2.14.2 - 08 October 2021 =
+* Layout Block: Force a draft before displaying the Live Editor button.
+* Fixed `Cell Vertical Alignment` setting.
+* Developer: Prevented potential notice when processing Page Builder fallback shortcode.
+
+= 2.14.1 - 01 October 2021 =
+* Layout Block: Restored Live Editor and History functionality.
+* Ensured Cell Vertical Alignment doesn't stretch independently of the setting chosen.
+* Developer: Prevented a potential small jump on load when CSS full width containers in use.
+
+= 2.14.0 - 29 September 2021 =
+* Tablet Styles: Added a new Tablet Styles section to row, cell, and widget styles.
+* Widget Design Settings: Added a Link Hover Color setting.
+* History Browser: Resolved incorrect preview URL.
+* Live Editor: When accessing the Live Editor via the toolbar link, return to the site after saving. Setting available at Settings > Page Builder > General.
+* Polylang: Ensured Page Builder data is copied during page duplication in the Classic Editor.
+* Yoast SEO: Added additional Open Graph compatibility check.
+* Developer: Advanced Custom Fields: Improved repeater support.
+* Developer: Changed CSS Builder `$css` to public to allow more extensive filtering.
+* Developer: Added `setup_style_fields` JavaScript event to allow the setup of custom style fields.
+* Developer: Added an optional CSS method for full width containers using `siteorigin_panels_theme_container_width` and `siteorigin_panels_theme_container_selector`.
+
+= 2.13.2 - 14 August 2021 =
+* Modern Parallax: Resolved potential Jetpack Image Accelerator notice.
+* Customizer: Resolved new widget area notice.
 
 = 2.13.1 - 03 August 2021 =
 * Modern Parallax: Exclude images from Jetpack Image Accelerator.

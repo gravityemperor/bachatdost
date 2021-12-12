@@ -53,10 +53,8 @@ add_filter('posts_where', 'fifu_query_attachments');
 
 function fifu_query_attachments($where) {
     global $wpdb;
-    if (isset($_POST['action']) && ($_POST['action'] == 'query-attachments') && true) {
+    if (isset($_POST['action']) && ($_POST['action'] == 'query-attachments'))
         $where .= ' AND ' . $wpdb->prefix . 'posts.post_author <> ' . FIFU_AUTHOR . ' ';
-    } else
-        $where .= ' AND (' . $wpdb->prefix . 'posts.post_author <> ' . FIFU_AUTHOR . ' OR  (' . $wpdb->prefix . 'posts.post_author = ' . FIFU_AUTHOR . ' AND EXISTS (SELECT 1 FROM ' . $wpdb->prefix . 'postmeta WHERE ' . $wpdb->prefix . 'postmeta.post_id = ' . $wpdb->prefix . 'posts.id AND ' . $wpdb->prefix . 'postmeta.meta_key = "_wp_attachment_metadata")))';
     return $where;
 }
 
@@ -64,8 +62,6 @@ add_filter('posts_where', function ($where, \WP_Query $q) {
     global $wpdb;
     if (is_admin() && $q->is_main_query() && true)
         $where .= ' AND ' . $wpdb->prefix . 'posts.post_author <> ' . FIFU_AUTHOR . ' ';
-    else
-        $where .= ' AND (' . $wpdb->prefix . 'posts.post_author <> ' . FIFU_AUTHOR . ' OR  (' . $wpdb->prefix . 'posts.post_author = ' . FIFU_AUTHOR . ' AND EXISTS (SELECT 1 FROM ' . $wpdb->prefix . 'postmeta WHERE ' . $wpdb->prefix . 'postmeta.post_id = ' . $wpdb->prefix . 'posts.id AND ' . $wpdb->prefix . 'postmeta.meta_key = "_wp_attachment_metadata")))';
     return $where;
 }, 10, 2);
 
@@ -92,8 +88,8 @@ function fifu_replace_attachment_image_src($image, $att_id, $size) {
         return null;
 
     // photon
-    if (fifu_is_jetpack_active() && !fifu_jetpack_blocked($image[0])) {
-        $old_url = $image[0];
+    if (fifu_is_on('fifu_photon') && !fifu_jetpack_blocked($image[0])) {
+        // $old_url = $image[0];
         $image = fifu_get_photon_url($image, $size, $att_id);
         // ws
         // if ($att_post->post_parent) {
@@ -115,8 +111,10 @@ function fifu_replace_attachment_image_src($image, $att_id, $size) {
     }
 
     // use saved dimensions
-    if ($image[1] > 1 && $image[2] > 1)
+    if ($image[1] > 1 && $image[2] > 1) {
+        $image = fifu_resize_unsplash($image);
         return $image;
+    }
 
     // fix null height
     if ($image[2] == null)
@@ -129,7 +127,7 @@ function fifu_fix_dimensions($image, $size) {
     // default
     $image = fifu_add_size($image, $size);
 
-    // fix zoom
+    // fix gallery (but no zoom or lightbox)
     if (class_exists('WooCommerce') && is_product() && $image[1] == 1 && $image[2] == 1)
         $image[1] = 1920;
 
@@ -137,6 +135,14 @@ function fifu_fix_dimensions($image, $size) {
     if ($image[1] == 0 && $image[2] == 0)
         $image[1] = 1920;
 
+    return $image;
+}
+
+function fifu_resize_unsplash($image) {
+    if (strpos($image[0], 'https://images.unsplash.com') !== false) {
+        $image[0] = preg_replace("/&w=[0-9]+/", '&w=' . $image[1], $image[0]);
+        $image[0] = preg_replace("/&h=[0-9]+/", '&h=' . $image[2], $image[0]);
+    }
     return $image;
 }
 
@@ -163,18 +169,8 @@ function fifu_add_size($image, $size) {
             if (!$width && !$height)
                 return $image;
 
-            // skip
-            if ($image[1] > 1) {
-                // default height
-                if ($height == 9999)
-                    return $image;
-                // aspect ratio
-                if ($image[2] != 0 && $height != 0 && abs($image[1] / $image[2] - $width / $height) > 0.1)
-                    return $image;
-            }
-
             $image[1] = $width;
-            $image[2] = $height;
+            $image[2] = $height == 9999 ? null : $height;
             $image[3] = $crop;
         }
     } else {
@@ -187,19 +183,28 @@ function fifu_add_size($image, $size) {
 function fifu_get_photon_url($image, $size, $att_id) {
     $image = fifu_add_size($image, $size);
     $w = $image[1];
-    $h = $image[2];
+    $h = fifu_is_on('fifu_cdn_crop') ? $image[2] : null;
 
     $args = array();
 
-    if ($w > 0) {
+    if ($w > 0 && $h > 0) {
+        $args['resize'] = $w . ',' . $h;
+    } elseif ($w > 0) {
+        $args['resize'] = $w;
         $args['w'] = $w;
-        $args['resize'] = array($w, null);
+    } elseif ($h > 0) {
+        $args['resize'] = $h;
+        $args['h'] = $h;
+    } else {
+        
     }
 
-    if (fifu_debug_jetpack())
-        define('IS_WPCOM', true);
+    // Remove CDN prefix
+    $matches = preg_split('/https:\/\//', $image[0]);
+    if ($matches && count($matches) > 2)
+        $image[0] = str_replace('https://' . $matches[1], '', $image[0]);
 
-    $image[0] = jetpack_photon_url($image[0], $args, null);
+    $image[0] = fifu_jetpack_photon_url($image[0], $args);
     $image[0] = fifu_process_external_url($image[0], $att_id, $size);
 
     return $image;

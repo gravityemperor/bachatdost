@@ -3,7 +3,6 @@ function removeImage() {
     jQuery("#fifu_image").hide();
     jQuery("#fifu_upload").hide();
     jQuery("#fifu_link").hide();
-    jQuery("#fifu_next").hide();
 
     jQuery("#fifu_input_alt").val("");
     jQuery("#fifu_input_url").val("");
@@ -40,27 +39,23 @@ function previewImage() {
                     runPreview($url);
                 }
                 setTimeout(function () {
-                    jQuery("#fifu_next").hide();
                     if (fifuMetaBoxVars.is_taxonomy)
                         jQuery('#fifu_button').parent().parent().unblock();
                     else
                         jQuery('#fifu_button').parent().parent().parent().unblock();
-                    setTimeout(function () {
-                        if (jQuery("#fifu_link").is(":visible"))
-                            jQuery("#fifu_next").show();
-                    }, 2000);
-                }, 2000);
+                }, 500);
             }
         }
         if (!$url || $url == ' ')
             xhr.open("GET", 'https://source.unsplash.com/random', true);
-        else
+        else {
             xhr.open("GET", 'https://source.unsplash.com/featured/?' + $url, true);
+            fifu_start_unsplash_lightbox($url, 'featured');
+        }
         xhr.send();
         if (!$url)
             jQuery("#fifu_keywords").val(' ');
     } else {
-        jQuery("#fifu_next").hide();
         runPreview($url);
     }
 }
@@ -86,12 +81,15 @@ function runPreview($url) {
 
         if (fifuMetaBoxVars.is_sirv_active)
             jQuery("#fifu_sirv_button").hide();
+
+        // hide default featured image field
+        fifu_hide_regular_featured_image_field();
     }
 }
 
 jQuery(document).ready(function () {
-    // next button
-    fifu_find_next();
+    // help
+    fifu_register_help();
 
     // lightbox
     fifu_open_lightbox();
@@ -116,6 +114,8 @@ jQuery(document).ready(function () {
 
 function fifu_get_sizes() {
     image_url = jQuery("#fifu_input_url").val();
+    if (image_url && !image_url.startsWith("http") && !image_url.startsWith("//"))
+        return;
     fifu_get_image(image_url);
 }
 
@@ -137,19 +137,47 @@ function fifu_open_lightbox() {
     });
 }
 
-function fifu_find_next() {
-    jQuery("#fifu_next").on('click', function (evt) {
-        evt.stopImmediatePropagation();
-        if (jQuery("#fifu_keywords").val()) {
-            jQuery("#fifu_input_url").val(jQuery("#fifu_keywords").val());
-            previewImage();
-        }
-    });
-}
-
 function fifu_type_url() {
     jQuery("#fifu_input_url").on('input', function (evt) {
         evt.stopImmediatePropagation();
         fifu_get_sizes();
     });
 }
+
+function fifu_register_help() {
+    jQuery('#fifu_help').on('click', function () {
+        jQuery.fancybox.open(`
+            <div style="color:#1e1e1e">
+                <h1 style="background-color:whitesmoke;padding:20px;padding-left:0">${fifuMetaBoxVars.txt_title_examples}</h1>
+                <p></p>
+                <h3>${fifuMetaBoxVars.txt_title_url}</h3>
+                <p style="background-color:#1e1e1e;color:white;padding:10px;border-radius:5px">https://ps.w.org/featured-image-from-url/assets/banner-1544x500.png</p>
+                <br>
+                <h3>${fifuMetaBoxVars.txt_title_keywords}</h3>
+                <p style="background-color:#1e1e1e;color:white;padding:10px;border-radius:5px">sea,sun</p>                
+                <div style="padding:10px">
+                    <li>${fifuMetaBoxVars.txt_desc_empty}</li>
+                    <li>${fifuMetaBoxVars.txt_desc_size}</li>
+                </div>
+                <br>
+                <h1 style="background-color:whitesmoke;padding:20px;padding-left:0">${fifuMetaBoxVars.txt_title_more}</h1>
+                <p></p>
+                <p>${fifuMetaBoxVars.txt_desc_more}</p>
+            </div>`
+                );
+    });
+}
+
+function fifu_hide_regular_featured_image_field() {
+    if (wp.data.dispatch('core/edit-post') && wp.data.select('core/edit-post').isEditorPanelOpened('featured-image')) {
+        wp.data.dispatch('core/edit-post').toggleEditorPanelOpened('featured-image');
+    }
+}
+
+jQuery(document).ready(function () {
+    setTimeout(function () {
+        if (jQuery("#fifu_input_url").val() || jQuery("#fifu_image").css('background-image').includes('http')) {
+            fifu_hide_regular_featured_image_field();
+        }
+    }, 100);
+});

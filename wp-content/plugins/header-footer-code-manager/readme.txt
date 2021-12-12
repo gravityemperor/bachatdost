@@ -1,9 +1,10 @@
 === Header Footer Code Manager ===
 Contributors: 99robots, charliepatel, DraftPress
 Tags: header, footer, code manager, snippet, functions.php, tracking, google analytics, adsense, verification, pixel
-Requires at least: 4.0
-Tested up to: 5.7.1
-Stable tag: 1.1.10
+Requires at least: 4.9
+Requires PHP: 5.6.20
+Tested up to: 5.8.1
+Stable tag: 1.1.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://draftpress.com
@@ -112,6 +113,36 @@ A. Free plugins rely on user feedback. Therefore, the best thing you can do for 
 A. If your script is not supported, just let us know and we'll look into it immediately. We will do our best to ensure all reputable services are supported. When requesting support for a particular script, it would be nice to get a sample of the script so that we can see its structure.
 
 == Changelog ==
+= 1.1.15 = 2021-10-26
+* UPDATED: Code improvements as per WordPress standards
+    * Proper escaping
+    * Proper variable naming
+    * Added recommended spacing by WordPress
+
+= 1.1.14 = 2021-10-08
+* FIXED: SQL Vulnerability with listing orderby
+* FIXED: DbDelta query
+* UPDATED: Compatibility with WordPress 5.8.1
+
+= 1.1.13 = 2021-09-06
+* FIXED: bool function return type
+* UPDATED: Minimum required PHP version
+* UPDATED: Lowest WordPress version that the plugin will work on
+
+= 1.1.12 = 2021-09-04
+* FIXED: Import upload file type error
+* FIXED: Location options for site display (specific categories)
+* UPDATED: File format for the import/export files
+* UPDATED: Compatibility with WordPress 5.8
+
+= 1.1.11 = 2021-08-10
+* FIXED: Warnings - Undefined Variables
+* FIXED: Selectize issue of not able to select first option from the dropdown
+* ADDED: Snippet types
+* ADDED: Code Editor in place of textarea
+* ADDED: Import/Export Snippets
+* UPDATED: Compatibility with WordPress 5.8
+
 = 1.1.10 = 2021-04-23
 * FIXED: Warnings - Undefined Variables
 * UPDATED: Compatibility with WordPress 5.7.1

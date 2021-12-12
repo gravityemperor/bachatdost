@@ -1,10 +1,10 @@
 === Plugin Name ===
 Contributors: marceljm
 Donate link: https://donorbox.org/fifu
-Tags: featured, image, url, video, thumbnail
+Tags: featured, image, url, video, woocommerce
 Requires at least: 5.3
-Tested up to: 5.7
-Stable tag: 3.6.1
+Tested up to: 5.8.2
+Stable tag: 3.8.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -30,6 +30,7 @@ Use an external image as featured image of your post, page or custom post type.
 * Auto set image title
 * Save image dimensions
 * Featured image column
+* **[PRO]** Disable right-click
 * **[PRO]** Save in the media library
 * **[PRO]** Giphy image search
 * **[PRO]** Unsplash image size
@@ -40,11 +41,12 @@ Use an external image as featured image of your post, page or custom post type.
 
 #### AUTOMATIC FEATURED MEDIA
 
-* Auto set featured image/video using img/iframe tag from post content
+* Auto set featured media from post content
 * **[PRO]** Auto set featured image using post title and search engine
 * **[PRO]** Auto set featured image using ISBN and books API
 * **[PRO]** Auto set screenshot as featured image
-* **[PRO]** Auto set featured image using web page address
+* **[PRO]** Auto set featured media using web page address
+* **[PRO]** Auto set featured image from Unsplash using tags
 
 #### PERFORMANCE
 
@@ -80,9 +82,10 @@ Use an external image as featured image of your post, page or custom post type.
 * **[PRO]** Variation image gallery
 * **[PRO]** Save images in the media library
 * **[PRO]** FIFU product gallery
+* **[PRO]** Fast Buy
 
 #### FEATURED VIDEO
-Supports videos from YouTube, Vimeo, Imgur, 9GAG, Cloudinary, Tumblr, Publitio, JW Player, WordPress.com (Jetpack Video Hosting) and Sprout.
+Supports videos from YouTube, Vimeo, Imgur, 9GAG, Cloudinary, Tumblr, Publitio, JW Player, WordPress.com (Jetpack Video Hosting), Sprout and media library.
 
 * **[PRO]** Featured video
 * **[PRO]** Video thumbnail
@@ -100,22 +103,32 @@ Supports videos from YouTube, Vimeo, Imgur, 9GAG, Cloudinary, Tumblr, Publitio, 
 #### WIDGETS
 
 * **[PRO]** Featured media 
-* **[PRO]** Featured grid 
+* **[PRO]** Featured grid
+* **[PRO]** Product gallery
 
 #### OTHERS
 
+* **[PRO]** Quick edit
 * **[PRO]** Featured slider 
-* **[PRO]** Featured shortcode 
+* **[PRO]** Featured shortcode
+* **[PRO]** FIFU shortcodes
 
 #### INTEGRATION FUNCTION FOR DEVELOPERS
 
-* fifu_dev_set_image(post_id, image_url)
-* **[PRO]** fifu_dev_set_image_list(post_id, image_url_list)
+* fifu_dev_set_image($post_id, $image_url)
+* **[PRO]** fifu_dev_set_image_list($post_id, $image_url_list)
+* **[PRO]** fifu_dev_set_video($post_id, $video_url)
+* **[PRO]** fifu_dev_set_category_image($term_id, $image_url)
+* **[PRO]** fifu_dev_set_category_video($term_id, $video_url)
 
 #### LINKS
 
-* **<a href="https://fifu.app/">Featured Image from URL PRO</a>**	
+* **<a href="https://fifu.app/">FIFU PRO</a>**
+* **<a href="https://referral.fifu.app/">Affiliate Program</a>**
 * **<a href="https://chrome.google.com/webstore/detail/fifu-scraper/pccimcccbkdeeadhejdmnffmllpicola">Google Chrome extension</a>**
+
+#### FIFU, the best WordPress plugin for...
+Featured Image, Figurë e Zgjedhur, Image mise en avant, Uitgelichte afbeelding, وێنەی تایبەت, Obrazek wyróżniający, Tugna tameẓlit, Beitragsbild, გამორჩეული სურათი, Utvald bild, 特色图片, تصویر ویژه, Framhevet bilde, Artikkelikuva, Ilustračný obrázok, Imaxe destacada, Ảnh đại diện, Prikazna slika, Imagine reprezentativă, Imagen destacada, 특성 이미지, Delwedd Nodwedd, รูปประจำเรื่อง, Immagine in evidenza, 特選圖片, Imagem destacada, Imagem de destaque, Избранное изображение, アイキャッチ画像, Pśinoskowy wobraz, Öne çıkan görsel, Přinoškowy wobraz, Uitgelichte Afbeelding
 
 
 == Installation ==
@@ -152,15 +165,19 @@ Supports videos from YouTube, Vimeo, Imgur, 9GAG, Cloudinary, Tumblr, Publitio, 
 
 = What's the metadata created by FIFU?
 
-* Database registers that help WordPress components to work with the external images. FIFU can generate the metadata of ~30,000 image URLs per minute.
+* Database registers that help WordPress components to work with the external images. FIFU can generate the metadata of ~50,000 image URLs per minute.
 
 = What are the disadvantages of the external images?
 
-* No image optimization or thumbnails. You can fix that with Jetpack plugin (performance settings).
+* No image optimization or thumbnails by default. You can fix that with CDN + Optimized Thumbnails feature (performance settings).
 
 = What are the advantages of the external images?
 
 * You save money on storage, processing and copyright. And you can have extremely fast import processes.
+
+= Is it legal to embed images without permission?
+
+* Yes, it is. Click [here](https://www.globalbankingandfinance.com/embedding-images-the-legal-way-to-steal/) to know more.
 
 
 == Screenshots ==
@@ -208,14 +225,14 @@ Supports videos from YouTube, Vimeo, Imgur, 9GAG, Cloudinary, Tumblr, Publitio, 
 
 == Changelog ==
 
-= 3.6.1 =
-* New: FIFU widgets for WordPress and Elementor.
+= 3.8.0 =
+* Fix: the regular featured image metabox will be closed and not longer removed when the post has an external featured image.
 
-= 3.6.0 =
-* New features: for bbPress (Settings > Social > bbPress); improvement: Auto set featured image using post title and search engine (faster and unlimited now); improvement: Auto set featured image using ISBN and books API (faster and unlimited now); improvement: added FIFU fields to bbPress custom post types (Forum, Topic and Reply).
+= 3.7.9 =
+* Enhancement: hide internal image metaboxes when the post has an external featured image.
 
-= 3.5.9 =
-* New option: Featured slider > display images in the same height; new file: attached XML example for WP All Import plugin (Variations As Child XML Elements); new site: https://featuredimagefromurl.com/.
+= 3.7.8 =
+* CSV and JSON examples updated.
 
 = others =
 * [more](https://fifu.app/changelog)
@@ -223,5 +240,5 @@ Supports videos from YouTube, Vimeo, Imgur, 9GAG, Cloudinary, Tumblr, Publitio, 
 
 == Upgrade Notice ==
 
-= 3.6.1 =
-* New: FIFU widgets for WordPress and Elementor.
+= 3.8.0 =
+* Fix: the regular featured image metabox will be closed and not longer removed when the post has an external featured image.

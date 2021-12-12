@@ -163,7 +163,7 @@ tr.color:nth-child(even) {
     content: '';
     position: absolute;
     left: 0;
-    top: 50%;
+    top: 30%;
     width: 0;
     height: 0;
     border: 12px solid transparent;
@@ -181,15 +181,27 @@ tr.color:nth-child(even) {
     height: 24px;
     position: relative;
     float:right;
-    right:6px;
-    top:-36px;
+    right:16px;
+    top:-3px;
     padding: 7px;
+}
+
+div.fifu-referral {
+    height: 24px;
+    position: relative;
+    float:right;
+    right:8px;
+    top:-6px;
+    padding: 7px;
+    color: #f0f0f1;
+    display: flex;
 }
 
 div.polaroid {
     width: 100%; 
     background-color: white; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
 }
 
 .fifu-pro {

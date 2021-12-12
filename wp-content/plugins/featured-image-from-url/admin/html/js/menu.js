@@ -41,20 +41,27 @@ jQuery(function () {
     jQuery("#fifu_input_auto_set_width").spinner({min: 0});
     jQuery("#fifu_input_auto_set_height").spinner({min: 0});
     jQuery("#fifu_input_screenshot_height").spinner({min: 0});
+    jQuery("#fifu_input_screenshot_scale").spinner({min: 0});
     jQuery("#fifu_input_crop_delay").spinner({min: 0, step: 50});
     jQuery("#tabsApi").tabs();
     jQuery("#tabsCrop").tabs();
+    jQuery("#tabsMedia").tabs();
     jQuery("#tabsPremium").tabs();
     jQuery("#tabsWooImport").tabs();
     jQuery("#tabsWpAllImport").tabs();
-    jQuery("#tabsCDN").tabs();
+    jQuery("#tabsDefault").tabs();
     jQuery("#tabsShortcode").tabs();
+    jQuery("#tabsFifuShortcode").tabs();
     jQuery("#tabsAutoSet").tabs();
+    jQuery("#tabsIsbn").tabs();
     jQuery("#tabsScreenshot").tabs();
+    jQuery("#tabsFinder").tabs();
+    jQuery("#tabsVideo").tabs();
     jQuery("#tabsSlider").tabs();
     jQuery("#tabsContent").tabs();
     jQuery("#tabsContentAll").tabs();
     jQuery("#tabsCli").tabs();
+    jQuery("#tabsRSS").tabs();
 
     // show settings
     window.scrollTo(0, 0);
@@ -216,72 +223,47 @@ function fifu_run_delete_all_js() {
             setTimeout(function () {
                 jQuery("#fifu_toggle_run_delete_all").attr('class', 'toggleoff');
                 jQuery('#tabs-top').unblock();
-            }, 1000);
+            }, 3000);
         },
         timeout: 0
     });
 }
 
 function fifu_save_dimensions_all_js() {
+    tooMany = '(it will take too much time. Please contact the support for a better solution)';
+    if (parseInt(jQuery("#countdown").text()) == -1 || jQuery("#countdown").text() == tooMany) {
+        jQuery("#countdown").text(tooMany);
+        invert('save_dimensions_all');
+        return;
+    }
+
     jQuery('#tabs-top').block({message: 'Please wait. It can take several minutes...', css: {backgroundColor: 'none', border: 'none', color: 'white'}});
+
+    interval = setInterval(function () {
+        jQuery("#countdown").load(location.href + " #countdown");
+    }, 3000);
 
     jQuery.ajax({
         method: "POST",
-        url: restUrl + 'featured-image-from-url/v2/list_all_without_dimensions/',
+        url: restUrl + 'featured-image-from-url/v2/run_get_and_save_sizes_api/',
         async: true,
         beforeSend: function (xhr) {
             xhr.setRequestHeader('X-WP-Nonce', fifuScriptVars.nonce);
         },
         success: function (data) {
-            var i = 0;
-            var count = data.length;
-
-            function dimensionsLoop(data, i) {
-                var attempts = 0;
-                var image = new Image();
-                jQuery(image).attr('src', data[i]['guid']);
-                is_svg = data[i]['guid'].includes('.svg');
-
-                var poll = setInterval(function () {
-                    if (image.naturalWidth || attempts > 100 || is_svg) {
-                        attempts = 0;
-                        clearInterval(poll);
-                        if (!is_svg)
-                            fifu_get_sizes(image, data[i]['ID'], data[i]['guid']);
-                        image = null;
-                        i++;
-                        if (i < data.length) {
-                            jQuery("#countdown").text(parseInt(jQuery("#countdown").text()) - 1)
-                            dimensionsLoop(data, i);
-                        } else {
-                            jQuery('#tabs-top').unblock();
-                            invert('save_dimensions_all');
-                            jQuery("#countdown").text('done');
-                        }
-                    } else {
-                        console.log(data[i]['guid']);
-                        attempts++;
-                    }
-                }, 25);
-            }
-
-            if (data.length > 0) {
-                dimensionsLoop(data, i);
-            } else {
-                jQuery('#tabs-top').unblock();
-                invert('save_dimensions_all');
-                jQuery("#countdown").text('done');
-            }
+            jQuery("#countdown").load(location.href + " #countdown");
+            clearInterval(interval);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(jqXHR);
             console.log(textStatus);
             console.log(errorThrown);
-            setTimeout(function () {
-                fifu_save_dimensions_all_js();
-            }, 1000);
         },
-        complete: function (data) {
+        complete: function () {
+            setTimeout(function () {
+                invert('save_dimensions_all');
+                jQuery('#tabs-top').unblock();
+            }, 1000);
         },
         timeout: 0
     });

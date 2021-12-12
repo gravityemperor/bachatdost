@@ -1,13 +1,13 @@
 {
-    "name": "Avengers",
+    "name": "Beach",
     "meta_data": [
         {
             "key": "fifu_image_url",
-            "value": "https://farm5.staticflickr.com/4333/35721637764_c6f1e93380_q.jpg"
+            "value": "https://storage.googleapis.com/fifu-paradise/8.jpg"
         },
         {
             "key": "fifu_image_alt",
-            "value": "black widow"
+            "value": "image a"
         }
     ]
 }

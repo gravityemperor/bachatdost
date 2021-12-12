@@ -21,6 +21,8 @@ function fifu_lazy() {
 }
 
 function fifu_add_lazyload($) {
+    if (jQuery($).hasClass('lazyload') || jQuery($).hasClass('lazyloaded') || jQuery($).hasClass('lazyloading'))
+        return;
     jQuery($).addClass('lazyload');
 }
 
@@ -45,8 +47,10 @@ function fifu_add_srcset() {
                 if (!srcset && !isMain) {
                     srcset = '';
                     sizes = [75, 100, 150, 240, 320, 500, 640, 800, 1024, 1280, 1600];
-                    for (j = 0; j < sizes.length; j++)
-                        srcset += ((j != 0) ? ', ' : '') + src.replace(src.split('?')[1], 'w=' + sizes[j] + '&resize=' + sizes[j] + '&ssl=1') + ' ' + sizes[j] + 'w';
+                    for (j = 0; j < sizes.length; j++) {
+                        ssl = src.includes('ssl=1') ? '&ssl=1' : '';
+                        srcset += ((j != 0) ? ', ' : '') + src.replace(src.split('?')[1], 'w=' + sizes[j] + '&resize=' + sizes[j] + ssl) + ' ' + sizes[j] + 'w';
+                    }
                     jQuery(this).attr(types[i] + 'set', srcset);
                     jQuery(this).attr('data-sizes', 'auto');
                 }

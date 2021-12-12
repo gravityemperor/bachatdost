@@ -16,8 +16,20 @@ function fifu_insert_meta_box() {
     fifu_register_meta_box_script();
 }
 
+add_action('add_meta_boxes', 'remove_metaboxes', 50);
+
+function remove_metaboxes() {
+    global $post;
+    $url = get_post_meta($post->ID, 'fifu_image_url', true);
+    if ($url) {
+        remove_meta_box('postimagediv', 'product', 'normal');
+        remove_meta_box('woocommerce-product-images', 'product', 'normal');
+    }
+}
+
 function fifu_register_meta_box_script() {
     $fifu = fifu_get_strings_meta_box_php();
+    $fifu_help = fifu_get_strings_help();
 
     wp_enqueue_script('jquery-block-ui', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js');
     wp_enqueue_style('fancy-box-css', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css');
@@ -26,6 +38,10 @@ function fifu_register_meta_box_script() {
     wp_enqueue_script('fifu-rest-route-js', plugins_url('/html/js/rest-route.js', __FILE__), array('jquery'), fifu_version_number());
     wp_enqueue_script('fifu-meta-box-js', plugins_url('/html/js/meta-box.js', __FILE__), array('jquery'), fifu_version_number());
     wp_enqueue_script('fifu-convert-url-js', plugins_url('/html/js/convert-url.js', __FILE__), array('jquery'), fifu_version_number());
+
+    wp_register_style('fifu-unsplash-css', plugins_url('/html/css/unsplash.css', __FILE__), array(), fifu_version_number());
+    wp_enqueue_style('fifu-unsplash-css');
+    wp_enqueue_script('fifu-unsplash-js', plugins_url('/html/js/unsplash.js', __FILE__), array('jquery'), fifu_version_number());
 
     // register custom variables for the AJAX script
     wp_localize_script('fifu-rest-route-js', 'fifuScriptVars', [
@@ -42,6 +58,13 @@ function fifu_register_meta_box_script() {
         'is_sirv_active' => fifu_is_sirv_active(),
         'wait' => $fifu['common']['wait'](),
         'is_taxonomy' => get_current_screen()->taxonomy,
+        'txt_title_examples' => $fifu_help['title']['examples'](),
+        'txt_title_keywords' => $fifu_help['title']['keywords'](),
+        'txt_title_more' => $fifu_help['title']['more'](),
+        'txt_title_url' => $fifu_help['title']['url'](),
+        'txt_desc_empty' => $fifu_help['desc']['empty'](),
+        'txt_desc_size' => $fifu_help['desc']['size'](),
+        'txt_desc_more' => $fifu_help['desc']['more'](),
     ]);
 }
 

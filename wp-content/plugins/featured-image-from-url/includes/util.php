@@ -43,6 +43,14 @@ function fifu_get_post_types() {
     return $arr;
 }
 
+function fifu_get_post_types_str() {
+    $str = '';
+    $i = 0;
+    foreach (fifu_get_post_types() as $type)
+        $str = ($i++ == 0) ? $type : $str . ', ' . $type;
+    return $str;
+}
+
 function fifu_get_delimiter($property, $html) {
     $delimiter = explode($property . '=', $html);
     return $delimiter ? substr($delimiter[1], 0, 1) : null;
@@ -88,6 +96,21 @@ function fifu_dashboard() {
             (!class_exists('WooCommerce') || (class_exists('WooCommerce') && (!is_shop() && !is_product_category() && !is_cart())));
 }
 
+function fifu_get_default_cpt_arr() {
+    $cpts = get_option('fifu_default_cpt');
+    if (!$cpts)
+        return null;
+    return explode(',', str_replace(' ', '', $cpts));
+}
+
+function fifu_is_valid_default_cpt($post_id) {
+    $cpts = fifu_get_default_cpt_arr();
+    if (!$cpts)
+        return false;
+    $type = get_post_type($post_id);
+    return in_array($type, $cpts);
+}
+
 // developers
 
 function fifu_dev_set_image($post_id, $image_url) {
@@ -107,25 +130,12 @@ function fifu_is_elementor_editor() {
     return \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode();
 }
 
-function fifu_is_jetpack_active() {
-    if (!is_plugin_active('jetpack/jetpack.php'))
-        return false;
-
-    if (defined('FIFU_DEV_DEBUG') && FIFU_DEV_DEBUG) {
-        add_filter('jetpack_photon_any_extension_for_domain', '__return_true');
-        return true;
-    }
-
-    if (function_exists('jetpack_photon_url') && class_exists('Jetpack') && method_exists('Jetpack', 'get_active_modules') && in_array('photon', Jetpack::get_active_modules())) {
-        add_filter('jetpack_photon_any_extension_for_domain', '__return_true');
-        return true;
-    }
-
-    return false;
-}
-
 function fifu_is_bbpress_active() {
     return is_plugin_active('bbpress/bbpress.php');
+}
+
+function fifu_is_amp_active() {
+    return is_plugin_active('amp/amp.php');
 }
 
 // active themes

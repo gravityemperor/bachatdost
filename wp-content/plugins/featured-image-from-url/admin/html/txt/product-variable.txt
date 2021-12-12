@@ -1,14 +1,14 @@
 {
-    "name": "Avengers",
+    "name": "Beach",
     "type": "variable",
     "meta_data": [
         {
             "key": "fifu_list_url",
-            "value": "https://farm5.staticflickr.com/4411/36159714680_cc552f124f_q.jpg|https://farm5.staticflickr.com/4415/36510266406_ee630f55e7_q.jpg|https://farm5.staticflickr.com/4415/35747392283_e685519b88_q.jpg"
+            "value": "https://storage.googleapis.com/fifu-paradise/0.jpg|https://storage.googleapis.com/fifu-paradise/3.jpg|https://storage.googleapis.com/fifu-paradise/1.jpg"
         },
         {
             "key": "fifu_list_alt",
-            "value": "avengers|iron man|hulk"
+            "value": "image a|image b|image c"
         }
     ],
     "attributes": [

@@ -97,6 +97,12 @@ function fifu_get_strings_settings() {
     $fifu['word']['effect'] = function() {
         _e("Effect", FIFU_SLUG);
     };
+    $fifu['word']['documentation'] = function() {
+        _e("Documentation", FIFU_SLUG);
+    };
+    $fifu['word']['tags'] = function() {
+        _e("Tags", FIFU_SLUG);
+    };
 
     // where
     $fifu['where']['page'] = function() {
@@ -123,6 +129,11 @@ function fifu_get_strings_settings() {
     // chrome
     $fifu['chrome']['link'] = function() {
         _e("Chrome Extension available", FIFU_SLUG);
+    };
+
+    // referral
+    $fifu['referral']['link'] = function() {
+        _e("Affiliate program: earn money recommending this plugin", FIFU_SLUG);
     };
 
     // messages
@@ -153,7 +164,7 @@ function fifu_get_strings_settings() {
         _e("REST API", FIFU_SLUG);
     };
     $fifu['tab']['shortcode'] = function() {
-        _e("Featured shortcode", FIFU_SLUG);
+        _e("Shortcode", FIFU_SLUG);
     };
     $fifu['tab']['slider'] = function() {
         _e("Featured slider", FIFU_SLUG);
@@ -188,7 +199,7 @@ function fifu_get_strings_settings() {
         _e("Integrate your plugin with FIFU", FIFU_SLUG);
     };
     $fifu['title']['column'] = function() {
-        _e("FIFU Column", FIFU_SLUG);
+        _e("Quick Edit Column", FIFU_SLUG);
     };
     $fifu['title']['fields'] = function() {
         _e("Product Gallery", FIFU_SLUG);
@@ -215,7 +226,13 @@ function fifu_get_strings_settings() {
         _e("Auto set screenshot as featured image", FIFU_SLUG);
     };
     $fifu['title']['finder'] = function() {
-        _e("Auto set featured image using web page address", FIFU_SLUG);
+        _e("Auto set featured media using web page address", FIFU_SLUG);
+    };
+    $fifu['title']['tags'] = function() {
+        _e("Auto set featured image from Unsplash using tags", FIFU_SLUG);
+    };
+    $fifu['title']['block'] = function() {
+        _e("Disable right-click", FIFU_SLUG);
     };
     $fifu['title']['giphy'] = function() {
         _e("Giphy Search", FIFU_SLUG);
@@ -242,7 +259,7 @@ function fifu_get_strings_settings() {
         _e("Image Validation", FIFU_SLUG);
     };
     $fifu['title']['html'] = function() {
-        _e("Auto set featured image/video using img/iframe tag from post content", FIFU_SLUG);
+        _e("Auto set featured media from post content", FIFU_SLUG);
     };
     $fifu['title']['metadata'] = function() {
         _e("Image Metadata", FIFU_SLUG);
@@ -276,6 +293,9 @@ function fifu_get_strings_settings() {
     };
     $fifu['title']['shortcode'] = function() {
         _e("Featured Shortcode", FIFU_SLUG);
+    };
+    $fifu['title']['shortcodes'] = function() {
+        _e("FIFU Shortcodes", FIFU_SLUG);
     };
     $fifu['title']['slider'] = function() {
         _e("Featured Slider", FIFU_SLUG);
@@ -352,6 +372,9 @@ function fifu_get_strings_settings() {
     $fifu['title']['gallery'] = function() {
         _e("FIFU Product Gallery", FIFU_SLUG);
     };
+    $fifu['title']['buy'] = function() {
+        _e("Fast Buy", FIFU_SLUG);
+    };
 
     // support
     $fifu['support']['email'] = function() {
@@ -367,7 +390,7 @@ function fifu_get_strings_settings() {
         _e("All my images disappeared", FIFU_SLUG);
     };
     $fifu['support']['plugin'] = function() {
-        _e("A famous plugin doesn't work with FIFU ", FIFU_SLUG);
+        _e("A plugin doesn't work with FIFU ", FIFU_SLUG);
     };
     $fifu['support']['style'] = function() {
         _e("I'm having style issues ", FIFU_SLUG);
@@ -379,31 +402,31 @@ function fifu_get_strings_settings() {
         _e("\"Nulled\" Premium doesn't work", FIFU_SLUG);
     };
     $fifu['support']['money'] = function() {
-        _e("Instagram images disappeared", FIFU_SLUG);
+        _e("Instagram images don't work", FIFU_SLUG);
     };
     $fifu['support']['speed'] = function() {
         _e("PageSpeed and GTmetrix issues", FIFU_SLUG);
     };
     $fifu['support']['disappeared-desc'] = function() {
-        _e("You were probably using a deprecated feature. Just do it: 1) access Metadata tab; 2) run Clean Metadata; 3) enable Image Metadata (~30,000 URLs/min); 4) clean your cache (optional).", FIFU_SLUG);
+        _e("You were probably using a deprecated feature. Just do it: 1) access Metadata tab; 2) run Clean Metadata; 3) enable Image Metadata (~50,000 URLs/min); 4) clean your cache (optional).", FIFU_SLUG);
     };
     $fifu['support']['plugin-desc'] = function() {
-        _e("Just send us an email. If you are available to discuss the details and the plugin is free and has more than 10,000 active installs, we should provide an integration very soon.", FIFU_SLUG);
+        _e("Contact us. If you are available to discuss the details and the plugin is free, we should provide an integration. Or contact its developer and ask him to use the FIFU integration functions below.", FIFU_SLUG);
     };
     $fifu['support']['style-desc'] = function() {
-        _e("Some themes and plugins aren't responsive enough to work with external images. You may solve that running Metadata > Save Image Dimensions (~60 URLs/min).", FIFU_SLUG);
+        _e("Some themes and plugins aren't responsive enough to work with external images. You may solve that running Metadata > Save Image Dimensions (~150 URLs/min).", FIFU_SLUG);
     };
     $fifu['support']['facebook-desc'] = function() {
         _e("You probably have a plugin or theme that sets a default image as the Facebook image (og:image tag). Just find and disable the option.", FIFU_SLUG);
     };
     $fifu['support']['null-desc'] = function() {
-        _e("This plugin has NO nulled versions, but pirate versions. Don't install that. It's illegal and should ruin your site. Moreover, sales of the original premium version keep this project alive.", FIFU_SLUG);
+        _e("This plugin has no nulled versions, but modified versions. Don't install that. It's illegal and may ruin your site. Moreover, sales of the original premium version keep this project alive.", FIFU_SLUG);
     };
     $fifu['support']['money-desc'] = function() {
-        _e("Because Instagram is invalidating its URLs once a month. FIFU can renew the URLs automatically via API, however due to the costs involved, it is only available in the Premium version.", FIFU_SLUG);
+        _e("Instagram is making it impossible for its images to be displayed on other websites, except when additional elements are embedded. So FIFU doesn't support Instagram images anymore.", FIFU_SLUG);
     };
     $fifu['support']['speed-desc'] = function() {
-        _e("You can solve that installing Jetpack plugin. Access its \"Settings\", \"Performance\" and enable \"Speed up image load times\". You'll have a free CDN + optimized external thumbnails.", FIFU_SLUG);
+        _e("You can solve that activating Performance > CDN + Optimized Thumbnails. Even large images hosted on slow servers should load quickly on your website.", FIFU_SLUG);
     };
 
     // start
@@ -460,10 +483,28 @@ function fifu_get_strings_settings() {
     $fifu['dev']['args'] = function() {
         _e("All you need is to inform the post id and the image url(s). And FIFU will set the custom fields and create the metadata.", FIFU_SLUG);
     };
+    $fifu['dev']['field']['image'] = function() {
+        _e("Featured image", FIFU_SLUG);
+    };
+    $fifu['dev']['field']['video'] = function() {
+        _e("Featured video", FIFU_SLUG);
+    };
+    $fifu['dev']['field']['product'] = function() {
+        _e("Product image", FIFU_SLUG);
+    };
+    $fifu['dev']['field']['gallery'] = function() {
+        _e("Image gallery", FIFU_SLUG);
+    };
+    $fifu['dev']['field']['category']['image'] = function() {
+        _e("Category image", FIFU_SLUG);
+    };
+    $fifu['dev']['field']['category']['video'] = function() {
+        _e("Category video", FIFU_SLUG);
+    };
 
     // column
     $fifu['column']['desc'] = function() {
-        _e("The plugin adds a new column to your post list. Below you can choose the height (px) of the image in the column. To disable that, just uncheck \"FIFU\" in the Screen Options.", FIFU_SLUG);
+        _e("The plugin adds a \"Quick Edit\" column to \"Posts > All Posts\". Below you can choose the height (px) of the images in the column. To disable that, just uncheck \"Quick Edit\" in the Screen Options.", FIFU_SLUG);
     };
 
     // cli
@@ -531,7 +572,31 @@ function fifu_get_strings_settings() {
         _e("run a cron job that searches for external images and saves them in the media library periodically.", FIFU_SLUG);
     };
     $fifu['media']['dev'] = function() {
-        _e("fifu_dev_upload_all_images() runs the process once and immediately.", FIFU_SLUG);
+        _e("php function that runs the upload process once and immediately (i.e. without a cron job).", FIFU_SLUG);
+    };
+    $fifu['media']['run'] = function() {
+        _e("Run now", FIFU_SLUG);
+    };
+    $fifu['media']['tab']['main'] = function() {
+        _e("Main", FIFU_SLUG);
+    };
+    $fifu['media']['tab']['proxy'] = function() {
+        _e("Proxy", FIFU_SLUG);
+    };
+    $fifu['media']['tab']['dev'] = function() {
+        _e("Developer", FIFU_SLUG);
+    };
+    $fifu['media']['proxy']['desc'] = function() {
+        _e("Proxies are used to bypass IP ban, what may happen when your site downloads too many images from the same host. As disadvantages, a proxy can limit the number of requests and its IP can be banned as well. Both will force the plugin to try other proxies until find a good one. So proxies should make the process much slower, except if you have access to a private proxy. By default, FIFU works with a list of public proxies updated every 30 minutes and caches the ones that are working with your image URLs.", FIFU_SLUG);
+    };
+    $fifu['media']['proxy']['toggle'] = function() {
+        _e("use proxies to intermediate the traffic between your site and the image hosts", FIFU_SLUG);
+    };
+    $fifu['media']['proxy']['private'] = function() {
+        _e("Private proxy", FIFU_SLUG);
+    };
+    $fifu['media']['proxy']['placeholder'] = function() {
+        _e("192.168.0.1:80, 127.0.0.1:8080", FIFU_SLUG);
     };
 
     // height
@@ -606,6 +671,12 @@ function fifu_get_strings_settings() {
     $fifu['auto']['tab']['blocklist'] = function() {
         _e("Blocklist", FIFU_SLUG);
     };
+    $fifu['auto']['tab']['cpt'] = function() {
+        _e("Post types", FIFU_SLUG);
+    };
+    $fifu['auto']['tab']['source'] = function() {
+        _e("Source", FIFU_SLUG);
+    };
     $fifu['auto']['filter']['width'] = function() {
         _e("minimum width (px)", FIFU_SLUG);
     };
@@ -615,10 +686,28 @@ function fifu_get_strings_settings() {
     $fifu['auto']['filter']['blocklist'] = function() {
         _e("List of strings that shouldn't be in the image URL:", FIFU_SLUG);
     };
+    $fifu['auto']['cpt']['desc'] = function() {
+        _e("This feature is pre configured to work only with the post type \"post\". But you can include more post types below (delimited by \",\").", FIFU_SLUG);
+    };
+    $fifu['auto']['cpt']['found'] = function() {
+        _e("Post types found on your site: ", FIFU_SLUG);
+    };
+    $fifu['auto']['source']['desc'] = function() {
+        _e("Here you can limit the search to a single site, such as \"unsplash.com\".", FIFU_SLUG);
+    };
 
     // isbn
     $fifu['isbn']['desc'] = function() {
         _e("Set featured images automatically. FIFU will check every minute if there are post types without featured images and will perform web searches based on ISBN to get the image URLs.", FIFU_SLUG);
+    };
+    $fifu['isbn']['tab']['auto'] = function() {
+        _e("Auto set", FIFU_SLUG);
+    };
+    $fifu['isbn']['tab']['custom'] = function() {
+        _e("Custom field", FIFU_SLUG);
+    };
+    $fifu['isbn']['custom']['desc'] = function() {
+        _e("If you already have the ISBN saved in your database, you could inform its custom field name here. FIFU would access that and import the value. For example, if the ISBN is saved in the SKU field, you could add \"_sku\", which is the field where the SKU is stored.", FIFU_SLUG);
     };
 
     // screenshot
@@ -631,13 +720,48 @@ function fifu_get_strings_settings() {
     $fifu['screenshot']['tab']['crop'] = function() {
         _e("Crop", FIFU_SLUG);
     };
+    $fifu['screenshot']['tab']['scale'] = function() {
+        _e("Scale", FIFU_SLUG);
+    };
     $fifu['screenshot']['crop']['height'] = function() {
         _e("height (px)", FIFU_SLUG);
+    };
+    $fifu['screenshot']['scale']['width'] = function() {
+        _e("width (px)", FIFU_SLUG);
     };
 
     // find
     $fifu['finder']['desc'] = function() {
-        _e("Set images from external web pages as featured images automatically. FIFU will check every minute if there are post types without featured images and will access the informed web page URLs to get the main image. For that FIFU looks for the Open Graph tag image (used for sharing on social media). If og:image is not found, FIFU will get the larger image found.", FIFU_SLUG);
+        _e("Set images from external web pages as featured images automatically. FIFU will check every minute if there are post types without featured images and will access the informed web page URLs to get the main image. For that FIFU looks for the Open Graph tag image (used for sharing on social media). If og:image is not found, FIFU will get the larger image found. It's also able to look for embedded videos and set the first one found as featured video. Videos have priority over images.", FIFU_SLUG);
+    };
+    $fifu['finder']['auto'] = function() {
+        _e("auto set featured media", FIFU_SLUG);
+    };
+    $fifu['finder']['video'] = function() {
+        _e("look for embedded videos", FIFU_SLUG);
+    };
+    $fifu['finder']['tab']['auto'] = function() {
+        _e("Auto set", FIFU_SLUG);
+    };
+    $fifu['finder']['tab']['custom'] = function() {
+        _e("Custom field", FIFU_SLUG);
+    };
+    $fifu['finder']['tab']['amazon'] = function() {
+        _e("Amazon", FIFU_SLUG);
+    };
+    $fifu['finder']['custom']['desc'] = function() {
+        _e("If you already have the web page address saved in your database, you could inform its custom field name here. FIFU would access that and import the value. For example, if the web page URL is saved in the Product URL field, you could add \"_product_url\", which is the field where the external URL to the product is stored.", FIFU_SLUG);
+    };
+
+    // tags
+    $fifu['tags']['desc'] = function() {
+        _e("Set images from Unsplash as featured images automatically. FIFU will check every minute if there are post types without featured images and will perform Unsplash searches based on the tags to get the image URLs.", FIFU_SLUG);
+    };
+
+
+    // block
+    $fifu['block']['desc'] = function() {
+        _e("Disable right-click on images.", FIFU_SLUG);
     };
 
     // giphy
@@ -647,7 +771,7 @@ function fifu_get_strings_settings() {
 
     // unsplash
     $fifu['unsplash']['desc'] = function() {
-        _e("Choose the size of the Unsplash images (loaded randomly or via keywords search). Examples of valid sizes: 500x500, 300x400, 1920x1080... Or leave this field empty to get the original size.", FIFU_SLUG);
+        _e("Choose the size of the Unsplash images (loaded randomly or via keywords/tags search). Examples of valid sizes: 500x500, 300x400, 1920x1080... Or leave this field empty to get the original size.", FIFU_SLUG);
     };
 
     // replace
@@ -657,7 +781,19 @@ function fifu_get_strings_settings() {
 
     // default
     $fifu['default']['desc'] = function() {
-        _e("Define the URL of a default image to be shown when you create (or update) a post with no featured image.", FIFU_SLUG);
+        _e("Define the URL of a default image to be displayed when you create (or update) a post type with no featured image.", FIFU_SLUG);
+    };
+    $fifu['default']['tab']['url'] = function() {
+        _e("Image URL", FIFU_SLUG);
+    };
+    $fifu['default']['tab']['cpt'] = function() {
+        _e("Post types", FIFU_SLUG);
+    };
+    $fifu['default']['cpt']['found'] = function() {
+        _e("Post types found on your site: ", FIFU_SLUG);
+    };
+    $fifu['default']['cpt']['info'] = function() {
+        _e("After adding or removing a post type, you need to restart the feature by disabling and enabling the toggle below.", FIFU_SLUG);
     };
 
     // content
@@ -742,7 +878,7 @@ function fifu_get_strings_settings() {
 
     // configuration
     $fifu['html']['desc'] = function() {
-        _e("Set featured images/videos automatically. FIFU will read the HTML of your post and use the 1st image/video URL found as featured media. It happens when you click on Publish/Update button.", FIFU_SLUG);
+        _e("Set featured images/videos automatically. FIFU will read the HTML of your post and use the 1st image/video URL found as featured media. It happens when you click on Publish/Update button. Images URLs must be in \"img\" tags. And videos can only be hidden if they are in \"iframe\" tags", FIFU_SLUG);
     };
     $fifu['html']['tab']['auto'] = function() {
         _e("Auto set", FIFU_SLUG);
@@ -822,7 +958,7 @@ function fifu_get_strings_settings() {
 
     // dimensions
     $fifu['dimensions']['desc'] = function() {
-        _e("Some themes and plugins may not work correctly without image dimensions. This feature can get ~1 image dimension by second.", FIFU_SLUG);
+        _e("Some themes and plugins may not work correctly without image dimensions. This feature can get the dimensions of ~150 images by minute.", FIFU_SLUG);
     };
     $fifu['dimensions']['now'] = function() {
         _e("save the dimensions of all featured images now", FIFU_SLUG);
@@ -830,7 +966,7 @@ function fifu_get_strings_settings() {
 
     // schedule
     $fifu['schedule']['desc'] = function() {
-        _e("If you are setting the image URLs in a nonstandard way, the images probably won't be shown at front-end because some extra metadata is required. Here you can schedule an event to run each N minutes and check if there is some image URL without metadata and create that. The FIFU keys are listed on WP All Import > Custom Fields.", FIFU_SLUG);
+        _e("If you are setting the image URLs in a nonstandard way, the images probably won't be shown at front-end because some extra metadata is required. Here you can schedule an event to run each N minutes and check if there is some image URL without metadata and create that. The FIFU keys are listed on REST API > Custom Fields.", FIFU_SLUG);
     };
     $fifu['schedule']['interval'] = function() {
         _e("Interval (minutes)", FIFU_SLUG);
@@ -860,13 +996,22 @@ function fifu_get_strings_settings() {
 
     // jetpack
     $fifu['jetpack']['desc'] = function() {
-        _e("Just install Jetpack plugin and configure its performance settings as shown below. All your external images will be automatically stored and optimized in a free CDN. And to make things even faster FIFU will load the thumbnails in the exact size your site needs.", FIFU_SLUG);
+        _e("Your external images will be automatically optimized and served from a free CDN. And to make things even faster FIFU will load the thumbnails in the exact size your site needs.", FIFU_SLUG);
     };
     $fifu['jetpack']['requirement'] = function() {
-        _e("FIFU Lazy Load feature should be enabled.", FIFU_SLUG);
+        _e("for images added in an automated way, the Lazy Load feature below should be enabled.", FIFU_SLUG);
     };
-    $fifu['shortpixel']['desc'] = function() {
-        _e("ShortPixel CDN is being tested as an alternative to Jetpack. You don't need to install any plugins to use this CDN.", FIFU_SLUG);
+    $fifu['jetpack']['toggle']['cdn'] = function() {
+        _e("CDN + optimized thumbnails", FIFU_SLUG);
+    };
+    $fifu['jetpack']['toggle']['social'] = function() {
+        _e("use CDN URLs in social tags and media RSS tags", FIFU_SLUG);
+    };
+    $fifu['jetpack']['toggle']['crop'] = function() {
+        _e("crop featured images (to keep the aspect ratio defined by theme or WordPress media settings)", FIFU_SLUG);
+    };
+    $fifu['jetpack']['toggle']['content'] = function() {
+        _e("apply to content images (requires Lazy Load)", FIFU_SLUG);
     };
 
     // lazy
@@ -955,6 +1100,12 @@ function fifu_get_strings_settings() {
     $fifu['api']['custom']['isbn'] = function() {
         _e("ISBN", FIFU_SLUG);
     };
+    $fifu['api']['custom']['finder'] = function() {
+        _e("Media finder (webpage URL)", FIFU_SLUG);
+    };
+    $fifu['api']['custom']['screenshot'] = function() {
+        _e("Screenshot (webpage URL)", FIFU_SLUG);
+    };
     $fifu['api']['custom']['key'] = function() {
         _e("Key", FIFU_SLUG);
     };
@@ -1003,15 +1154,35 @@ function fifu_get_strings_settings() {
         _e("Getting started", FIFU_SLUG);
     };
 
+    // FIFU shortcodes
+    $fifu['shortcodes']['desc'] = function() {
+        _e("Add FIFU elements anywhere with a shortcode.", FIFU_SLUG);
+    };
+    $fifu['shortcodes']['tab']['shortcodes'] = function() {
+        _e("Shortcodes", FIFU_SLUG);
+    };
+    $fifu['shortcodes']['column']['shortcode'] = function() {
+        _e("Shortcode", FIFU_SLUG);
+    };
+    $fifu['shortcodes']['column']['description'] = function() {
+        _e("Description", FIFU_SLUG);
+    };
+    $fifu['shortcodes']['column']['optional'] = function() {
+        _e("Optional parameters", FIFU_SLUG);
+    };
+    $fifu['shortcodes']['description']['fifu'] = function() {
+        _e("Displays the featured image, video or slider of the current post.", FIFU_SLUG);
+    };
+    $fifu['shortcodes']['description']['gallery'] = function() {
+        _e("Displays the product gallery of the current product.", FIFU_SLUG);
+    };
+
     // slider
     $fifu['slider']['desc'] = function() {
         _e("This feature allows you to have a slider of images instead of a regular featured image. It's often quite useful on some types of websites, such as real estate. It can run fast even with a huge amount of big images (just follow the performance tips below).", FIFU_SLUG);
     };
-    $fifu['slider']['lazy'] = function() {
-        _e("enable FIFU Settings > Performance > Lazy Load", FIFU_SLUG);
-    };
     $fifu['slider']['jetpack'] = function() {
-        _e("install Jetpack plugin and enable Jetpack Settings > Performance > Speed up image load times", FIFU_SLUG);
+        _e("enable Performance > CDN + Optimized Thumbnails", FIFU_SLUG);
     };
     $fifu['slider']['tab']['configuration'] = function() {
         _e("Configuration", FIFU_SLUG);
@@ -1074,6 +1245,9 @@ function fifu_get_strings_settings() {
     $fifu['rss']['desc'] = function() {
         _e("Add media RSS tags in the RSS feed. This way, services that make use of RSS, such as Google News, can show the featured images.", FIFU_SLUG);
     };
+    $fifu['rss']['documentation']['publisher'] = function() {
+        _e("<a href='https://support.google.com/news/publisher-center/answer/9545245?hl=en' target='_blank'>Google News: Feed content guidelines</a>", FIFU_SLUG);
+    };
 
     // bbpress
     $fifu['bbpress']['desc'] = function() {
@@ -1087,6 +1261,9 @@ function fifu_get_strings_settings() {
     };
     $fifu['bbpress']['avatar'] = function() {
         _e("replace profile picture by featured image", FIFU_SLUG);
+    };
+    $fifu['bbpress']['copy'] = function() {
+        _e("copy the featured image/video to the forum/topic content", FIFU_SLUG);
     };
 
     // title
@@ -1102,7 +1279,16 @@ function fifu_get_strings_settings() {
 
     // video
     $fifu['video']['desc'] = function() {
-        _e("FIFU supports videos from YouTube, Vimeo, Imgur, 9GAG, Cloudinary, Tumblr, Publitio, JW Player, WordPress.com (Jetpack Video Hosting) and Sprout. Videos hosted elsewhere are not supported.", FIFU_SLUG);
+        _e("FIFU supports videos from YouTube, Vimeo, Imgur, 9GAG, Cloudinary, Tumblr, Publitio, JW Player, WordPress.com (Jetpack Video Hosting), Sprout and your media library. Videos hosted elsewhere are not supported.", FIFU_SLUG);
+    };
+    $fifu['video']['tab']['video'] = function() {
+        _e("Featured video", FIFU_SLUG);
+    };
+    $fifu['video']['tab']['local'] = function() {
+        _e("Media library", FIFU_SLUG);
+    };
+    $fifu['video']['local']['desc'] = function() {
+        _e("It's possible to use mp4 videos from your media library as featured videos. However it's required to create a video thumbnail, that will be stored in your media library. For that, in the \"Feature video\" meta box, forward the video to a frame you like and click on \"set this frame as thumbnail\" button. Save the post and that's it.", FIFU_SLUG);
     };
 
     // thumbnail
@@ -1186,7 +1372,18 @@ function fifu_get_strings_settings() {
 
     // gallery
     $fifu['gallery']['desc'] = function() {
-        _e("It is known that some galleries provided by some themes work only when the dimensions of the images are saved in the database, which is often impracticable due to the slowness of this process. So FIFU offers a product gallery that does not depend on the dimensions of the external images to work correctly. You can configure the behavior of this gallery in the \"Featured slider\" tab. You should enable at least \"show gallery on click\" and \"show thumbnails gallery\". To change the aspect ratio, access \"Featured image > Same Height > Size ratio\".", FIFU_SLUG);
+        _e("It is known that some galleries provided by some themes work only when the dimensions of the images are saved in the database, which is often impracticable due to the slowness of this process. So FIFU offers a product gallery that does not depend on the dimensions of the external images to work correctly. You can configure the behavior of this gallery in the \"Featured slider\" tab. To change the aspect ratio, access \"Featured image > Same Height > Size ratio\".", FIFU_SLUG);
+    };
+    $fifu['gallery']['toggle'] = function() {
+        _e("product gallery", FIFU_SLUG);
+    };
+    $fifu['gallery']['adaptive'] = function() {
+        _e("adaptive height", FIFU_SLUG);
+    };
+
+    // buy
+    $fifu['buy']['desc'] = function() {
+        _e("That's a faster alternative to the WooCommerce single product page. Click on a product image from the shop page to have the main product information in a lightbox. The \"Buy Now\" button adds the product to the cart and redirects to the checkout page.", FIFU_SLUG);
     };
 
     // variable
@@ -1226,19 +1423,25 @@ function fifu_get_strings_settings() {
         _e("Featured video URL", FIFU_SLUG);
     };
     $fifu['import']['custom']['images'] = function() {
-        _e("Featured image URL + gallery URLs (delimited by \"|\")", FIFU_SLUG);
+        _e("Product image URL + gallery URLs (delimited by \"|\")", FIFU_SLUG);
     };
     $fifu['import']['custom']['titles'] = function() {
-        _e("Featured image title + gallery titles (delimited by \"|\")", FIFU_SLUG);
+        _e("Product image title + gallery titles (delimited by \"|\")", FIFU_SLUG);
     };
     $fifu['import']['custom']['videos'] = function() {
-        _e("Featured video URL + gallery URLs (delimited by \"|\")", FIFU_SLUG);
+        _e("Product video URL + gallery URLs (delimited by \"|\")", FIFU_SLUG);
     };
     $fifu['import']['custom']['slider'] = function() {
         _e("Featured slider URLs (delimited by \"|\")", FIFU_SLUG);
     };
     $fifu['import']['custom']['isbn'] = function() {
         _e("ISBN", FIFU_SLUG);
+    };
+    $fifu['import']['custom']['finder'] = function() {
+        _e("Media finder (webpage URL)", FIFU_SLUG);
+    };
+    $fifu['import']['custom']['screenshot'] = function() {
+        _e("Screenshot (webpage URL)", FIFU_SLUG);
     };
     $fifu['import']['priority']['lists'] = function() {
         _e("prioritize fifu_list_video_url than fifu_list_url (if both exist) ", FIFU_SLUG);
@@ -1309,9 +1512,6 @@ function fifu_get_strings_meta_box() {
     $fifu = array();
 
     // word
-    $fifu['word']['next'] = function() {
-        _e("Next", FIFU_SLUG);
-    };
     $fifu['word']['remove'] = function() {
         _e("Remove", FIFU_SLUG);
     };
@@ -1328,6 +1528,9 @@ function fifu_get_strings_meta_box() {
     };
     $fifu['common']['video'] = function() {
         _e("Video URL", FIFU_SLUG);
+    };
+    $fifu['common']['capture'] = function() {
+        _e("set this frame as thumbnail", FIFU_SLUG);
     };
 
     // details
@@ -1384,9 +1587,6 @@ function fifu_get_strings_meta_box() {
     $fifu['image']['keywords'] = function() {
         _e("Image URL or Keywords", FIFU_SLUG);
     };
-    $fifu['image']['help'] = function() {
-        _e("Examples: https://domain.com/image.jpg (image URL); sea,sun (keywords); empty (random image).", FIFU_SLUG);
-    };
     $fifu['image']['remove'] = function() {
         _e("remove external featured image", FIFU_SLUG);
     };
@@ -1409,6 +1609,12 @@ function fifu_get_strings_meta_box_php() {
     // common
     $fifu['common']['wait'] = function() {
         return __("Please wait a few seconds...", FIFU_SLUG);
+    };
+    $fifu['common']['image'] = function() {
+        return __("Image URL", FIFU_SLUG);
+    };
+    $fifu['common']['video'] = function() {
+        return __("Video URL", FIFU_SLUG);
     };
 
     // wait
@@ -1446,7 +1652,7 @@ function fifu_get_strings_meta_box_php() {
         return __("Screenshot", FIFU_SLUG);
     };
     $fifu['title']['post']['finder'] = function() {
-        return __("Image finder", FIFU_SLUG);
+        return __("Media finder", FIFU_SLUG);
     };
 
     // variation
@@ -1483,13 +1689,13 @@ function fifu_get_strings_wai() {
         return __("Featured video (URL)", FIFU_SLUG);
     };
     $fifu['title']['images'] = function() {
-        return __("Featured image URL + gallery URLs", FIFU_SLUG);
+        return __("Product image URL + gallery URLs", FIFU_SLUG);
     };
     $fifu['title']['titles'] = function() {
-        return __("Featured image title + gallery titles", FIFU_SLUG);
+        return __("Product image title + gallery titles", FIFU_SLUG);
     };
     $fifu['title']['videos'] = function() {
-        return __("Featured video URL + gallery URLs", FIFU_SLUG);
+        return __("Product video URL + gallery URLs", FIFU_SLUG);
     };
     $fifu['title']['slider'] = function() {
         return __("Featured slider (URLs)", FIFU_SLUG);
@@ -1500,6 +1706,12 @@ function fifu_get_strings_wai() {
     $fifu['title']['isbn'] = function() {
         return __("ISBN", FIFU_SLUG);
     };
+    $fifu['title']['finder'] = function() {
+        return __("Media finder (webpage URL)", FIFU_SLUG);
+    };
+    $fifu['title']['screenshot'] = function() {
+        return __("Screenshot (webpage URL)", FIFU_SLUG);
+    };
 
     // info
     $fifu['info']['delimited'] = function() {
@@ -1507,6 +1719,12 @@ function fifu_get_strings_wai() {
     };
     $fifu['info']['default'] = function() {
         return __("Default values is |", FIFU_SLUG);
+    };
+    $fifu['info']['finder'] = function() {
+        return __("Works with \"Auto set featured media using web page address\"", FIFU_SLUG);
+    };
+    $fifu['info']['screenshot'] = function() {
+        return __("Works with \"Auto set screenshot as featured image\"", FIFU_SLUG);
     };
 
     return $fifu;
@@ -1522,6 +1740,9 @@ function fifu_get_strings_widget() {
     $fifu['title']['grid'] = function() {
         return __("Featured grid", FIFU_SLUG);
     };
+    $fifu['title']['gallery'] = function() {
+        return __("Product gallery", FIFU_SLUG);
+    };
 
     // description
     $fifu['description']['media'] = function() {
@@ -1529,6 +1750,77 @@ function fifu_get_strings_widget() {
     };
     $fifu['description']['grid'] = function() {
         return __("Displays the images from featured slider in a grid format.", FIFU_SLUG);
+    };
+    $fifu['description']['gallery'] = function() {
+        return __("Displays the product gallery.", FIFU_SLUG);
+    };
+
+    return $fifu;
+}
+
+function fifu_get_strings_quick_edit() {
+    $fifu = array();
+
+    // titles
+    $fifu['title']['image'] = function() {
+        return __("Featured image", FIFU_SLUG);
+    };
+    $fifu['title']['video'] = function() {
+        return __("Featured video", FIFU_SLUG);
+    };
+    $fifu['title']['search'] = function() {
+        return __("Image search", FIFU_SLUG);
+    };
+
+    // tips
+    $fifu['tip']['image'] = function() {
+        return __("Set the featured image using an image URL", FIFU_SLUG);
+    };
+    $fifu['tip']['video'] = function() {
+        return __("Set the featured video using a video URL", FIFU_SLUG);
+    };
+    $fifu['tip']['search'] = function() {
+        return __("Search for Unsplash images. Example: sun,sea", FIFU_SLUG);
+    };
+
+    // placeholder
+    $fifu['url']['image'] = function() {
+        return __("Image URL", FIFU_SLUG);
+    };
+    $fifu['url']['video'] = function() {
+        return __("Video URL", FIFU_SLUG);
+    };
+    $fifu['image']['keywords'] = function() {
+        return __("Keywords", FIFU_SLUG);
+    };
+
+    return $fifu;
+}
+
+function fifu_get_strings_help() {
+    $fifu = array();
+
+    // title
+    $fifu['title']['examples'] = function() {
+        return __("Examples", FIFU_SLUG);
+    };
+    $fifu['title']['keywords'] = function() {
+        return __("Keywords", FIFU_SLUG);
+    };
+    $fifu['title']['more'] = function() {
+        return __("More", FIFU_SLUG);
+    };
+    $fifu['title']['url'] = function() {
+        return __("Image URL", FIFU_SLUG);
+    };
+    $fifu['desc']['empty'] = function() {
+        return __("If empty, returns a random image.", FIFU_SLUG);
+    };
+    $fifu['desc']['size'] = function() {
+        return __("You can define the images dimensions at FIFU Settings > Featured image > Unsplash Image Size. For sharing on Facebook, the best size is 1200x630.", FIFU_SLUG);
+    };
+    $fifu['desc']['more'] = function() {
+        return __("FIFU is able to auto set the images based on the post title, post tags, external web page address and more. Take a look at FIFU Settings > Automatic.", FIFU_SLUG);
     };
 
     return $fifu;
